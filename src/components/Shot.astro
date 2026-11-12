@@ -1,0 +1,36 @@
+---
+/** A screenshot in a plain window frame; follows the visitor's light/dark setting. */
+import type { Shot } from "../data/apps";
+
+interface Props {
+  shot: Shot;
+  /** Load at once (first screen) instead of lazily. */
+  eager?: boolean;
+  /** Without the frame, for images that bring their own surroundings. */
+  bare?: boolean;
+}
+const { shot, eager = false, bare = false } = Astro.props;
+const src = (theme: string) => `/shots/${shot.file}${shot.themed ? `-${theme}` : ""}.webp`;
+---
+<figure class:list={["shot", { bare }]}>
+  <div class="frame">
+    {!bare && (
+      <div class="titlebar" aria-hidden="true">
+        <span class="dots"><i></i><i></i><i></i></span>
+        <span class="title">{shot.title}</span>
+      </div>
+    )}
+    <picture>
+      {shot.themed && <source srcset={src("dark")} media="(prefers-color-scheme: dark)" />}
+      <img
+        src={src("light")}
+        alt={shot.alt}
+        width={shot.width}
+        height={shot.height}
+        loading={eager ? "eager" : "lazy"}
+        decoding="async"
+      />
+    </picture>
+  </div>
+  {shot.caption && <figcaption>{shot.caption}</figcaption>}
+</figure>

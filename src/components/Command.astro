@@ -1,0 +1,13 @@
+---
+/** Shell commands with a copy button. */
+interface Props {
+  lines: string[];
+  label?: string;
+}
+const { lines, label } = Astro.props;
+---
+<div class="cmd">
+  {label && <span class="cmd-label">{label}</span>}
+  <pre><code>{lines.join("\n")}</code></pre>
+  <button type="button" data-copy>Copy</button>
+</div>

@@ -1,0 +1,154 @@
+---
+import Base from "../layouts/Base.astro";
+import AppCard from "../components/AppCard.astro";
+import Shot from "../components/Shot.astro";
+import Command from "../components/Command.astro";
+import { apps, appsOf, groups, standalone } from "../data/apps";
+
+const packages = apps.map((a) => a.pkg).join(" ");
+/** The three windows next to the headline: one viewer, one split view's sibling, the mail overview. */
+const shotOf = (slug: string) => apps.find((a) => a.slug === slug)!.shots[0];
+const stage = [shotOf("marq"), shotOf("jayq"), shotOf("maillet")];
+---
+<Base
+  title="be spex – small, focused apps for Linux"
+  description="be spex makes small desktop apps for Linux that do one thing well: quick viewers for Markdown, XML and JSON, mail in your tray, a tidy system tray. Free and open source."
+>
+  <section class="hero wrap">
+    <div class="hero-text">
+    <p class="eyebrow">Open-source apps for Linux</p>
+    <h1>Small tools that do <em>one thing</em> well.</h1>
+    <p class="lead">
+      be spex makes desktop apps for Linux that open in an instant, stay out of your way and are
+      pleasant to use. Free, open source, and made for everyday work.
+    </p>
+    <p class="actions">
+      <a class="btn primary" href="#apps">Browse the apps</a>
+      <a class="btn" href="#install">Install with APT</a>
+    </p>
+    </div>
+    <div class="stage" aria-hidden="true">
+      {stage.map((shot, i) => (
+        <div class={`stage-${i + 1}`}><Shot shot={{ ...shot, alt: "" }} eager /></div>
+      ))}
+    </div>
+    <ul class="dock" aria-label="The apps">
+      {apps.map((a) => (
+        <li>
+          <a href={`/${a.slug}/`} title={`${a.name} – ${a.kind}`}>
+            <img src={`/icons/${a.slug}.svg`} alt="" width="56" height="56" />
+            <span>{a.name}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <div id="apps">
+    {groups.map((g) => (
+      <section class="group wrap" id={g.id}>
+        <header class="section-head">
+          <p class="eyebrow">{g.kind}</p>
+          <h2>{g.name} <span>{g.tagline}</span></h2>
+          <p class="lead">{g.description}</p>
+        </header>
+        <div class="cards">
+          {appsOf(g.id).map((a) => <AppCard app={a} />)}
+        </div>
+        <ul class="shared">
+          {g.shared.map((s) => (
+            <li><strong>{s.title}</strong>{s.text}</li>
+          ))}
+        </ul>
+      </section>
+    ))}
+
+    {standalone.map((a, i) => (
+      <section class:list={["feature", "wrap", { flip: i % 2 === 1 }]} id={a.slug} style={`--accent: ${a.accent}`}>
+        <div class="feature-text">
+          <header class="app-title">
+            <img class="icon" src={`/icons/${a.slug}.svg`} alt="" width="60" height="60" />
+            <div>
+              <h2>{a.name}</h2>
+              <p class="kind">{a.kind}</p>
+            </div>
+          </header>
+          <p class="tagline">{a.tagline}</p>
+          <p>{a.description}</p>
+          <ul class="points">
+            {a.highlights.map((h) => <li>{h}</li>)}
+          </ul>
+          {a.note && <p class="note">{a.note}</p>}
+          <p class="actions">
+            <a class="btn primary" href={`/${a.slug}/`}>More about {a.name}</a>
+            <a class="btn" href={`https://github.com/${a.repo}`}>Source</a>
+          </p>
+        </div>
+        <div class="feature-shot">
+          <Shot shot={a.shots[0]} bare={!a.shots[0].themed} />
+        </div>
+      </section>
+    ))}
+  </div>
+
+  <section class="install wrap" id="install">
+    <header class="section-head">
+      <p class="eyebrow">Install</p>
+      <h2>Add the repository once, then <code>apt</code> keeps everything current.</h2>
+      <p class="lead">
+        For Debian, Ubuntu and Linux Mint (Ubuntu 24.04+, Mint 22+, Debian 13+). The packages are
+        signed; updates arrive with your normal system updates.
+      </p>
+    </header>
+    <div class="install-grid">
+      <div>
+        <h3>1 · Add the be spex repository</h3>
+        <Command
+          lines={[
+            "curl -fsSLO https://be-spex.github.io/packages/be-spex-archive-keyring.deb",
+            "sudo apt install ./be-spex-archive-keyring.deb && sudo apt update",
+          ]}
+        />
+        <h3>2 · Install what you like</h3>
+        <Command lines={[`sudo apt install ${packages}`]} />
+      </div>
+      <aside>
+        <h3>Another distribution?</h3>
+        <p>
+          Most apps also come as an <strong>AppImage</strong>: one file that runs as it is and
+          updates itself. You find it on each app's page.
+        </p>
+        <p><a href="/packages/">Details and manual setup of the repository →</a></p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="open wrap" id="open-source">
+    <div class="open-text">
+      <p class="eyebrow">Open source</p>
+      <h2>Open code, open door.</h2>
+      <p class="lead">
+        Everything here is free software under the MIT licence. Read the code, build it yourself,
+        change it – and if something is missing or broken, say so.
+      </p>
+      <ul class="ways">
+        <li>
+          <strong>Report a problem</strong>
+          Open an issue in the app's repository; a file that shows the problem helps a lot.
+        </li>
+        <li>
+          <strong>Suggest an idea</strong>
+          The apps stay small on purpose, but good ideas for what they do are welcome.
+        </li>
+        <li>
+          <strong>Contribute</strong>
+          Pull requests are welcome. Each repository explains how to build and where things are.
+        </li>
+      </ul>
+      <p class="actions">
+        <a class="btn primary" href="https://github.com/be-spex">be spex on GitHub</a>
+      </p>
+    </div>
+    <img class="badge" src="/be-spex-badge.webp" alt="be spex" width="400" height="400" loading="lazy" />
+  </section>
+</Base>

@@ -1,0 +1,129 @@
+---
+import Base from "../layouts/Base.astro";
+import Shot from "../components/Shot.astro";
+import Command from "../components/Command.astro";
+import { apps, groups, sourceUrl, type App } from "../data/apps";
+import { latestRelease } from "../lib/releases";
+
+export function getStaticPaths() {
+  return apps.map((app) => ({ params: { slug: app.slug }, props: { app } }));
+}
+
+interface Props {
+  app: App;
+}
+const { app } = Astro.props;
+const group = groups.find((g) => g.id === app.group);
+const siblings = group ? apps.filter((a) => a.group === group.id && a.slug !== app.slug) : [];
+const release = await latestRelease(app);
+const [first, ...more] = app.shots;
+---
+<Base title={`${app.name} – ${app.kind} for Linux · be spex`} description={app.tagline} accent={app.accent}>
+  <section class="app-hero wrap">
+    <header class="app-title big">
+      <img class="icon" src={`/icons/${app.slug}.svg`} alt="" width="84" height="84" />
+      <div>
+        <h1>{app.name}</h1>
+        <p class="kind">
+          {app.kind}{app.say && <span> · say “{app.say}”</span>}{group && <span> · part of <a href={`/#${group.id}`}>{group.name}</a></span>}
+        </p>
+      </div>
+    </header>
+    <p class="tagline">{app.tagline}</p>
+    <p class="lead">{app.description}</p>
+    <p class="actions">
+      <a class="btn primary" href="#get">Install {app.name}</a>
+      <a class="btn" href={sourceUrl(app)}>Source on GitHub</a>
+      {release && <a class="version" href={release.url}>Version {release.version}</a>}
+    </p>
+    <ul class="labels" aria-label="Works with">
+      {app.labels.map((l) => <li>{l}</li>)}
+    </ul>
+  </section>
+
+  <section class:list={["wrap", "app-shot", { narrow: first.width < 2000 }]}>
+    <Shot shot={first} eager bare={!first.themed} />
+  </section>
+
+  <section class="wrap features">
+    <h2>What it does</h2>
+    <ul>
+      {app.features.map((f) => (
+        <li><strong>{f.title}</strong>{f.text}</li>
+      ))}
+    </ul>
+  </section>
+
+  {more.map((s) => (
+    <section class:list={["wrap", "app-shot", { narrow: s.width < 2000 }]}>
+      <Shot shot={s} bare={!s.themed} />
+    </section>
+  ))}
+
+  {group && (
+    <section class="wrap features shared-block">
+      <h2>Like every {group.name} viewer</h2>
+      <ul>
+        {group.shared.map((s) => (
+          <li><strong>{s.title}</strong>{s.text}</li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  <section class="wrap install" id="get">
+    <header class="section-head">
+      <p class="eyebrow">Install</p>
+      <h2>Get {app.name}</h2>
+      {app.note && <p class="note">{app.note}</p>}
+    </header>
+    <div class="install-grid">
+      <div>
+        <h3>With APT (Debian, Ubuntu, Linux Mint)</h3>
+        <Command
+          label="Once: add the be spex repository"
+          lines={[
+            "curl -fsSLO https://be-spex.github.io/packages/be-spex-archive-keyring.deb",
+            "sudo apt install ./be-spex-archive-keyring.deb && sudo apt update",
+          ]}
+        />
+        <Command lines={[`sudo apt install ${app.pkg}`]} />
+      </div>
+      <aside>
+        {app.appImage ? (
+          <>
+            <h3>As an AppImage</h3>
+            <p>One file for any current distribution (x86_64). It runs as it is and offers updates itself.</p>
+            <p>
+              <a class="btn" href={release?.appImage ?? `https://github.com/${app.repo}/releases`}>
+                Download the AppImage{release && ` (${release.version})`}
+              </a>
+            </p>
+          </>
+        ) : (
+          <>
+            <h3>Downloads</h3>
+            <p>The package of every version is attached to its release on GitHub.</p>
+          </>
+        )}
+        <p><a href={release?.url ?? `https://github.com/${app.repo}/releases`}>All downloads and release notes →</a></p>
+      </aside>
+    </div>
+  </section>
+
+  {siblings.length > 0 && (
+    <section class="wrap siblings">
+      <h2>The other {group!.name} viewers</h2>
+      <ul>
+        {siblings.map((s) => (
+          <li>
+            <a href={`/${s.slug}/`} style={`--accent: ${s.accent}`}>
+              <img src={`/icons/${s.slug}.svg`} alt="" width="44" height="44" />
+              <span><strong>{s.name}</strong>{s.kind}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+</Base>

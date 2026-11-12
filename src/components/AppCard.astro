@@ -1,0 +1,30 @@
+---
+/** An app in a group: title, what it is, the screenshot, three points. */
+import type { App } from "../data/apps";
+import Shot from "./Shot.astro";
+
+interface Props {
+  app: App;
+}
+const { app } = Astro.props;
+---
+<article class="card" style={`--accent: ${app.accent}`}>
+  <a class="card-link" href={`/${app.slug}/`} aria-label={`${app.name} – ${app.kind}`}>
+    <header>
+      <img class="icon" src={`/icons/${app.slug}.svg`} alt="" width="52" height="52" />
+      <div>
+        <h3>{app.name}</h3>
+        <p class="kind">{app.kind}</p>
+      </div>
+      <ul class="labels" aria-label="File types">
+        {app.labels.slice(0, 2).map((l) => <li>{l}</li>)}
+      </ul>
+    </header>
+    <p class="tagline">{app.tagline}</p>
+    <Shot shot={app.shots[0]} />
+    <ul class="points">
+      {app.highlights.map((h) => <li>{h}</li>)}
+    </ul>
+    <span class="more">More about {app.name} →</span>
+  </a>
+</article>

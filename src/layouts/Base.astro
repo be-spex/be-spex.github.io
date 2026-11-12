@@ -1,0 +1,67 @@
+---
+import "@fontsource-variable/open-sans";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  /** Accent colour of the page, e.g. an app's; the brand orange by default. */
+  accent?: string;
+}
+const { title, description, accent } = Astro.props;
+const url = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="en" style={accent ? `--accent: ${accent}` : undefined}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={url} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={url} />
+    <meta property="og:image" content={new URL("/be-spex.png", Astro.site)} />
+    <meta name="color-scheme" content="light dark" />
+  </head>
+  <body>
+    <header class="site-head">
+      <div class="wrap bar">
+        <a class="wordmark" href="/" aria-label="be spex – home"><span class="be">be</span><span class="spex">spex</span></a>
+        <nav aria-label="Main">
+          <a href="/#apps">Apps</a>
+          <a href="/#install">Install</a>
+          <a href="/#open-source">Open source</a>
+          <a class="gh" href="https://github.com/be-spex">GitHub</a>
+        </nav>
+      </div>
+    </header>
+    <main><slot /></main>
+    <footer class="site-foot">
+      <div class="wrap foot">
+        <a class="wordmark small" href="/" aria-label="be spex – home"><span class="be">be</span><span class="spex">spex</span></a>
+        <p>Small, focused apps for Linux. Free and open source under the MIT licence.</p>
+        <nav aria-label="Footer">
+          <a href="https://github.com/be-spex">GitHub</a>
+          <a href="/packages/">Package repository</a>
+          <a href="https://github.com/be-spex/be-spex.github.io">This site's source</a>
+        </nav>
+      </div>
+    </footer>
+    <script is:inline>
+      // "Copy" buttons of the command blocks.
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest("[data-copy]");
+        if (!btn) return;
+        navigator.clipboard.writeText(btn.closest(".cmd").querySelector("code").innerText).then(() => {
+          btn.textContent = "Copied";
+          setTimeout(() => (btn.textContent = "Copy"), 1600);
+        });
+      });
+    </script>
+  </body>
+</html>
