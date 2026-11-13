@@ -14,6 +14,8 @@ export interface Shot {
   title: string;
   alt: string;
   caption?: string;
+  /** Without the window frame, for images that bring their own surroundings. Default: only if not `themed`. */
+  bare?: boolean;
 }
 
 export interface App {
@@ -21,6 +23,8 @@ export interface App {
   name: string;
   /** How to say the name, where it is not obvious. */
   say?: string;
+  /** The same in phonetic spelling (IPA), without slashes. */
+  ipa?: string;
   /** What it is, in two or three words: shown next to the name. */
   kind: string;
   /** One sentence that tells a visitor what to expect. */
@@ -91,6 +95,8 @@ export const apps: App[] = [
   {
     slug: "marq",
     name: "Marq",
+    say: "Marc",
+    ipa: "mɑːk",
     kind: "Markdown viewer",
     tagline: "Markdown files, beautifully rendered – just to read.",
     description:
@@ -116,6 +122,7 @@ export const apps: App[] = [
     slug: "xaq",
     name: "Xaq",
     say: "Zack",
+    ipa: "zæk",
     kind: "XML viewer",
     tagline: "XML you can actually read: indented, coloured, foldable.",
     description:
@@ -145,6 +152,7 @@ export const apps: App[] = [
     slug: "jayq",
     name: "Jayq",
     say: "Jake",
+    ipa: "dʒeɪk",
     kind: "JSON viewer",
     tagline: "JSON at a glance – and jq filters when you want to dig.",
     description:
@@ -205,7 +213,7 @@ export const apps: App[] = [
   {
     slug: "pockettray",
     name: "PocketTray",
-    kind: "Tray applet for Cinnamon",
+    kind: "Collapse your tray",
     tagline: "A system tray with a pocket for the icons you rarely need.",
     description:
       "Cinnamon's panel fills up with tray icons. PocketTray keeps the ones you use every day in the panel and tucks the rest into a small pocket that opens with a click.",
@@ -219,7 +227,7 @@ export const apps: App[] = [
       { title: "A readable pocket", text: "Icons only, with application names, or with their current status text." },
     ],
     shots: [
-      { file: "pockettray", themed: false, width: 619, height: 550, title: "", alt: "PocketTray: the pocket open above the panel, and the menu with one switch per tray icon" },
+      { file: "pockettray", themed: true, bare: true, width: 1666, height: 1116, title: "", alt: "PocketTray: the pocket open above the panel, and the menu with one switch per tray icon" },
     ],
     pkg: "pockettray",
     repo: "be-spex/PocketTray",

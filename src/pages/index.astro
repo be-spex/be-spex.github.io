@@ -37,7 +37,10 @@ const stage = [shotOf("marq"), shotOf("jayq"), shotOf("maillet")];
         <li>
           <a href={`/${a.slug}/`} title={`${a.name} – ${a.kind}`}>
             <img src={`/icons/${a.slug}.svg`} alt="" width="56" height="56" />
-            <span>{a.name}</span>
+            <span class="dock-text">
+              <strong>{a.name}</strong>
+              <small>{a.kind}</small>
+            </span>
           </a>
         </li>
       ))}
@@ -85,7 +88,7 @@ const stage = [shotOf("marq"), shotOf("jayq"), shotOf("maillet")];
           </p>
         </div>
         <div class="feature-shot">
-          <Shot shot={a.shots[0]} bare={!a.shots[0].themed} />
+          <Shot shot={a.shots[0]} bare={a.shots[0].bare ?? !a.shots[0].themed} />
         </div>
       </section>
     ))}
