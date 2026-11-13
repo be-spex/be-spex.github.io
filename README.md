@@ -23,7 +23,7 @@ npm run build    # into dist/
    For Marq, Xaq and Jayq, `node tools/screenshots/shoot.mjs --site` in the Qiew repository writes them.
 
 The card or section on the home page, the app's page at `/<slug>/` and the install line come from that entry.
-Version numbers and download links are read from the GitHub releases when the site is built.
+Download links are read from the GitHub releases when the site is built. The site names no version numbers; it links to the list of releases instead.
 
 ## Layout
 

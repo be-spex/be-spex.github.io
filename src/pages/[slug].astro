@@ -16,6 +16,8 @@ const { app } = Astro.props;
 const group = groups.find((g) => g.id === app.group);
 const siblings = group ? apps.filter((a) => a.group === group.id && a.slug !== app.slug) : [];
 const release = await latestRelease(app);
+// Version numbers go stale quickly: the list of releases on GitHub has them all, current
+const releases = `https://github.com/${app.repo}/releases`;
 const [first, ...more] = app.shots;
 ---
 <Base title={`${app.name} – ${app.kind} for Linux · be spex`} description={app.tagline} accent={app.accent}>
@@ -34,7 +36,6 @@ const [first, ...more] = app.shots;
     <p class="actions">
       <a class="btn primary" href="#get">Install {app.name}</a>
       <a class="btn" href={sourceUrl(app)}>Source on GitHub</a>
-      {release && <a class="version" href={release.url}>Version {release.version}</a>}
     </p>
     <ul class="labels" aria-label="Works with">
       {app.labels.map((l) => <li>{l}</li>)}
@@ -95,9 +96,7 @@ const [first, ...more] = app.shots;
             <h3>As an AppImage</h3>
             <p>One file for any current distribution (x86_64). It runs as it is and offers updates itself.</p>
             <p>
-              <a class="btn" href={release?.appImage ?? `https://github.com/${app.repo}/releases`}>
-                Download the AppImage{release && ` (${release.version})`}
-              </a>
+              <a class="btn" href={release?.appImage ?? releases}>Download the AppImage</a>
             </p>
           </>
         ) : (
@@ -106,7 +105,7 @@ const [first, ...more] = app.shots;
             <p>The package of every version is attached to its release on GitHub.</p>
           </>
         )}
-        <p><a href={release?.url ?? `https://github.com/${app.repo}/releases`}>All downloads and release notes →</a></p>
+        <p><a href={releases}>All versions, downloads and release notes on GitHub →</a></p>
       </aside>
     </div>
   </section>

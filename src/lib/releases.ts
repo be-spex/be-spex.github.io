@@ -1,12 +1,11 @@
 /**
- * Newest release of each app, looked up when the site is built. If GitHub
- * cannot be reached the site is built without version numbers.
+ * Download links of each app's newest release, looked up when the site is built.
+ * The site names no version numbers: they would go stale between builds. If GitHub
+ * cannot be reached, the links lead to the list of releases instead.
  */
 import type { App } from "../data/apps";
 
 export interface Release {
-  version: string;
-  url: string;
   appImage?: string;
   deb?: string;
 }
@@ -15,7 +14,6 @@ interface GhRelease {
   tag_name: string;
   draft: boolean;
   prerelease: boolean;
-  html_url: string;
   assets: { name: string; browser_download_url: string }[];
 }
 
@@ -41,8 +39,6 @@ export async function latestRelease(app: App): Promise<Release | null> {
   if (!r) return null;
   const asset = (end: string) => r.assets.find((a) => a.name.endsWith(end))?.browser_download_url;
   return {
-    version: r.tag_name.slice(app.tagPrefix.length),
-    url: r.html_url,
     appImage: asset(".AppImage"),
     deb: asset(".deb"),
   };
