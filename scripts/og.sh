@@ -5,7 +5,7 @@
 set -e
 cd "$(dirname "$0")/.."
 tmp=$(mktemp -d)
-for pair in tusq:tusq marq:marq jayq:jayq xaq:xaq maillet:maillet-home pockettray:pockettray; do
+for pair in trisq:trisq marq:marq jayq:jayq xaq:xaq hyqe:hyqe cusq:cusq dirq:dirq maiqe:maiqe maillet:maillet-home pockettray:pockettray; do
   slug=${pair%%:*} shot=${pair##*:}
   dwebp -quiet "public/shots/$shot-light.webp" -o "$tmp/$slug.png"
   convert "$tmp/$slug.png" -resize 1200x -gravity north -crop 1200x630+0+0 +repage -quality 88 "public/og/$slug.jpg"

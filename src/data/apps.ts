@@ -33,6 +33,8 @@ export interface App {
   search: string;
   /** Two or three sentences for the app's section and page. */
   description: string;
+  /** "preview": works from source, not released yet; shown apart from the released apps, without install instructions. */
+  status?: "preview";
   /** Group the app is presented in (see `groups`), if any. */
   group?: string;
   /** Accent colour, taken from the app icon. */
@@ -82,7 +84,7 @@ export const groups: Group[] = [
       { title: "Read-only by design", text: "A viewer never writes to the file it shows; an export goes to a file you name." },
       { title: "Follows the file", text: "When another program saves it, the view updates and keeps your place." },
       { title: "Search that finds", text: "Ctrl+F with match count in Marq, Xaq and Jayq; hits inside folded parts open up." },
-      { title: "Easy on the eyes", text: "Four colour schemes, light and dark, remembered; Tusq takes its colours from the component it shows." },
+      { title: "Easy on the eyes", text: "Four colour schemes, light and dark, remembered; Trisq takes its colours from the component it shows." },
     ],
     repo: "be-spex/Qiew",
   },
@@ -91,39 +93,42 @@ export const groups: Group[] = [
 const viewerShot = (file: string, title: string, alt: string, caption?: string): Shot => ({
   file, themed: true, width: 1720, height: 1240, title, alt, caption,
 });
+const wideShot = (file: string, width: number, height: number, title: string, alt: string, caption?: string): Shot => ({
+  file, themed: true, width, height, title, alt, caption,
+});
 const splitShot = (file: string, title: string, alt: string, caption?: string): Shot => ({
   file, themed: true, width: 2880, height: 1240, title, alt, caption,
 });
 
 export const apps: App[] = [
   {
-    slug: "tusq",
-    name: "Tusq",
-    say: "Tusk",
-    ipa: "tʌsk",
+    slug: "trisq",
+    name: "Trisq",
+    say: "Trisk",
+    ipa: "trɪsk",
     kind: "TSX/JSX viewer",
     tagline: "React components, running – straight from the file.",
     search:
-      "Tusq is a free TSX/JSX viewer for Linux: preview a React component straight from its file, with Tailwind CSS, live reload and error display – no Node.js, no project, no dev server.",
+      "Trisq is a free TSX/JSX viewer for Linux: preview a React component straight from its file, with Tailwind CSS, live reload and error display – no Node.js, no project, no dev server.",
     description:
-      "Tusq shows what a .tsx or .jsx file renders: open a component – a prototype an AI assistant wrote, a single screen, a chart – and see it live. No project, no Node.js, no dev server.",
+      "Trisq shows what a .tsx or .jsx file renders: open a component – a prototype an AI assistant wrote, a single screen, a chart – and see it live. No project, no Node.js, no dev server.",
     group: "qiew",
     accent: "#12909a",
     labels: [".tsx", ".jsx"],
     highlights: ["Runs a component without a project", "React, Tailwind, icons and charts built in", "Errors with file, line and context"],
     features: [
-      { title: "Just the file", text: "TypeScript and JSX are translated in memory in a few milliseconds. React, Tailwind CSS, lucide-react and recharts come with Tusq and work offline." },
+      { title: "Just the file", text: "TypeScript and JSX are translated in memory in a few milliseconds. React, Tailwind CSS, lucide-react and recharts come with Trisq and work offline." },
       { title: "Files next to it", text: "Imports of other components, style sheets, JSON and images work; other packages are fetched from esm.sh when a file asks for them." },
       { title: "Fits the component", text: "The window opens as wide as the component is made for, and the toolbar takes on the colour of the page." },
       { title: "Errors where they are", text: "Syntax errors with file, line and the lines around it; missing imports and errors while rendering are shown instead of a blank page." },
-      { title: "Export as HTML", text: "One file that runs in any browser, without Tusq: the component, the files it imports and the packages it uses. Works offline." },
+      { title: "Export as HTML", text: "One file that runs in any browser, without Trisq: the component, the files it imports and the packages it uses. Works offline." },
       { title: "Kept apart", text: "The component runs in a frame of its own: no access to the app, only to the files of its own project folder." },
     ],
-    shots: [viewerShot("tusq", "TrailStats.tsx – Tusq", "Tusq showing a React component: a small dashboard with three figures, an elevation chart and a table")],
-    pkg: "tusq",
+    shots: [viewerShot("trisq", "TrailStats.tsx – Trisq", "Trisq showing a React component: a small dashboard with three figures, an elevation chart and a table")],
+    pkg: "trisq",
     repo: "be-spex/Qiew",
-    repoPath: "apps/tusq",
-    tagPrefix: "tusq-v",
+    repoPath: "apps/trisq",
+    tagPrefix: "trisq-v",
     appImage: true,
   },
   {
@@ -283,8 +288,136 @@ export const apps: App[] = [
     license: "GPL-2.0-or-later",
     note: "PocketTray is an applet for the Cinnamon desktop (Linux Mint).",
   },
+  {
+    slug: "hyqe",
+    name: "Hyqe",
+    say: "HY-kuh",
+    ipa: "ˈhaɪkə",
+    kind: "HTML viewer",
+    status: "preview",
+    tagline: "HTML pages, shown as pages – without starting a browser.",
+    search:
+      "Hyqe is a lightweight HTML viewer for Linux: shows a local HTML file rendered, with JavaScript, CSS and images next to it, reloads on change and switches to the source in one click. Read-only, open source.",
+    description:
+      "Hyqe shows an HTML file the way a browser would – a report, a dashboard, a prototype an AI assistant wrote – but opens in a blink and is only a viewer. One click switches to the coloured source.",
+    group: "qiew",
+    accent: "#c4452d",
+    labels: [".html", ".htm"],
+    highlights: ["A real page with JavaScript, CSS and images", "Source view one click away", "Follows the file and everything it loads"],
+    features: [
+      { title: "A real page", text: "Scripts, style sheets, fonts and images next to the file work, relative paths included. The page runs in a frame of its own and cannot reach the app." },
+      { title: "Source one click away", text: "The toolbar button (or Ctrl+U) shows the HTML with syntax colours; search and line count work there too." },
+      { title: "Live reload", text: "Follows the file and every file the page loads – CSS, JS, images, also ones that appear later." },
+      { title: "Colour of the page", text: "The toolbar takes the page's background colour, light or dark." },
+      { title: "Links stay out", text: "Web links open in your browser, never inside the viewer." },
+      { title: "Search in the page", text: "Ctrl+F finds text in the rendered page, in the source with highlights and a match count." },
+    ],
+    shots: [wideShot("hyqe", 2320, 1560, "example.html – Hyqe", "Hyqe showing an HTML page with a heading, buttons and a bar chart that scripts on the page draw")],
+    pkg: "hyqe",
+    repo: "be-spex/Qiew",
+    repoPath: "apps/hyqe",
+    tagPrefix: "hyqe-v",
+    appImage: true,
+  },
+  {
+    slug: "cusq",
+    name: "Cusq",
+    say: "Cask",
+    ipa: "kɑːsk",
+    kind: "CSV viewer",
+    status: "preview",
+    tagline: "CSV and TSV files as a tidy table – no spreadsheet needed.",
+    search:
+      "Cusq is a free CSV and TSV viewer for Linux: shows a table you can sort, filter and search, recognises numbers and dates, handles large files. Read-only, no spreadsheet program needed.",
+    description:
+      "Cusq lays a CSV or TSV file out as a table with sortable, filterable columns and a full text search. Whoever just wants to look at data does not have to start a spreadsheet.",
+    group: "qiew",
+    accent: "#4d7c0f",
+    labels: [".csv", ".tsv"],
+    highlights: ["Sort and filter every column", "Numbers and dates shown properly", "Full text search over all cells"],
+    features: [
+      { title: "Reads what people write", text: "Comma, semicolon, tab or pipe (detected), quoted cells, line breaks inside cells, any common encoding." },
+      { title: "Numbers and dates as such", text: "Number columns are right-aligned with the same decimals in every row; dates show in your language and sort by time. Postcodes and identifiers stay as written." },
+      { title: "Sort", text: "Click a heading: ascending, descending, file order. Numbers by value, text naturally, empty cells last." },
+      { title: "Filter", text: "A field under every heading: contains, =exact, !not, >5, <=10, dates too, or /regex/. Combine them across columns." },
+      { title: "Full text search", text: "Ctrl+F searches all cells and shows only the rows that match, with the hits marked." },
+      { title: "Fits the table", text: "The window opens as wide as the table needs; only the rows in view are drawn, so large files stay quick." },
+    ],
+    shots: [wideShot("cusq", 2840, 1560, "example.csv – Cusq", "Cusq showing a table of customers with sortable headings, filter fields and right-aligned numbers")],
+    pkg: "cusq",
+    repo: "be-spex/Qiew",
+    repoPath: "apps/cusq",
+    tagPrefix: "cusq-v",
+    appImage: true,
+  },
+  {
+    slug: "dirq",
+    name: "Dirq",
+    say: "Dirk",
+    ipa: "dɜːk",
+    kind: "Diff viewer",
+    status: "preview",
+    tagline: "Diffs and patches, side by side – like a diff tool.",
+    search:
+      "Dirq is a free diff and patch viewer for Linux: shows git, IntelliJ and unified diffs side by side with changed words marked, a file list and the patch's subject, author and message. Read-only, open source.",
+    description:
+      "Dirq shows a diff or patch file the way a diff tool would: old and new text next to each other, changed words marked, the files in a list and the patch's own data – subject, author, message – in a header.",
+    group: "qiew",
+    accent: "#be185d",
+    labels: [".diff", ".patch"],
+    highlights: ["Side by side or unified, changed words marked", "Patch header: subject, author, message", "File list and jump from change to change"],
+    features: [
+      { title: "Side by side or unified", text: "Switch in the toolbar; the choice is kept. Removed and added blocks line up row by row, changed words are marked inside the lines." },
+      { title: "A header for the patch", text: "Subject, author, date and commit, the message, trailers such as Co-Authored-By and the totals as numbers and a bar." },
+      { title: "Files at a glance", text: "A list with status – modified, added, deleted, renamed – and +/− counts. Click to jump; files fold, very long ones start folded." },
+      { title: "Change by change", text: "F7 and Shift+F7 jump to the next or previous change; ignore-whitespace shows blank-only changes as unchanged." },
+      { title: "The usual formats", text: "git diff, git format-patch, IntelliJ IDEA patches, Subversion and plain diff -u: renames, mode changes, binary files." },
+      { title: "Export", text: "The view as one HTML file for people who do not have a diff viewer." },
+    ],
+    shots: [wideShot("dirq", 2320, 1560, "example.patch – Dirq", "Dirq showing a patch: header with subject, author and message, a file list on the left and a side by side comparison")],
+    pkg: "dirq",
+    repo: "be-spex/Qiew",
+    repoPath: "apps/dirq",
+    tagPrefix: "dirq-v",
+    appImage: true,
+  },
+  {
+    slug: "maiqe",
+    name: "Maiqe",
+    say: "MY-kuh",
+    ipa: "ˈmaɪkə",
+    kind: "Mermaid viewer",
+    status: "preview",
+    tagline: "Mermaid diagrams, drawn – straight from the text file.",
+    search:
+      "Maiqe is a free Mermaid diagram viewer for Linux: draws .mmd files offline – flowcharts, sequence, class and state diagrams – with zoom per diagram, several diagrams per file, live reload and SVG export.",
+    description:
+      "Maiqe draws the diagrams a Mermaid file describes. Every diagram lies on a card of its own with its own zoom, and the text is one click away. It follows the file while an assistant or you write it.",
+    group: "qiew",
+    accent: "#b45309",
+    labels: [".mmd", ".mermaid"],
+    highlights: ["Every Mermaid diagram type, drawn offline", "Several diagrams per file, each on its card", "Zoom, move and fill the window per diagram"],
+    features: [
+      { title: "Every diagram type", text: "Flowcharts, sequence, class, state and ER diagrams, Gantt and pie charts, mind maps, timelines: Mermaid is part of Maiqe and draws offline." },
+      { title: "Several diagrams in one file", text: "Each gets a card with number, title and type – also the mermaid blocks of a Markdown file." },
+      { title: "Zoom per diagram", text: "A small control on every card: zoom, fit, actual size, fill the window. Ctrl+wheel zooms at the pointer, drag moves; diagrams stay sharp." },
+      { title: "Text one click away", text: "Switch to the file's text with a button or Ctrl+U; search works there." },
+      { title: "Errors where they are", text: "A diagram with a syntax error shows the message on its card and the last version that worked; the others are not affected." },
+      { title: "Export as SVG", text: "Every card saves its diagram as an SVG file." },
+    ],
+    shots: [wideShot("maiqe", 2320, 1560, "example.mmd – Maiqe", "Maiqe showing a flowchart on a card with zoom controls, the next diagram's card below it")],
+    pkg: "maiqe",
+    repo: "be-spex/Qiew",
+    repoPath: "apps/maiqe",
+    tagPrefix: "maiqe-v",
+    appImage: true,
+  },
 ];
 
-export const appsOf = (group: string) => apps.filter((a) => a.group === group);
+/** Released apps of a group. */
+export const appsOf = (group: string) => apps.filter((a) => a.group === group && a.status !== "preview");
+/** The group's apps that work but are not released yet: shown apart. */
+export const previewsOf = (group: string) => apps.filter((a) => a.group === group && a.status === "preview");
+export const released = apps.filter((a) => a.status !== "preview");
 export const standalone = apps.filter((a) => !a.group);
 export const sourceUrl = (a: App) => `https://github.com/${a.repo}${a.repoPath ? `/tree/main/${a.repoPath}` : ""}`;

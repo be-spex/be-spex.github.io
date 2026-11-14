@@ -189,7 +189,12 @@ code { font-family: var(--mono); font-size: .92em; }
 .hero h1 { font-size: clamp(2.5rem, 6.4vw, 4.6rem); font-weight: 800; letter-spacing: -.035em; max-width: 14ch; }
 .hero h1 em { font-style: normal; color: var(--brand); }
 .hero .lead { margin-top: 22px; font-size: clamp(1.1rem, 1.6vw, 1.3rem); }
-.dock { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 52px; }
+.dock { display: flex; flex-wrap: wrap; gap: 14px 18px; margin-top: 52px; align-items: stretch; }
+/* The viewers belong together: one tinted tray; the other apps stand beside it. */
+.dock-group { padding: 10px 12px 12px; border-radius: 18px; border: 1px solid transparent; }
+.dock-group.tinted { background: var(--qiew-tint); border-color: var(--line); }
+.dock-group ul { display: flex; flex-wrap: wrap; gap: 10px; }
+.dock-label { margin: 0 4px 8px; color: var(--muted); font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
 .dock a {
   display: flex;
   align-items: center;
@@ -211,6 +216,13 @@ code { font-family: var(--mono); font-size: .92em; }
 /* ---- Home: sections ---- */
 .group, .feature, .install, .open { padding-block: clamp(48px, 7vw, 88px); }
 .group, .feature, .install, .open { border-top: 1px solid var(--line); }
+/* The Qiew family has a band of its own across the page; the other apps stand on the plain page. */
+:root { --qiew-tint: color-mix(in srgb, var(--brand) 6%, var(--bg)); }
+.group { background: var(--qiew-tint); box-shadow: 0 0 0 100vmax var(--qiew-tint); clip-path: inset(0 -100vmax); border-top: 0; }
+.rest-head { margin-bottom: 0; padding-top: clamp(48px, 7vw, 88px); }
+.rest-head + .feature { border-top: 0; padding-top: 36px; }
+.cards.even { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 980px) { .cards.even { grid-template-columns: 1fr; } }
 .section-head { margin-bottom: 36px; }
 .section-head h2, .open h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); font-weight: 800; }
 .section-head h2 span { color: var(--muted); font-weight: 600; }
@@ -252,6 +264,16 @@ code { font-family: var(--mono); font-size: .92em; }
 .card .points { margin-top: 18px; font-size: 15.5px; }
 .card .more { margin-top: auto; padding-top: 14px; color: var(--accent); font-weight: 700; font-size: 15px; }
 @media (prefers-color-scheme: dark) { .card .more { filter: brightness(1.35); } }
+
+/* Viewers that work but are not released: apart from the released ones, dashed and marked. */
+.next { margin-top: clamp(48px, 7vw, 80px); padding: clamp(22px, 3.4vw, 36px); border: 2px dashed var(--line); border-radius: 26px; background: color-mix(in srgb, var(--surface) 55%, transparent); }
+.next-head { margin-bottom: 28px; max-width: 62ch; }
+.next-head h3 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); font-weight: 800; }
+.next-head p:last-child { margin-top: 8px; color: var(--muted); }
+.card.preview { border-style: dashed; background: var(--bg); }
+.card .badge { position: absolute; top: 14px; left: 22px; z-index: 1; padding: 1px 9px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--muted); font-size: 11.5px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; }
+.card.preview .card-link { padding-top: 40px; }
+.card.preview .shot { opacity: .92; }
 
 .shared { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin-top: 36px; }
 .shared li, .features li, .ways li { color: var(--muted); font-size: 15.5px; }

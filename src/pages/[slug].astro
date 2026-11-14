@@ -15,7 +15,8 @@ interface Props {
 const { app } = Astro.props;
 const group = groups.find((g) => g.id === app.group);
 const siblings = group ? apps.filter((a) => a.group === group.id && a.slug !== app.slug) : [];
-const release = await latestRelease(app);
+const preview = app.status === "preview";
+const release = preview ? null : await latestRelease(app);
 // Version numbers go stale quickly: the list of releases on GitHub has them all, current
 const releases = `https://github.com/${app.repo}/releases`;
 const [first, ...more] = app.shots;
@@ -34,7 +35,7 @@ const schema = {
   offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
   license: `https://spdx.org/licenses/${app.license ?? "MIT"}.html`,
   isAccessibleForFree: true,
-  downloadUrl: releases,
+  ...(app.status === "preview" ? {} : { downloadUrl: releases }),
   codeRepository: sourceUrl(app),
   author: { "@type": "Organization", name: "be spex", url: Astro.site!.href },
 };
@@ -50,10 +51,11 @@ const schema = {
         </p>
       </div>
     </header>
+    {preview && <p class="note">In preparation: {app.name} works and can be built from source, but there is no release and no package yet.</p>}
     <p class="tagline">{app.tagline}</p>
     <p class="lead">{app.description}</p>
     <p class="actions">
-      <a class="btn primary" href="#get">Install {app.name}</a>
+      <a class="btn primary" href="#get">{preview ? `Try ${app.name}` : `Install ${app.name}`}</a>
       <a class="btn" href={sourceUrl(app)}>Source on GitHub</a>
     </p>
     <ul class="labels" aria-label="Works with">
@@ -91,6 +93,21 @@ const schema = {
     </section>
   )}
 
+  {preview ? (
+    <section class="wrap install" id="get">
+      <header class="section-head">
+        <p class="eyebrow">Try it</p>
+        <h2>{app.name} is not released yet</h2>
+        <p class="lead">It works, and you can build it from source. Needs Node.js, Rust and the usual Tauri requirements; the example file next to <code>run.sh</code> shows the common cases.</p>
+      </header>
+      <Command
+        lines={[
+          "git clone https://github.com/be-spex/Qiew && cd Qiew && npm install",
+          `apps/${app.slug}/run.sh apps/${app.slug}/example.${app.labels[0].slice(1)}`,
+        ]}
+      />
+    </section>
+  ) : (
   <section class="wrap install" id="get">
     <header class="section-head">
       <p class="eyebrow">Install</p>
@@ -128,6 +145,7 @@ const schema = {
       </aside>
     </div>
   </section>
+  )}
 
   {siblings.length > 0 && (
     <section class="wrap siblings">

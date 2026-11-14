@@ -21,7 +21,7 @@ npm run build    # into dist/
 3. Put the screenshots into `public/shots/` as WebP – `<name>-light.webp` and `<name>-dark.webp` if the app
    follows the colour scheme. The first screenshot is the one on the home page: it has to make the impression.
    For Marq, Xaq and Jayq, `node tools/screenshots/shoot.mjs --site` in the Qiew repository writes them; for
-   Tusq, `tools/screenshots/tusq.sh --site`.
+   Trisq, `tools/screenshots/trisq.sh --site`.
 
 4. Run `scripts/og.sh` (add the app to its list): it cuts the image shown when the app's page is shared,
    `public/og/<slug>.jpg`, from the first screenshot.
