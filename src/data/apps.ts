@@ -79,7 +79,7 @@ export const groups: Group[] = [
     description:
       "Double-click a file, look at it, close it. Each Qiew viewer opens in an instant, shows one kind of file really well and never changes it.",
     shared: [
-      { title: "Read-only by design", text: "A viewer never writes to the file it shows." },
+      { title: "Read-only by design", text: "A viewer never writes to the file it shows; an export goes to a file you name." },
       { title: "Follows the file", text: "When another program saves it, the view updates and keeps your place." },
       { title: "Search that finds", text: "Ctrl+F with match count in Marq, Xaq and Jayq; hits inside folded parts open up." },
       { title: "Easy on the eyes", text: "Four colour schemes, light and dark, remembered; Tusq takes its colours from the component it shows." },
@@ -116,6 +116,7 @@ export const apps: App[] = [
       { title: "Files next to it", text: "Imports of other components, style sheets, JSON and images work; other packages are fetched from esm.sh when a file asks for them." },
       { title: "Fits the component", text: "The window opens as wide as the component is made for, and the toolbar takes on the colour of the page." },
       { title: "Errors where they are", text: "Syntax errors with file, line and the lines around it; missing imports and errors while rendering are shown instead of a blank page." },
+      { title: "Export as HTML", text: "One file that runs in any browser, without Tusq: the component, the files it imports and the packages it uses. Works offline." },
       { title: "Kept apart", text: "The component runs in a frame of its own: no access to the app, only to the files of its own project folder." },
     ],
     shots: [viewerShot("tusq", "TrailStats.tsx – Tusq", "Tusq showing a React component: a small dashboard with three figures, an elevation chart and a table")],
@@ -145,6 +146,7 @@ export const apps: App[] = [
       { title: "Links work", text: "Links to other Markdown files open in place, web links go to your browser, anchors jump within the document." },
       { title: "Back and forward", text: "Toolbar, Alt+←/→ or the mouse buttons take you back through the documents you followed." },
       { title: "Copy the source", text: "One click puts the Markdown itself on the clipboard." },
+      { title: "Export as HTML", text: "The document as you see it, in one file with its images and your colour scheme – for readers without a Markdown viewer." },
     ],
     shots: [viewerShot("marq", "Trail-Notes.md – Marq", "Marq showing a Markdown document with headings, a numbered list, a quote and a table")],
     pkg: "marq",
@@ -173,6 +175,7 @@ export const apps: App[] = [
       { title: "Nothing gets rounded", text: "Large integers, 1.0 versus 1, key order, even duplicate keys: Jayq shows what is in the file, not what a parser made of it." },
       { title: "jq filter view", text: "JSON, your filter and the result side by side. Run with Ctrl+Enter, load a .jq file, save or copy the result. No jq installation needed." },
       { title: "Runaway filters are stopped", text: "A filter runs in its own process and is ended after ten seconds, so the viewer always stays responsive." },
+      { title: "Save it formatted", text: "Copy the indented JSON or export it as a file of its own; the file shown is never written to." },
       { title: "Precise error messages", text: "If a file is not valid JSON, you get line, column and what was expected – and the text as written." },
     ],
     shots: [
@@ -205,6 +208,7 @@ export const apps: App[] = [
       { title: "Fold what you don't need", text: "Collapse single elements or whole subtrees; the folds survive a reload of the file." },
       { title: "XSLT mapping view", text: "XML, an editable stylesheet and the transformed result side by side. Run with Ctrl+Enter, then save or copy the result." },
       { title: "Honest about broken files", text: "If the input is not well-formed, Xaq shows it as written with the parser's message instead of failing." },
+      { title: "Save it formatted", text: "Copy the indented XML or export it as a file of its own; the file shown is never written to." },
       { title: "Any encoding", text: "UTF-8, UTF-16 or whatever the XML declaration says." },
     ],
     shots: [
