@@ -294,7 +294,6 @@ export const apps: App[] = [
     say: "HY-kuh",
     ipa: "ˈhaɪkə",
     kind: "HTML viewer",
-    status: "preview",
     tagline: "HTML pages, shown as pages – without starting a browser.",
     search:
       "Hyqe is a lightweight HTML viewer for Linux: shows a local HTML file rendered, with JavaScript, CSS and images next to it, reloads on change and switches to the source in one click. Read-only, open source.",
@@ -325,7 +324,6 @@ export const apps: App[] = [
     say: "Cask",
     ipa: "kɑːsk",
     kind: "CSV viewer",
-    status: "preview",
     tagline: "CSV and TSV files as a tidy table – no spreadsheet needed.",
     search:
       "Cusq is a free CSV and TSV viewer for Linux: shows a table you can sort, filter and search, recognises numbers and dates, handles large files. Read-only, no spreadsheet program needed.",
@@ -356,7 +354,6 @@ export const apps: App[] = [
     say: "Dirk",
     ipa: "dɜːk",
     kind: "Diff viewer",
-    status: "preview",
     tagline: "Diffs and patches, side by side – like a diff tool.",
     search:
       "Dirq is a free diff and patch viewer for Linux: shows git, IntelliJ and unified diffs side by side with changed words marked, a file list and the patch's subject, author and message. Read-only, open source.",
@@ -387,7 +384,6 @@ export const apps: App[] = [
     say: "MY-kuh",
     ipa: "ˈmaɪkə",
     kind: "Mermaid viewer",
-    status: "preview",
     tagline: "Mermaid diagrams, drawn – straight from the text file.",
     search:
       "Maiqe is a free Mermaid diagram viewer for Linux: draws .mmd files offline – flowcharts, sequence, class and state diagrams – with zoom per diagram, several diagrams per file, live reload and SVG export.",
