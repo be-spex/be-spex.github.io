@@ -20,7 +20,8 @@ npm run build    # into dist/
 2. Put the icon into `public/icons/<slug>.svg`.
 3. Put the screenshots into `public/shots/` as WebP – `<name>-light.webp` and `<name>-dark.webp` if the app
    follows the colour scheme. The first screenshot is the one on the home page: it has to make the impression.
-   For Marq, Xaq and Jayq, `node tools/screenshots/shoot.mjs --site` in the Qiew repository writes them.
+   For Marq, Xaq and Jayq, `node tools/screenshots/shoot.mjs --site` in the Qiew repository writes them; for
+   Tusq, `tools/screenshots/tusq.sh --site`.
 
 The card or section on the home page, the app's page at `/<slug>/` and the install line come from that entry.
 Download links are read from the GitHub releases when the site is built. The site names no version numbers; it links to the list of releases instead.
