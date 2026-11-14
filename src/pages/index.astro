@@ -6,13 +6,38 @@ import Command from "../components/Command.astro";
 import { apps, appsOf, groups, standalone } from "../data/apps";
 
 const packages = apps.map((a) => a.pkg).join(" ");
-/** The three windows next to the headline: one viewer, one split view's sibling, the mail overview. */
+/** The three windows next to the headline: two viewers and the mail overview. */
 const shotOf = (slug: string) => apps.find((a) => a.slug === slug)!.shots[0];
-const stage = [shotOf("marq"), shotOf("jayq"), shotOf("maillet")];
+const stage = [shotOf("tusq"), shotOf("marq"), shotOf("maillet")];
+/** Who makes the apps and which there are, for search engines. */
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      name: "be spex",
+      url: Astro.site!.href,
+      logo: new URL("/be-spex.png", Astro.site).href,
+      sameAs: ["https://github.com/be-spex"],
+    },
+    { "@type": "WebSite", name: "be spex", url: Astro.site!.href },
+    {
+      "@type": "ItemList",
+      name: "Apps by be spex",
+      itemListElement: apps.map((a, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: `${a.name} – ${a.kind}`,
+        url: new URL(`/${a.slug}/`, Astro.site).href,
+      })),
+    },
+  ],
+};
 ---
 <Base
   title="be spex – small, focused apps for Linux"
-  description="be spex makes small desktop apps for Linux that do one thing well: quick viewers for Markdown, XML and JSON, mail in your tray, a tidy system tray. Free and open source."
+  description="be spex makes small, free desktop apps for Linux: Tusq previews React components (TSX/JSX) without Node.js; quick viewers for Markdown, JSON and XML; mail in your tray; a tidy system tray."
+  schema={schema}
 >
   <section class="hero wrap">
     <div class="hero-text">
@@ -131,7 +156,7 @@ const stage = [shotOf("marq"), shotOf("jayq"), shotOf("maillet")];
       <p class="eyebrow">Open source</p>
       <h2>Open code, open door.</h2>
       <p class="lead">
-        Everything here is free software under the MIT licence. Read the code, build it yourself,
+        Everything here is free software under the MIT licence (PocketTray: GPL, like the Cinnamon applets it builds on). Read the code, build it yourself,
         change it – and if something is missing or broken, say so.
       </p>
       <ul class="ways">

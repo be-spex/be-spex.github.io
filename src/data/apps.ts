@@ -29,6 +29,8 @@ export interface App {
   kind: string;
   /** One sentence that tells a visitor what to expect. */
   tagline: string;
+  /** What a search result says about the app: what it is, for whom, in the words people search with. */
+  search: string;
   /** Two or three sentences for the app's section and page. */
   description: string;
   /** Group the app is presented in (see `groups`), if any. */
@@ -51,6 +53,8 @@ export interface App {
   /** Prefix of the app's release tags, e.g. "xaq-v" (monorepo) or "v". */
   tagPrefix: string;
   appImage: boolean;
+  /** SPDX identifier, if not MIT. */
+  license?: string;
   /** A limitation worth knowing before installing. */
   note?: string;
 }
@@ -73,7 +77,7 @@ export const groups: Group[] = [
     kind: "Quick viewers",
     tagline: "One small viewer per file type.",
     description:
-      "Double-click a file, read it, close it. Each Qiew viewer opens in an instant, shows one kind of file really well and never changes it.",
+      "Double-click a file, look at it, close it. Each Qiew viewer opens in an instant, shows one kind of file really well and never changes it.",
     shared: [
       { title: "Read-only by design", text: "A viewer never writes to the file it shows." },
       { title: "Follows the file", text: "When another program saves it, the view updates and keeps your place." },
@@ -93,12 +97,43 @@ const splitShot = (file: string, title: string, alt: string, caption?: string): 
 
 export const apps: App[] = [
   {
+    slug: "tusq",
+    name: "Tusq",
+    say: "Tusk",
+    ipa: "tʌsk",
+    kind: "TSX/JSX viewer",
+    tagline: "React components, running – straight from the file.",
+    search:
+      "Tusq is a free TSX/JSX viewer for Linux: preview a React component straight from its file, with Tailwind CSS, live reload and error display – no Node.js, no project, no dev server.",
+    description:
+      "Tusq shows what a .tsx or .jsx file renders: open a component – a prototype an AI assistant wrote, a single screen, a chart – and see it live. No project, no Node.js, no dev server.",
+    group: "qiew",
+    accent: "#12909a",
+    labels: [".tsx", ".jsx"],
+    highlights: ["Runs a component without a project", "React, Tailwind, icons and charts built in", "Errors with file, line and context"],
+    features: [
+      { title: "Just the file", text: "TypeScript and JSX are translated in memory in a few milliseconds. React, Tailwind CSS, lucide-react and recharts come with Tusq and work offline." },
+      { title: "Files next to it", text: "Imports of other components, style sheets, JSON and images work; other packages are fetched from esm.sh when a file asks for them." },
+      { title: "Fits the component", text: "The window opens as wide as the component is made for, and the toolbar takes on the colour of the page." },
+      { title: "Errors where they are", text: "Syntax errors with file, line and the lines around it; missing imports and errors while rendering are shown instead of a blank page." },
+      { title: "Kept apart", text: "The component runs in a frame of its own: no access to the app, only to the files of its own project folder." },
+    ],
+    shots: [viewerShot("tusq", "TrailStats.tsx – Tusq", "Tusq showing a React component: a small dashboard with three figures, an elevation chart and a table")],
+    pkg: "tusq",
+    repo: "be-spex/Qiew",
+    repoPath: "apps/tusq",
+    tagPrefix: "tusq-v",
+    appImage: true,
+  },
+  {
     slug: "marq",
     name: "Marq",
     say: "Marc",
     ipa: "mɑːk",
     kind: "Markdown viewer",
     tagline: "Markdown files, beautifully rendered – just to read.",
+    search:
+      "Marq is a free Markdown viewer for Linux: renders .md files as a clean page with tables, code and images, follows links, reloads on change. Read-only, fast, open source.",
     description:
       "Marq turns a Markdown file into a clean, readable page: headings, tables, code, images. Follow links to other documents and step back, like in a browser.",
     group: "qiew",
@@ -119,42 +154,14 @@ export const apps: App[] = [
     appImage: true,
   },
   {
-    slug: "xaq",
-    name: "Xaq",
-    say: "Zack",
-    ipa: "zæk",
-    kind: "XML viewer",
-    tagline: "XML you can actually read: indented, coloured, foldable.",
-    description:
-      "Xaq shows XML the way you wish it had been written: re-indented, syntax-coloured and foldable, whatever the file looked like. Need a different shape? Run an XSLT on it in the mapping view.",
-    group: "qiew",
-    accent: "#0f9d7a",
-    labels: [".xml", ".xsd", ".wsdl", ".xsl"],
-    highlights: ["Pretty-prints any XML, however it was saved", "Fold elements to see the structure", "Try an XSLT side by side"],
-    features: [
-      { title: "Always well laid out", text: "The tree is re-indented; namespaces, attributes, comments and CDATA each have their colour. Text content stays exactly as written." },
-      { title: "Fold what you don't need", text: "Collapse single elements or whole subtrees; the folds survive a reload of the file." },
-      { title: "XSLT mapping view", text: "XML, an editable stylesheet and the transformed result side by side. Run with Ctrl+Enter, then save or copy the result." },
-      { title: "Honest about broken files", text: "If the input is not well-formed, Xaq shows it as written with the parser's message instead of failing." },
-      { title: "Any encoding", text: "UTF-8, UTF-16 or whatever the XML declaration says." },
-    ],
-    shots: [
-      viewerShot("xaq", "orders.xml – Xaq", "Xaq showing an XML file as an indented, syntax-coloured tree with fold markers"),
-      splitShot("xaq-split", "orders.xml – Xaq", "Xaq's mapping view: the XML on the left, an XSLT stylesheet in the middle, the transformed XML on the right", "The mapping view: XML, your XSLT and the result side by side."),
-    ],
-    pkg: "xaq",
-    repo: "be-spex/Qiew",
-    repoPath: "apps/xaq",
-    tagPrefix: "xaq-v",
-    appImage: true,
-  },
-  {
     slug: "jayq",
     name: "Jayq",
     say: "Jake",
     ipa: "dʒeɪk",
     kind: "JSON viewer",
     tagline: "JSON at a glance – and jq filters when you want to dig.",
+    search:
+      "Jayq is a free JSON viewer for Linux: pretty-prints and folds JSON and JSON Lines without changing a value, with jq filters built in. Read-only, fast, open source.",
     description:
       "Jayq lays out JSON as a coloured, foldable tree and keeps every value exactly as it was written. To dig deeper, type a jq filter and see the result next to the data – jq is built in.",
     group: "qiew",
@@ -179,30 +186,35 @@ export const apps: App[] = [
     appImage: true,
   },
   {
-    slug: "tusq",
-    name: "Tusq",
-    say: "Tusk",
-    ipa: "tʌsk",
-    kind: "TSX/JSX viewer",
-    tagline: "React components, running – straight from the file.",
+    slug: "xaq",
+    name: "Xaq",
+    say: "Zack",
+    ipa: "zæk",
+    kind: "XML viewer",
+    tagline: "XML you can actually read: indented, coloured, foldable.",
+    search:
+      "Xaq is a free XML viewer for Linux: pretty-prints and folds XML, XSD, WSDL and XSLT files with syntax colours, and runs an XSLT side by side. Read-only and open source.",
     description:
-      "Tusq shows what a .tsx or .jsx file renders: open a component – a prototype an AI assistant wrote, a single screen, a chart – and see it live. No project, no Node.js, no dev server.",
+      "Xaq shows XML the way you wish it had been written: re-indented, syntax-coloured and foldable, whatever the file looked like. Need a different shape? Run an XSLT on it in the mapping view.",
     group: "qiew",
-    accent: "#12909a",
-    labels: [".tsx", ".jsx"],
-    highlights: ["Runs a component without a project", "React, Tailwind, icons and charts built in", "Errors with file, line and context"],
+    accent: "#0f9d7a",
+    labels: [".xml", ".xsd", ".wsdl", ".xsl"],
+    highlights: ["Pretty-prints any XML, however it was saved", "Fold elements to see the structure", "Try an XSLT side by side"],
     features: [
-      { title: "Just the file", text: "TypeScript and JSX are translated in memory in a few milliseconds. React, Tailwind CSS, lucide-react and recharts come with Tusq and work offline." },
-      { title: "Files next to it", text: "Imports of other components, style sheets, JSON and images work; other packages are fetched from esm.sh when a file asks for them." },
-      { title: "Fits the component", text: "The window opens as wide as the component is made for, and the toolbar takes on the colour of the page." },
-      { title: "Errors where they are", text: "Syntax errors with file, line and the lines around it; missing imports and errors while rendering are shown instead of a blank page." },
-      { title: "Kept apart", text: "The component runs in a frame of its own: no access to the app, only to the files of its own project folder." },
+      { title: "Always well laid out", text: "The tree is re-indented; namespaces, attributes, comments and CDATA each have their colour. Text content stays exactly as written." },
+      { title: "Fold what you don't need", text: "Collapse single elements or whole subtrees; the folds survive a reload of the file." },
+      { title: "XSLT mapping view", text: "XML, an editable stylesheet and the transformed result side by side. Run with Ctrl+Enter, then save or copy the result." },
+      { title: "Honest about broken files", text: "If the input is not well-formed, Xaq shows it as written with the parser's message instead of failing." },
+      { title: "Any encoding", text: "UTF-8, UTF-16 or whatever the XML declaration says." },
     ],
-    shots: [viewerShot("tusq", "TrailStats.tsx – Tusq", "Tusq showing a React component: a small dashboard with three figures, an elevation chart and a table")],
-    pkg: "tusq",
+    shots: [
+      viewerShot("xaq", "orders.xml – Xaq", "Xaq showing an XML file as an indented, syntax-coloured tree with fold markers"),
+      splitShot("xaq-split", "orders.xml – Xaq", "Xaq's mapping view: the XML on the left, an XSLT stylesheet in the middle, the transformed XML on the right", "The mapping view: XML, your XSLT and the result side by side."),
+    ],
+    pkg: "xaq",
     repo: "be-spex/Qiew",
-    repoPath: "apps/tusq",
-    tagPrefix: "tusq-v",
+    repoPath: "apps/xaq",
+    tagPrefix: "xaq-v",
     appImage: true,
   },
   {
@@ -210,6 +222,8 @@ export const apps: App[] = [
     name: "Maillet",
     kind: "Mail in your tray",
     tagline: "Your mail, rethought: a quick look, a clear decision, an empty inbox.",
+    search:
+      "Maillet is a free mail client for the Linux system tray: new mail at a glance, mails as tasks, one-time passwords ready to copy. IMAP, private, open source.",
     description:
       "Maillet is a mail client that lives in the system tray and organises mail around what you do with it. See what's new at a glance, turn a mail into a task and keep track of where it stands. One-time passwords appear the moment they arrive.",
     accent: "#6d5ef5",
@@ -242,6 +256,8 @@ export const apps: App[] = [
     name: "PocketTray",
     kind: "Collapse your tray",
     tagline: "A system tray with a pocket for the icons you rarely need.",
+    search:
+      "PocketTray is a Cinnamon applet for Linux Mint that collapses the system tray: everyday icons stay in the panel, the rest go into a pocket. Free and open source.",
     description:
       "Cinnamon's panel fills up with tray icons. PocketTray keeps the ones you use every day in the panel and tucks the rest into a small pocket that opens with a click.",
     accent: "#8fa3c4",
@@ -260,6 +276,7 @@ export const apps: App[] = [
     repo: "be-spex/PocketTray",
     tagPrefix: "v",
     appImage: false,
+    license: "GPL-2.0-or-later",
     note: "PocketTray is an applet for the Cinnamon desktop (Linux Mint).",
   },
 ];

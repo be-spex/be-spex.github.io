@@ -7,8 +7,12 @@ interface Props {
   description: string;
   /** Accent colour of the page, e.g. an app's; the brand orange by default. */
   accent?: string;
+  /** Image shown when the page is shared (1200×630), e.g. "/og/tusq.jpg"; the logo by default. */
+  image?: string;
+  /** Structured data (schema.org) describing the page to search engines. */
+  schema?: object;
 }
-const { title, description, accent } = Astro.props;
+const { title, description, accent, image, schema } = Astro.props;
 const url = new URL(Astro.url.pathname, Astro.site);
 ---
 <!doctype html>
@@ -25,7 +29,13 @@ const url = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={url} />
-    <meta property="og:image" content={new URL("/be-spex.png", Astro.site)} />
+    <meta property="og:site_name" content="be spex" />
+    <meta property="og:image" content={new URL(image ?? "/be-spex.png", Astro.site)} />
+    {image && <meta property="og:image:width" content="1200" />}
+    {image && <meta property="og:image:height" content="630" />}
+    <meta name="twitter:card" content={image ? "summary_large_image" : "summary"} />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    {schema && <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />}
     <meta name="color-scheme" content="light dark" />
   </head>
   <body>
@@ -44,7 +54,7 @@ const url = new URL(Astro.url.pathname, Astro.site);
     <footer class="site-foot">
       <div class="wrap foot">
         <a class="wordmark small" href="/" aria-label="be spex – home"><span class="be">be</span><span class="spex">spex</span></a>
-        <p>Small, focused apps for Linux. Free and open source under the MIT licence.</p>
+        <p>Small, focused apps for Linux. Free and open source.</p>
         <nav aria-label="Footer">
           <a href="https://github.com/be-spex">GitHub</a>
           <a href="/packages/">Package repository</a>

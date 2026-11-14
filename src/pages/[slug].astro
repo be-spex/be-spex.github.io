@@ -19,8 +19,27 @@ const release = await latestRelease(app);
 // Version numbers go stale quickly: the list of releases on GitHub has them all, current
 const releases = `https://github.com/${app.repo}/releases`;
 const [first, ...more] = app.shots;
+const page = new URL(`/${app.slug}/`, Astro.site).href;
+/** What the app is, for search engines. */
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: app.name,
+  description: app.search,
+  url: page,
+  image: new URL(`/og/${app.slug}.jpg`, Astro.site).href,
+  screenshot: new URL(`/shots/${first.file}${first.themed ? "-light" : ""}.webp`, Astro.site).href,
+  applicationCategory: app.group ? "UtilitiesApplication" : app.slug === "maillet" ? "CommunicationApplication" : "DesktopEnhancementApplication",
+  operatingSystem: "Linux",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+  license: `https://spdx.org/licenses/${app.license ?? "MIT"}.html`,
+  isAccessibleForFree: true,
+  downloadUrl: releases,
+  codeRepository: sourceUrl(app),
+  author: { "@type": "Organization", name: "be spex", url: Astro.site!.href },
+};
 ---
-<Base title={`${app.name} – ${app.kind} for Linux · be spex`} description={app.tagline} accent={app.accent}>
+<Base title={`${app.name} – ${app.kind} for Linux · be spex`} description={app.search} accent={app.accent} image={`/og/${app.slug}.jpg`} schema={schema}>
   <section class="app-hero wrap">
     <header class="app-title big">
       <img class="icon" src={`/icons/${app.slug}.svg`} alt="" width="84" height="84" />

@@ -23,7 +23,16 @@ npm run build    # into dist/
    For Marq, Xaq and Jayq, `node tools/screenshots/shoot.mjs --site` in the Qiew repository writes them; for
    Tusq, `tools/screenshots/tusq.sh --site`.
 
+4. Run `scripts/og.sh` (add the app to its list): it cuts the image shown when the app's page is shared,
+   `public/og/<slug>.jpg`, from the first screenshot.
+
 The card or section on the home page, the app's page at `/<slug>/` and the install line come from that entry.
+
+## Being found
+
+Each page tells search engines what it is about: `search` in `apps.ts` is the description shown in search
+results (say what the app is in the words people search with), the app pages carry structured data
+(schema.org `SoftwareApplication`), and `/sitemap.xml` and `/robots.txt` list the pages. Nothing is tracked.
 Download links are read from the GitHub releases when the site is built. The site names no version numbers; it links to the list of releases instead.
 
 ## Layout
@@ -32,6 +41,7 @@ Download links are read from the GitHub releases when the site is built. The sit
 src/data/apps.ts        the apps and groups, with all their texts
 src/pages/index.astro   home page
 src/pages/[slug].astro  page of one app
+src/pages/sitemap.xml.ts  the list of pages for search engines
 src/components/         screenshot frame, app card, command block
 src/styles/global.css   the one stylesheet
 public/                 logo, icons, screenshots
