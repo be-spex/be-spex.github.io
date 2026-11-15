@@ -102,7 +102,7 @@ const schema = {
       </header>
       <Command
         lines={[
-          "git clone https://github.com/be-spex/Qiew && cd Qiew && npm install",
+          "git clone https://github.com/bespex/Qiew && cd Qiew && npm install",
           `apps/${app.slug}/run.sh apps/${app.slug}/example.${app.labels[0].slice(1)}`,
         ]}
       />
@@ -120,7 +120,7 @@ const schema = {
         <Command
           label="Once: add the be spex repository"
           lines={[
-            "curl -fsSLO https://be-spex.github.io/packages/be-spex-archive-keyring.deb",
+            "curl -fsSLO https://bespex.github.io/packages/be-spex-archive-keyring.deb",
             "sudo apt install ./be-spex-archive-keyring.deb && sudo apt update",
           ]}
         />

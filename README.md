@@ -4,7 +4,7 @@
 
 Static pages built with [Astro](https://astro.build); no tracking, no cookies, fonts served from here.
 
-**Website:** https://be-spex.github.io · [be spex](https://github.com/be-spex) – small, focused apps for Linux
+**Website:** https://bespex.github.io · [be spex](https://github.com/bespex) – small, focused apps for Linux
 
 ```sh
 npm install

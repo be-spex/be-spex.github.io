@@ -1,6 +1,6 @@
 name: Deploy
 
-# Builds the site and publishes it to GitHub Pages (https://be-spex.github.io).
+# Builds the site and publishes it to GitHub Pages (https://bespex.github.io).
 # The nightly run picks up new releases: download links are read from the
 # GitHub releases when the site is built.
 on:
