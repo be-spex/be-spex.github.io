@@ -1,10 +1,10 @@
-/** The pages of the site for search engines: the home page and one page per app. */
+/** The pages of the site for search engines: the home page and one page per app the site shows (private ones stay out). */
 import type { APIRoute } from "astro";
-import { apps } from "../data/apps";
+import { shown } from "../data/apps";
 
 export const GET: APIRoute = ({ site }) => {
   const today = new Date().toISOString().slice(0, 10);
-  const pages = ["/", ...apps.map((a) => `/${a.slug}/`)];
+  const pages = ["/", ...shown.map((a) => `/${a.slug}/`)];
   const urls = pages
     .map((path) => `  <url><loc>${new URL(path, site)}</loc><lastmod>${today}</lastmod></url>`)
     .join("\n");

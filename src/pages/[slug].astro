@@ -16,7 +16,8 @@ const { app } = Astro.props;
 const group = groups.find((g) => g.id === app.group);
 const siblings = group ? apps.filter((a) => a.group === group.id && a.slug !== app.slug) : [];
 const preview = app.status === "preview";
-const release = preview ? null : await latestRelease(app);
+const wip = app.status === "private";
+const release = preview || wip ? null : await latestRelease(app);
 // Version numbers go stale quickly: the list of releases on GitHub has them all, current
 const releases = `https://github.com/${app.repo}/releases`;
 const [first, ...more] = app.shots;
@@ -35,12 +36,12 @@ const schema = {
   offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
   license: `https://spdx.org/licenses/${app.license ?? "MIT"}.html`,
   isAccessibleForFree: true,
-  ...(app.status === "preview" ? {} : { downloadUrl: releases }),
+  ...(app.status ? {} : { downloadUrl: releases }),
   codeRepository: sourceUrl(app),
   author: { "@type": "Organization", name: "be spex", url: Astro.site!.href },
 };
 ---
-<Base title={`${app.name} – ${app.kind} for Linux · be spex`} description={app.search} accent={app.accent} image={`/og/${app.slug}.jpg`} schema={schema}>
+<Base title={`${app.name} – ${app.kind} for Linux · be spex`} description={app.search} accent={app.accent} image={`/og/${app.slug}.jpg`} schema={wip ? undefined : schema} noindex={wip}>
   <section class="app-hero wrap">
     <header class="app-title big">
       <img class="icon" src={`/icons/${app.slug}.svg`} alt="" width="84" height="84" />
@@ -51,11 +52,12 @@ const schema = {
         </p>
       </div>
     </header>
+    {wip && <p class="note wip"><strong>Work in progress · private.</strong> This page is not linked from the site and not meant to be found yet; {app.name} is not released.</p>}
     {preview && <p class="note">In preparation: {app.name} works and can be built from source, but there is no release and no package yet.</p>}
     <p class="tagline">{app.tagline}</p>
     <p class="lead">{app.description}</p>
     <p class="actions">
-      <a class="btn primary" href="#get">{preview ? `Try ${app.name}` : `Install ${app.name}`}</a>
+      <a class="btn primary" href="#get">{preview || wip ? `Try ${app.name}` : `Install ${app.name}`}</a>
       <a class="btn" href={sourceUrl(app)}>Source on GitHub</a>
     </p>
     <ul class="labels" aria-label="Works with">
@@ -93,7 +95,16 @@ const schema = {
     </section>
   )}
 
-  {preview ? (
+  {wip ? (
+    <section class="wrap install" id="get">
+      <header class="section-head">
+        <p class="eyebrow">Try it</p>
+        <h2>{app.name} is not released yet</h2>
+        <p class="lead">It works and you can run it from source: Node.js, Rust and the usual Tauri requirements. Once released, <code>sudo apt install {app.pkg}</code> brings the program <code>codeck</code> together with Marq, Dirq and Jayq; <code>codeck</code> alone is the program only.</p>
+      </header>
+      <Command lines={["git clone https://github.com/bespex/CodeDeck && cd CodeDeck", "./dev ~/projects/your-project"]} />
+    </section>
+  ) : preview ? (
     <section class="wrap install" id="get">
       <header class="section-head">
         <p class="eyebrow">Try it</p>

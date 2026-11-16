@@ -116,6 +116,7 @@ code { font-family: var(--mono); font-size: .92em; }
 .btn.primary { background: var(--fg); border-color: var(--fg); color: var(--bg); }
 .btn.primary:hover { background: color-mix(in srgb, var(--fg) 86%, var(--accent)); }
 .note { color: var(--muted); font-size: 15px; padding-left: 12px; border-left: 3px solid var(--accent); }
+.note.wip { color: var(--fg); border-left-color: var(--brand); background: color-mix(in srgb, var(--brand) 8%, transparent); padding: 8px 12px; border-radius: 0 6px 6px 0; }
 
 .icon { flex: none; filter: drop-shadow(0 4px 8px rgb(0 0 0 / .16)); }
 .kind { margin: 2px 0 0; color: var(--muted); font-size: 15px; font-weight: 600; }

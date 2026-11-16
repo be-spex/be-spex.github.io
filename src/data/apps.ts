@@ -33,8 +33,12 @@ export interface App {
   search: string;
   /** Two or three sentences for the app's section and page. */
   description: string;
-  /** "preview": works from source, not released yet; shown apart from the released apps, without install instructions. */
-  status?: "preview";
+  /**
+   * "preview": works from source, not released yet; shown apart from the released apps, without install instructions.
+   * "private": work in progress, not shown yet: its page is built but linked nowhere, left out of the sitemap and
+   * marked for search engines not to index it. Anyone with the address can still open it.
+   */
+  status?: "preview" | "private";
   /** Group the app is presented in (see `groups`), if any. */
   group?: string;
   /** Accent colour, taken from the app icon. */
@@ -408,12 +412,48 @@ export const apps: App[] = [
     tagPrefix: "maiqe-v",
     appImage: true,
   },
+  {
+    // Work in progress and private (status): the page exists for review, nothing links to it yet.
+    // Product and metapackage: codedeck; the program: codeck (brand/README.md, "Produkt und Programm")
+    slug: "codedeck",
+    name: "CodeDeck",
+    say: "Codeck",
+    ipa: "ˈkoʊdɛk",
+    kind: "AI session radar",
+    tagline: "The quiet radar beside your AI coding sessions.",
+    search:
+      "CodeDeck is a free desktop app for Linux that runs beside Claude Code: it shows what each AI coding session is doing and what it changed, keeps a snapshot before every turn to go back to, and attaches exactly the files, changes and comments you choose to your next prompt.",
+    description:
+      "CodeDeck runs next to your AI coding sessions, not instead of them: see what each session is doing and what it changed, go back to the state before any turn, and give it exactly what it needs with your next prompt. It is not an editor; files open in small viewers like Marq and Dirq.",
+    status: "private",
+    accent: "#6366f1",
+    labels: ["Claude Code", "Git"],
+    highlights: ["Every session, its step and what it changed", "A snapshot before every turn, to go back to", "You choose what goes with the next prompt"],
+    features: [
+      { title: "Sessions at a glance", text: "Each session with its colour and letter: what it is doing right now, what it asks, which files it wrote. The ones waiting for you are on top." },
+      { title: "Turns you can read", text: "Everything a session changed for one prompt, as one diff, with what it said at the end. Mark files as looked at, comment on a line." },
+      { title: "Go back to any turn", text: "Before a session writes, CodeDeck keeps the working tree as a snapshot (a Git ref, nothing pushed). One click puts the files back, and that can be undone too." },
+      { title: "Attach, don't paste", text: "Files, changes, line comments and @ai hints from your files go with your next prompt, for the session you pick. You see the exact text." },
+      { title: "The trail", text: "Commits and snapshots of every repository in the project as one line: what is uncommitted, committed, pushed." },
+      { title: "A scratch folder", text: "Drafts and throwaway scripts of the sessions land in .scratch/ in the project, ignored by Git; drag one into the project to keep it." },
+    ],
+    shots: [
+      { file: "codedeck", themed: false, width: 1500, height: 900, title: "orbit-api – CodeDeck", alt: "CodeDeck: the project's files on the left, the changes of a turn in the middle, sessions and the next prompt on the right" },
+      { file: "codedeck-trail", themed: false, width: 1500, height: 900, title: "orbit-api – CodeDeck", alt: "CodeDeck with the trail opened: commits and folded snapshots of the project as one timeline", caption: "The trail: what is not committed, not pushed, pushed – and the snapshots of the sessions." },
+    ],
+    pkg: "codedeck",
+    repo: "bespex/CodeDeck",
+    tagPrefix: "v",
+    appImage: true,
+  },
 ];
 
+/** Apps the site shows; private ones only have their page, reached by its address. */
+export const shown = apps.filter((a) => a.status !== "private");
 /** Released apps of a group. */
-export const appsOf = (group: string) => apps.filter((a) => a.group === group && a.status !== "preview");
+export const appsOf = (group: string) => shown.filter((a) => a.group === group && a.status !== "preview");
 /** The group's apps that work but are not released yet: shown apart. */
-export const previewsOf = (group: string) => apps.filter((a) => a.group === group && a.status === "preview");
-export const released = apps.filter((a) => a.status !== "preview");
-export const standalone = apps.filter((a) => !a.group);
+export const previewsOf = (group: string) => shown.filter((a) => a.group === group && a.status === "preview");
+export const released = shown.filter((a) => a.status !== "preview");
+export const standalone = shown.filter((a) => !a.group);
 export const sourceUrl = (a: App) => `https://github.com/${a.repo}${a.repoPath ? `/tree/main/${a.repoPath}` : ""}`;

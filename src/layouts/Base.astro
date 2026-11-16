@@ -11,8 +11,10 @@ interface Props {
   image?: string;
   /** Structured data (schema.org) describing the page to search engines. */
   schema?: object;
+  /** A page not to be found yet: search engines are asked not to index it or follow its links. */
+  noindex?: boolean;
 }
-const { title, description, accent, image, schema } = Astro.props;
+const { title, description, accent, image, schema, noindex } = Astro.props;
 const url = new URL(Astro.url.pathname, Astro.site);
 ---
 <!doctype html>
@@ -22,6 +24,7 @@ const url = new URL(Astro.url.pathname, Astro.site);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={url} />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
