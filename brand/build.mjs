@@ -15,7 +15,7 @@ const qiew = [
 ];
 // Other apps: [icon, accent, orange part, grey part(s), full title, kind]
 const others = [
-  ["codedeck", "#6366f1", [["co", ""], ["de", "o"], ["ck", ""]], "AI session radar for Linux", "CodeDeck · say „Codeck“"],
+  ["codedeck", "#6366f1", [["code", "o"], ["deck", ""]], "AI session radar for Linux", "CodeDeck · your co-deck for AI sessions"],
   ["maillet", "#6d5ef5", [["mail", "o"], ["let", ""]], "Mail in your tray", "Maillet"],
   ["hatrack", "#2fa7e0", [["hat", "o"], ["rack", ""]], "Work context switcher", "HatRack"],
   ["pockettray", "#8fa3c4", [["pocket", "o"], ["tray", ""]], "Collapse your tray", "PocketTray"],
@@ -127,7 +127,7 @@ table{border-collapse:collapse;width:100%;font-size:13px}td{border-bottom:1px so
   <div class="win"><div class="wbar">Über CodeDeck</div><div class="about">${icon("codedeck", 72)}${owm(others[0][2], 38)}<span class="k">AI session radar for Linux · say „Codeck“</span><span class="k">Version 0.1.1</span><a>codedeck.bespex.run</a><div class="foot"><span>MIT License</span>${bespex(14, false)}</div></div></div>
   <div class="win"><div class="wbar">orders.json – Jayq</div><div class="about">${icon("jayq", 72)}${qwm(qiew[2][2], qiew[2][1], 38)}<span class="k">JSON viewer · Qiew · say „Jake“</span><span class="k">Version 1.4.0</span><a>jayq.bespex.run</a><div class="foot"><span>MIT License</span>${bespex(14, false)}</div></div></div>
   <div style="display:flex;flex-direction:column;gap:12px">
-    <div class="term"><span class="p">$</span> codeck --version<br>codeck 0.1.1 · be spex<br><span class="p">$</span> jayq --help | head -1<br>Jayq – JSON viewer · Qiew · be spex</div>
+    <div class="term"><span class="p">$</span> codedeck --version<br>codedeck 0.1.3 · be spex<br><span class="p">$</span> jayq --help | head -1<br>Jayq – JSON viewer · Qiew · be spex</div>
     <div class="term" style="font-size:12px">[Desktop Entry]<br>Name=Jayq<br>GenericName=JSON Viewer<br>Comment=JSON, pretty-printed and foldable – be spex<br>Icon=jayq</div>
   </div>
 </div>

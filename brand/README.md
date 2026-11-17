@@ -53,28 +53,30 @@ be spex                         die Marke (Absender)
 | Technik (Domains, Pakete, Repos, IDs) | `bespex`: ohne Leerzeichen | `bespex.run`, `github.com/bespex` |
 | Nicht mehr verwenden | `be-spex`, `BeSpex`, `Be Spex` | |
 | Programmnamen im Text | groß am Anfang, sonst wie gewählt | Jayq, CodeDeck, HatRack, PocketTray |
-| Schriftzüge (Logo) | klein, außer wo das Logo es anders zeigt | `jayq`, `codeck`, `maillet` |
-| Befehle | klein | `jayq`, `codeck`, `hatrack` |
+| Schriftzüge (Logo) | klein, außer wo das Logo es anders zeigt | `jayq`, `codedeck`, `maillet` |
+| Befehle | klein, gleich dem Schriftzug | `jayq`, `codedeck`, `hatrack` |
 
 **Gefunden beim Durchsehen:** Die `.desktop`-Dateien schreiben „– by be-spex“ (Hyqe, Xaq, HatRack), `Cargo.toml` von
 CodeDeck „by be-spex“. Neu: „– be spex“. `be-spex-archive-keyring` bleibt als Paketname, weil Nutzer ihn schon
 installiert haben.
 
-**CodeDeck** (D24): Name in Text, Dateien und Verzeichnissen ist „CodeDeck“, Befehl und Schriftzug `codeck`.
+**CodeDeck** (D26, 2026-11-17, ersetzt D24): ein Name überall. „CodeDeck“ im Text, `codedeck` für Befehl, Paket,
+Schriftzug, Dateien und Verzeichnisse. Der frühere Befehl `codeck` bleibt nur als Alias (`/usr/bin/codeck`) und
+Übergangspaket, nirgends im Text. Regel für alle: **Der Schriftzug ist der Name klein und zugleich der Befehl.**
 
-**Produkt und Programm:** Besteht ein Produkt aus mehreren Teilen, heißt das Ganze nach dem Produkt und das Programm
-nach seinem Befehl. Das Ganze ist dann ein **Metapaket** mit dem Produktnamen, das das Programm und seine Helfer
-mitbringt; das Programm hat sein eigenes Paket. Vorbild ist `qiew` (Metapaket) mit `marq`, `jayq` …
+**Produkt und Programm:** Eine Familie mehrerer Programme (Qiew) hat ein **Metapaket** mit dem Familiennamen, das
+die Programme mitbringt; jedes Programm hat sein eigenes Paket. Ein einzelnes Programm, das Helfer braucht, nennt sie
+in seinem eigenen Paket unter `Recommends` (Paket = Befehl, wie bei allen anderen).
 
 | Produkt | Metapaket | Programm (Befehl, Paket) | Helfer (empfohlen) |
 |---|---|---|---|
 | Qiew | `qiew` (mit `qiew-setup`) | `marq`, `jayq`, `xaq`, … | – |
-| CodeDeck | `codedeck` | `codeck` | `marq`, `dirq`, `jayq` |
+| CodeDeck | – | `codedeck` (Übergangspaket `codeck`) | `marq`, `dirq`, `jayq` als `Recommends` |
 
-Einzelne Programme ohne Helfer (Maillet, HatRack, PocketTray) brauchen kein Metapaket: Paket = Befehl.
+Einzelne Programme (Maillet, HatRack, PocketTray, CodeDeck) brauchen kein Metapaket: Paket = Befehl.
 
 **Aussprache** steht für jede App in `apps.ts` (`say`, `ipa`) und gehört auch in die README, gleich unter den Titel.
-Neu: CodeDeck „Codeck“ (ˈkoʊdɛk).
+CodeDeck wird gesagt, wie es geschrieben ist: „Code Deck“.
 
 ## 4 Farben
 
@@ -147,7 +149,7 @@ Regel: **Der Teil, der die Idee trägt, im Markenorange**, der Rest im Markengra
 
 | App | Schriftzug | Idee |
 |---|---|---|
-| CodeDeck | co·**de**·ck | code und deck teilen sich „de“ (D24) |
+| CodeDeck | **code**·deck | der Code, um den sich das Deck dreht (D26; vorher co·**de**·ck). Das Wortspiel „co“ trägt das Motto, nicht der Schriftzug |
 | Maillet | **mail**·let | Mail |
 | HatRack | **hat**·rack | der Hut, den man aufsetzt |
 | PocketTray | **pocket**·tray | die Tasche für selten gebrauchte Icons |
@@ -161,7 +163,7 @@ Der Name steht nie allein, wo jemand ihn zum ersten Mal sieht. Muster:
 | App | Vollständiger Titel |
 |---|---|
 | Jayq | Jayq – JSON viewer · Qiew · be spex |
-| CodeDeck | CodeDeck – AI session radar for Linux · be spex |
+| CodeDeck | CodeDeck – AI session radar for Linux · be spex (Motto: „Your co-deck for AI sessions“) |
 | Maillet | Maillet – Mail in your tray · be spex |
 
 „Art“ ist das Feld `kind` aus `apps.ts`, die Unterzeile in Lockups ist `tagline`. Ohne Familie entfällt der
@@ -199,22 +201,21 @@ Drei Formen, eine Bauweise: 512 × 512, abgerundet, ein **heller Hauptglyph** un
 |---|---|---|
 | Hauptseite | `bespex.run`, bis zum Umzug weiter `bespex.github.io` (Umzug: GitHub Pages mit eigener Domain, alte Adresse leitet um) | |
 | App | `<befehl>.bespex.run` → App-Seite der Website | `maillet.bespex.run`, `jayq.bespex.run` |
-| Produkt mit mehreren Teilen | `<produkt>.bespex.run` führt, der Befehl leitet dorthin weiter (dieselbe Seite) | `codedeck.bespex.run` ← `codeck.bespex.run`; `qiew.bespex.run` |
+| Familie mit mehreren Programmen | `<familie>.bespex.run` | `qiew.bespex.run` |
 | Familie | `qiew.bespex.run` → Qiew-Abschnitt | |
-| Weiterleitungen | Befehle von Produkten, Langformen, alte Namen | `codeck.bespex.run` → `codedeck.bespex.run` |
+| Weiterleitungen | Langformen, alte Namen | `codeck.bespex.run` → `codedeck.bespex.run` |
 | Pakete | APT-Quelle unter `bespex.run/apt` (Repository `bespex/apt`), Schlüssel als ASCII unter `bespex.run/key.asc`; weitere Formate je Pfad: `bespex.run/rpm`, `bespex.run/arch` | |
 | App-ID | bleibt `net.spex.<app>` (alle zehn Tauri-Apps nutzen sie; ein Wechsel verschiebt Einstellungen und Dateizuordnungen). Für Flathub braucht es eine bestätigte Domain: dann `run.bespex.<app>`, als eigene Entscheidung | |
 | Repos | `github.com/bespex/<Name>` | `bespex/CodeDeck`, `bespex/Qiew` |
 
-Subdomains folgen dem **Befehl**, wo Programm und Produkt dasselbe sind (kurz, klein, eindeutig). Hat ein Produkt
-mehrere Teile, führt der **Produktname**, und der Befehl leitet weiter: `codedeck.bespex.run` (entschieden
-2026-11-16), `codeck.bespex.run` zeigt dieselbe Seite.
+Subdomains folgen dem **Befehl** (kurz, klein, eindeutig): `codedeck.bespex.run`; der alte Name `codeck.bespex.run`
+zeigt dieselbe Seite.
 
 ## 11 Wo was zu sehen ist
 
 | Ort | Was erscheint | Form |
 |---|---|---|
-| **Fenstertitel** | `Datei – Name` bzw. `Projekt – CodeDeck`, bei Bedarf mit Zustand vorn („● 2 warten · …“) | Text |
+| **Fenstertitel** | `Datei – Name` bzw. `Projekt – CodeDeck`; ein Zustand folgt dem Projekt („orbit-api ● 2 asking – CodeDeck“), damit eine Taskleiste, die abschneidet, die Fenster unterscheidbar lässt | Text |
 | **App-Kopf / Menü** | Icon klein + Name als Text; der Schriftzug nur, wo Platz ist (CodeDeck: Kopf der rechten Spalte) | Zeile |
 | **About-Dialog** | Icon groß, Schriftzug, `kind`, Version, Aussprache, „be spex“ als Absender, Link zur Subdomain, Lizenz | Kopf + Absender |
 | **Menüpunkt „Über …“** | „Über Jayq“, nicht „About be spex“ | Text |

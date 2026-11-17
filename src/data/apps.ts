@@ -414,11 +414,11 @@ export const apps: App[] = [
   },
   {
     // Work in progress and private (status): the page exists for review, nothing links to it yet.
-    // Product and metapackage: codedeck; the program: codeck (brand/README.md, "Produkt und Programm")
+    // One name everywhere (brand/README.md, D26): command and package codedeck; codeck is an alias
     slug: "codedeck",
     name: "CodeDeck",
-    say: "Codeck",
-    ipa: "ˈkoʊdɛk",
+    say: "Code Deck",
+    ipa: "ˈkoʊd dɛk",
     kind: "AI session radar",
     tagline: "The quiet radar beside your AI coding sessions.",
     search:
