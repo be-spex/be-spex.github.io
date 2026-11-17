@@ -173,7 +173,7 @@ const schema = {
         <h3>1 · Add the be spex repository</h3>
         <Command
           lines={[
-            "curl -fsSLO https://bespex.github.io/packages/be-spex-archive-keyring.deb",
+            "curl -fsSLO https://bespex.run/apt/be-spex-archive-keyring.deb",
             "sudo apt install ./be-spex-archive-keyring.deb && sudo apt update",
           ]}
         />
@@ -186,7 +186,10 @@ const schema = {
           Most apps also come as an <strong>AppImage</strong>: one file that runs as it is and
           updates itself. You find it on each app's page.
         </p>
-        <p><a href="/packages/">Details and manual setup of the repository →</a></p>
+        <p>
+          The signing key is also available as <a href="/key.asc">ASCII</a> for other tools.
+          <a href="/apt/">Details and manual setup of the repository →</a>
+        </p>
       </aside>
     </div>
   </section>

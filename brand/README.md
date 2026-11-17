@@ -202,7 +202,7 @@ Drei Formen, eine Bauweise: 512 × 512, abgerundet, ein **heller Hauptglyph** un
 | Produkt mit mehreren Teilen | `<produkt>.bespex.run` führt, der Befehl leitet dorthin weiter (dieselbe Seite) | `codedeck.bespex.run` ← `codeck.bespex.run`; `qiew.bespex.run` |
 | Familie | `qiew.bespex.run` → Qiew-Abschnitt | |
 | Weiterleitungen | Befehle von Produkten, Langformen, alte Namen | `codeck.bespex.run` → `codedeck.bespex.run` |
-| Pakete | APT-Quelle bleibt unter `bespex.github.io/packages`, solange sie in Installationen eingetragen ist; später zusätzlich `packages.bespex.run` | |
+| Pakete | APT-Quelle unter `bespex.run/apt` (Repository `bespex/apt`), Schlüssel als ASCII unter `bespex.run/key.asc`; weitere Formate je Pfad: `bespex.run/rpm`, `bespex.run/arch` | |
 | App-ID | bleibt `net.spex.<app>` (alle zehn Tauri-Apps nutzen sie; ein Wechsel verschiebt Einstellungen und Dateizuordnungen). Für Flathub braucht es eine bestätigte Domain: dann `run.bespex.<app>`, als eigene Entscheidung | |
 | Repos | `github.com/bespex/<Name>` | `bespex/CodeDeck`, `bespex/Qiew` |
 
