@@ -557,7 +557,6 @@ export const apps: App[] = [
       "Pictorix is a free photo sorter for Linux and Windows: rank, rate or categorize a folder of photos one decision at a time, then rename the files or move them into folders. No database, open source; the successor of Image Organizr.",
     description:
       "Pictorix shows you one image or one pair of images at a time and asks a single question: which one comes first, how many stars, which category? When you are done, it renames the files or moves them into folders, so any file manager shows your result – no database, no lock-in. It is the successor of Image Organizr (iorg).",
-    status: "private",
     accent: "#284f93",
     icon: "pictorix.png",
     platforms: ["linux", "windows"],
