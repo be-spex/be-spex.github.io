@@ -250,7 +250,8 @@ zeigt dieselbe Seite.
 1. Offen: PocketTray-Rahmen, App-ID bleibt. **Pictorix:** eine Aussprache braucht es nicht; Schriftzug
    **pict**·orix (2026-11-20). Entschieden (2026-11-20): Icon-Form „Fotos“ = blaue
    Fläche, Fotostapel mit weißem Rahmen, Krone im Gelb-Orange-Verlauf als Akzent (Quelle
-   `Pictorix/assets/icon.svg`, auf der Website `public/icons/pictorix.svg`). Entschieden (2026-11-16): Ort `brand/`, Schriftzüge mit höchstens zwei
+   `Pictorix/assets/icon.svg`, auf der Website `public/icons/pictorix.svg`); für 16 und 24 px eine eigene
+   Fassung (`assets/icon-small.svg`): ein Foto mit dickem Rahmen, die Krone größer und auf dem Rahmen. Entschieden (2026-11-16): Ort `brand/`, Schriftzüge mit höchstens zwei
    Farben (Orange + neutral, Transparenz erlaubt).
 2. Schriftzüge und Lockups als SVG-Pfade erzeugen (Open Sans 800), hell und dunkel, in `brand/`.
 3. Schreibweisen bereinigen: „be-spex“ in `.desktop`, `Cargo.toml`, README; `--version` angleichen.
