@@ -18,6 +18,7 @@ const group = groups.find((g) => g.id === app.group);
 const siblings = group ? apps.filter((a) => a.group === group.id && a.slug !== app.slug) : [];
 const preview = app.status === "preview";
 const wip = app.status === "private";
+const unlisted = app.status === "unlisted";
 const release = preview || wip ? null : await latestRelease(app);
 // Version numbers go stale quickly: the list of releases on GitHub has them all, current
 const releases = `https://github.com/${app.repo}/releases`;
@@ -43,12 +44,12 @@ const schema = {
   offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
   license: `https://spdx.org/licenses/${app.license ?? "MIT"}.html`,
   isAccessibleForFree: true,
-  ...(app.status ? {} : { downloadUrl: releases }),
+  ...(preview || wip ? {} : { downloadUrl: releases }),
   codeRepository: sourceUrl(app),
   author: { "@type": "Organization", name: "be spex", url: Astro.site!.href },
 };
 ---
-<Base title={`${app.name} – ${app.kind} for ${platformText(app)} · be spex`} description={app.search} accent={app.accent} image={og} schema={wip ? undefined : schema} noindex={wip}>
+<Base title={`${app.name} – ${app.kind} for ${platformText(app)} · be spex`} description={app.search} accent={app.accent} image={og} schema={wip ? undefined : schema} noindex={wip || unlisted}>
   <section class="app-hero wrap">
     <header class="app-title big">
       <img class="icon" src={iconOf(app)} alt="" width="84" height="84" />

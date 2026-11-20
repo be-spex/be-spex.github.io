@@ -253,6 +253,7 @@ zeigt dieselbe Seite.
 2. Schriftzüge und Lockups als SVG-Pfade erzeugen (Open Sans 800), hell und dunkel, in `brand/`.
 3. Schreibweisen bereinigen: „be-spex“ in `.desktop`, `Cargo.toml`, README; `--version` angleichen.
 4. Website: Schriftzüge auf App-Seiten und Karten, OG-Bilder je App (HatRack fehlt mangels Screenshot). HatRack,
-   CodeDeck und Pictorix stehen in `apps.ts` (CodeDeck und Pictorix noch privat).
+   CodeDeck und Pictorix stehen in `apps.ts` (CodeDeck und Pictorix noch privat, HatRack
+   `unlisted`: eigene Seite ohne Verlinkung).
 5. Domains: `bespex.run` als Pages-Domain, Subdomains als Weiterleitungen auf die App-Seiten.
 6. In den Apps: About-Dialog nach §11 (CodeDeck: zusammen mit Schritt A der Seitenleiste).

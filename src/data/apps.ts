@@ -58,8 +58,10 @@ export interface App {
    * "preview": works from source, not released yet; shown apart from the released apps, without install instructions.
    * "private": work in progress, not shown yet: its page is built but linked nowhere, left out of the sitemap and
    * marked for search engines not to index it. Anyone with the address can still open it.
+   * "unlisted": released, with its full page and install block, but like "private" linked nowhere, left out of
+   * the sitemap and not indexed.
    */
-  status?: "preview" | "private";
+  status?: "preview" | "private" | "unlisted";
   /** Group the app is presented in (see `groups`), if any. */
   group?: string;
   /** Accent colour, taken from the app icon. */
@@ -319,6 +321,7 @@ export const apps: App[] = [
     slug: "hatrack",
     name: "HatRack",
     kind: "Work context switcher",
+    status: "unlisted",
     tagline: "Put on a hat, and your desktop, your apps and your time log follow.",
     search:
       "HatRack is a free work context switcher for Linux: one command or one click in the tray puts on a hat – wallpaper, colour scheme, apps and websites follow, and every switch goes into a time log. Server optional, open source.",
@@ -616,7 +619,7 @@ export const apps: App[] = [
 ];
 
 /** Apps the site shows; private ones only have their page, reached by its address. */
-export const shown = apps.filter((a) => a.status !== "private");
+export const shown = apps.filter((a) => a.status !== "private" && a.status !== "unlisted");
 /** Released apps of a group. */
 export const appsOf = (group: string) => shown.filter((a) => a.group === group && a.status !== "preview");
 /** The group's apps that work but are not released yet: shown apart. */

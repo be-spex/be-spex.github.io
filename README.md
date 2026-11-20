@@ -24,6 +24,7 @@ npm run build    # into dist/
    - `category`: the schema.org `applicationCategory` (default `UtilitiesApplication`).
    - `status: "preview"` or `"private"` with `tryIt` (a sentence and the commands to run it from source),
      until it is released. `"private"`: the page is built but linked nowhere; removing `status` releases it.
+   - `status: "unlisted"` for a released app that keeps its full page but is linked nowhere (like HatRack).
    - `icon` if the icon is not `public/icons/<slug>.svg` (e.g. a PNG for now), `afterInstall` for a command
      after `apt install`, `sample` (command lines shown where there is no screenshot), `modes` (ways of
      working, each with a picture, question and result) and `keys` (a keyboard table) for the app's page.
