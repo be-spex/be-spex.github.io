@@ -1,6 +1,7 @@
 ---
+import Platforms from "./Platforms.astro";
 /** An app on the home page: title, what it is, the screenshot (or a command sample), three points. */
-import { iconOf, onWindows, type App } from "../data/apps";
+import { iconOf, type App } from "../data/apps";
 import Shot from "./Shot.astro";
 
 interface Props {
@@ -21,7 +22,7 @@ const shot = app.shots[0];
       <img class="icon" src={iconOf(app)} alt="" width="52" height="52" />
       <div>
         <h3>{app.name}</h3>
-        <p class="kind">{app.kind}{onWindows(app) && <span class="os" title="Also for Windows">Windows</span>}</p>
+        <p class="kind">{app.kind}<Platforms app={app} /></p>
       </div>
       <ul class="labels" aria-label="File types">
         {app.labels.slice(0, 2).map((l) => <li>{l}</li>)}

@@ -29,7 +29,7 @@ export interface Try {
 /** One way of working with an app, shown with a picture on its page (e.g. the modes of Pictorix). */
 export interface Mode {
   title: string;
-  /** File in public/, e.g. "/modes/pictorix/order.png". */
+  /** File in public/, e.g. "/modes/pictorix/order.svg". */
   image: string;
   /** The question the app asks in this mode. */
   question: string;
@@ -558,7 +558,6 @@ export const apps: App[] = [
     description:
       "Pictorix shows you one image or one pair of images at a time and asks a single question: which one comes first, how many stars, which category? When you are done, it renames the files or moves them into folders, so any file manager shows your result – no database, no lock-in. It is the successor of Image Organizr (iorg).",
     accent: "#284f93",
-    icon: "pictorix.png",
     platforms: ["linux", "windows"],
     category: "MultimediaApplication",
     labels: [".jpg", ".png", ".webp", ".avif"],
@@ -589,11 +588,11 @@ export const apps: App[] = [
       title: "Five ways to decide",
       intro: "Each mode asks one question, again and again, and turns your answers into file names or folders.",
       items: [
-        { title: "Order", image: "/modes/pictorix/order.png", question: "Which of two images comes first? Until every image has its place – the most precise ranking.", result: "001-beach.jpg" },
-        { title: "Knockout · Find the winner", image: "/modes/pictorix/simple-knockout.png", question: "Images compete in pairs and the winner moves on, until one image is left.", result: "001-beach.jpg", remark: "Images out in the same round share a placement." },
-        { title: "Knockout · Rank all", image: "/modes/pictorix/full-knockout.png", question: "Pairs, round by round, until every placement is decided.", result: "001-beach.jpg" },
-        { title: "Rate", image: "/modes/pictorix/rate.png", question: "How many stars? One to ten for each image.", result: "07-beach.jpg" },
-        { title: "Categorize", image: "/modes/pictorix/categorize.png", question: "Which category? You create the categories as you go.", result: "family/beach.jpg" },
+        { title: "Order", image: "/modes/pictorix/order.svg", question: "Which of two images comes first? Until every image has its place – the most precise ranking.", result: "001-beach.jpg" },
+        { title: "Knockout · Find the winner", image: "/modes/pictorix/simple-knockout.svg", question: "Images compete in pairs and the winner moves on, until one image is left.", result: "001-beach.jpg", remark: "Images out in the same round share a placement." },
+        { title: "Knockout · Rank all", image: "/modes/pictorix/full-knockout.svg", question: "Pairs, round by round, until every placement is decided.", result: "001-beach.jpg" },
+        { title: "Rate", image: "/modes/pictorix/rate.svg", question: "How many stars? One to ten for each image.", result: "07-beach.jpg" },
+        { title: "Categorize", image: "/modes/pictorix/categorize.svg", question: "Which category? You create the categories as you go.", result: "family/beach.jpg" },
       ],
     },
     keys: [

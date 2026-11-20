@@ -1,4 +1,5 @@
 ---
+import Platforms from "../components/Platforms.astro";
 import Base from "../layouts/Base.astro";
 import AppCard from "../components/AppCard.astro";
 import Shot from "../components/Shot.astro";
@@ -72,7 +73,7 @@ const schema = {
                   <img src={iconOf(a)} alt="" width="56" height="56" />
                   <span class="dock-text">
                     <strong>{a.name}</strong>
-                    <small>{a.kind}{onWindows(a) && <span class="os">Windows</span>}</small>
+                    <small>{a.kind}<Platforms app={a} /></small>
                   </span>
                 </a>
               </li>
@@ -89,7 +90,7 @@ const schema = {
                 <img src={iconOf(a)} alt="" width="56" height="56" />
                 <span class="dock-text">
                   <strong>{a.name}</strong>
-                  <small>{a.kind}{onWindows(a) && <span class="os">Windows</span>}</small>
+                  <small>{a.kind}<Platforms app={a} /></small>
                 </span>
               </a>
             </li>
