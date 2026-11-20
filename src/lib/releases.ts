@@ -26,9 +26,17 @@ function releasesOf(repo: string): Promise<GhRelease[]> {
     cache.set(
       repo,
       fetch(`https://api.github.com/repos/${repo}/releases?per_page=100`, {
-        headers: { Accept: "application/vnd.github+json", "User-Agent": "be-spex-site" },
+        headers: {
+          Accept: "application/vnd.github+json",
+          "User-Agent": "be-spex-site",
+          // in CI: the workflow token, so the lookups do not run into the limit for anonymous calls
+          ...(process.env.GITHUB_TOKEN ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : {}),
+        },
       })
-        .then((r) => (r.ok ? (r.json() as Promise<GhRelease[]>) : []))
+        .then((r) => {
+          if (!r.ok) console.warn(`releases of ${repo}: HTTP ${r.status}, linking the release list instead`);
+          return r.ok ? (r.json() as Promise<GhRelease[]>) : [];
+        })
         .catch(() => []),
     );
   }
