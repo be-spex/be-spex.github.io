@@ -19,6 +19,7 @@ const others = [
   ["maillet", "#6d5ef5", [["mail", "o"], ["let", ""]], "Mail in your tray", "Maillet"],
   ["hatrack", "#2fa7e0", [["hat", "o"], ["rack", ""]], "Work context switcher", "HatRack"],
   ["pockettray", "#8fa3c4", [["pocket", "o"], ["tray", ""]], "Collapse your tray", "PocketTray"],
+  ["pictorix", "#284f93", [["pict", "o"], ["orix", ""]], "Photo sorter", "Pictorix"],
 ];
 
 const cap = (s) => s[0].toUpperCase() + s.slice(1);
@@ -111,6 +112,7 @@ table{border-collapse:collapse;width:100%;font-size:13px}td{border-bottom:1px so
     <svg width="56" height="56" viewBox="0 0 512 512"><rect x="16" y="16" width="480" height="480" rx="110" fill="#1f2a3d" stroke="#8fa3c4" stroke-width="32"/><path d="M256 120 316 230H196Z M186 250 246 360H126Z M326 250 386 360H266Z" fill="#c8a265"/><path d="M100 330 256 400 412 330" fill="none" stroke="#8fa3c4" stroke-width="16" stroke-linecap="round"/></svg></div>
     <span class="why">Dunkle Fläche, dicker Rahmen in der App-Farbe, heller Glyph. PocketTray weicht ab: Vorschlag rechts, mit Rahmen in #8fa3c4.</span></div>
   <div class="card"><span class="lbl">Fläche · Arbeitsplatz</span><div class="fam">${icon("codedeck", 56)}</div><span class="why">Dunkle Fläche mit Verlauf, Glyph in Orange (du) und App-Farbe (KI). Größen 16–512 px, unter 32 px eine dickere eigene Fassung; symbolische Fassung für Tray und Seitenleiste.</span></div>
+  <div class="card"><span class="lbl">Fotos</span><div class="fam">${icon("pictorix", 56)}</div><span class="why">Blaue Fläche mit Verlauf, Fotostapel mit weißem Rahmen, Krone im Gelb-Orange-Verlauf als Akzent. Unter 32 px ein Foto ohne Hintergrundfoto und eine größere Krone.</span></div>
 </div>
 
 <h2>6 · Lockups</h2>

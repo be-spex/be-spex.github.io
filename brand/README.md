@@ -159,6 +159,7 @@ Regel: **Der Teil, der die Idee trägt, im Markenorange**, der Rest im Markengra
 | Maillet | **mail**·let | Mail |
 | HatRack | **hat**·rack | der Hut, den man aufsetzt |
 | PocketTray | **pocket**·tray | die Tasche für selten gebrauchte Icons |
+| Pictorix | **pict**·orix | das Bild (*picture*), um das sich alles dreht |
 
 ### Vollständiger Titel
 
@@ -246,8 +247,8 @@ zeigt dieselbe Seite.
 
 ## 13 Nächste Schritte (Vorschlag)
 
-1. Offen: PocketTray-Rahmen, App-ID bleibt. **Pictorix:** Schriftzug (Idee hervorheben, §7) – später zu
-   gestalten; eine Aussprache braucht Pictorix nicht. Entschieden (2026-11-20): Icon-Form „Fotos“ = blaue
+1. Offen: PocketTray-Rahmen, App-ID bleibt. **Pictorix:** eine Aussprache braucht es nicht; Schriftzug
+   **pict**·orix (2026-11-20). Entschieden (2026-11-20): Icon-Form „Fotos“ = blaue
    Fläche, Fotostapel mit weißem Rahmen, Krone im Gelb-Orange-Verlauf als Akzent (Quelle
    `Pictorix/assets/icon.svg`, auf der Website `public/icons/pictorix.svg`). Entschieden (2026-11-16): Ort `brand/`, Schriftzüge mit höchstens zwei
    Farben (Orange + neutral, Transparenz erlaubt).
