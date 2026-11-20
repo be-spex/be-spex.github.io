@@ -3,9 +3,13 @@ import Base from "../layouts/Base.astro";
 import AppCard from "../components/AppCard.astro";
 import Shot from "../components/Shot.astro";
 import Command from "../components/Command.astro";
-import { apps, appsOf, groups, previewsOf, released, standalone } from "../data/apps";
+import { apps, appsOf, groups, iconOf, onWindows, previewsOf, released, shown, standalone } from "../data/apps";
 
 const packages = released.map((a) => a.pkg).join(" ");
+/** Released apps that also run on Windows: the site says "for Linux" only as long as there are none. */
+const forWindows = released.filter(onWindows);
+const alsoWindows = forWindows.length > 0 ? " – some also for Windows" : "";
+const photoSorter = shown.some((a) => a.slug === "pictorix") ? "; a photo sorter" : "";
 /** The three windows next to the headline: two viewers and the mail overview. */
 const shotOf = (slug: string) => apps.find((a) => a.slug === slug)!.shots[0];
 const stage = [shotOf("trisq"), shotOf("marq"), shotOf("maillet")];
@@ -36,15 +40,15 @@ const schema = {
 ---
 <Base
   title="be spex – small, focused apps for Linux"
-  description="be spex makes small, free desktop apps for Linux: Trisq previews React components (TSX/JSX) without Node.js; quick viewers for Markdown, JSON and XML; mail in your tray; a tidy system tray."
+  description={`be spex makes small, free desktop apps for Linux${alsoWindows}: quick viewers for React components (TSX/JSX), Markdown, JSON, XML, HTML, CSV, diffs and Mermaid diagrams; mail in your tray; work contexts with a time log; a tidy system tray${photoSorter}.`}
   schema={schema}
 >
   <section class="hero wrap">
     <div class="hero-text">
-    <p class="eyebrow">Open-source apps for Linux</p>
+    <p class="eyebrow">Open-source apps for Linux{alsoWindows}</p>
     <h1>Small tools that do <em>one thing</em> well.</h1>
     <p class="lead">
-      be spex makes desktop apps for Linux that open in an instant, stay out of your way and are
+      be spex makes desktop apps for Linux{forWindows.length > 0 && ", some also for Windows,"} that open in an instant, stay out of your way and are
       pleasant to use. Free, open source, and made for everyday work.
     </p>
     <p class="actions">
@@ -65,10 +69,10 @@ const schema = {
             {appsOf(g.id).map((a) => (
               <li>
                 <a href={`/${a.slug}/`} title={`${a.name} – ${a.kind}`}>
-                  <img src={`/icons/${a.slug}.svg`} alt="" width="56" height="56" />
+                  <img src={iconOf(a)} alt="" width="56" height="56" />
                   <span class="dock-text">
                     <strong>{a.name}</strong>
-                    <small>{a.kind}</small>
+                    <small>{a.kind}{onWindows(a) && <span class="os">Windows</span>}</small>
                   </span>
                 </a>
               </li>
@@ -82,10 +86,10 @@ const schema = {
           {standalone.map((a) => (
             <li>
               <a href={`/${a.slug}/`} title={`${a.name} – ${a.kind}`}>
-                <img src={`/icons/${a.slug}.svg`} alt="" width="56" height="56" />
+                <img src={iconOf(a)} alt="" width="56" height="56" />
                 <span class="dock-text">
                   <strong>{a.name}</strong>
-                  <small>{a.kind}</small>
+                  <small>{a.kind}{onWindows(a) && <span class="os">Windows</span>}</small>
                 </span>
               </a>
             </li>
@@ -126,37 +130,15 @@ const schema = {
       </section>
     ))}
 
-    <header class="section-head wrap rest-head" id="desktop">
-      <p class="eyebrow">Desktop apps</p>
-      <h2>Beyond the viewers <span>Apps that stay with you all day.</span></h2>
-    </header>
-
-    {standalone.map((a, i) => (
-      <section class:list={["feature", "wrap", { flip: i % 2 === 1 }]} id={a.slug} style={`--accent: ${a.accent}`}>
-        <div class="feature-text">
-          <header class="app-title">
-            <img class="icon" src={`/icons/${a.slug}.svg`} alt="" width="60" height="60" />
-            <div>
-              <h2>{a.name}</h2>
-              <p class="kind">{a.kind}</p>
-            </div>
-          </header>
-          <p class="tagline">{a.tagline}</p>
-          <p>{a.description}</p>
-          <ul class="points">
-            {a.highlights.map((h) => <li>{h}</li>)}
-          </ul>
-          {a.note && <p class="note">{a.note}</p>}
-          <p class="actions">
-            <a class="btn primary" href={`/${a.slug}/`}>More about {a.name}</a>
-            <a class="btn" href={`https://github.com/${a.repo}`}>Source</a>
-          </p>
-        </div>
-        <div class="feature-shot">
-          <Shot shot={a.shots[0]} bare={a.shots[0].bare ?? !a.shots[0].themed} />
-        </div>
-      </section>
-    ))}
+    <section class="desktop wrap" id="desktop">
+      <header class="section-head">
+        <p class="eyebrow">Desktop apps</p>
+        <h2>Beyond the viewers <span>Apps that stay with you all day.</span></h2>
+      </header>
+      <div class:list={["cards", { even: standalone.length % 3 === 1 }]}>
+        {standalone.map((a) => <AppCard app={a} />)}
+      </div>
+    </section>
   </div>
 
   <section class="install wrap" id="install">
@@ -186,6 +168,13 @@ const schema = {
           Most apps also come as an <strong>AppImage</strong>: one file that runs as it is and
           updates itself. You find it on each app's page.
         </p>
+        {forWindows.length > 0 && (
+          <p>
+            <strong>Windows?</strong>
+            {forWindows.map((a, i) => <>{i > 0 && ", "}<a href={`/${a.slug}/#get`}>{a.name}</a></>)} also
+            {forWindows.length > 1 ? " come" : " comes"} as an installer for Windows 10 and 11 that updates itself.
+          </p>
+        )}
         <p>
           The signing key is also available as <a href="/key.asc">ASCII</a> for other tools.
           <a href="/apt/">Details and manual setup of the repository →</a>

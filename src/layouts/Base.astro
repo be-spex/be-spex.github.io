@@ -1,6 +1,7 @@
 ---
 import "@fontsource-variable/open-sans";
 import "../styles/global.css";
+import { onWindows, released } from "../data/apps";
 
 interface Props {
   title: string;
@@ -16,6 +17,8 @@ interface Props {
 }
 const { title, description, accent, image, schema, noindex } = Astro.props;
 const url = new URL(Astro.url.pathname, Astro.site);
+/** "for Linux" as long as no released app also runs on Windows. */
+const platforms = released.some(onWindows) ? "for Linux – some also for Windows" : "for Linux";
 ---
 <!doctype html>
 <html lang="en" style={accent ? `--accent: ${accent}` : undefined}>
@@ -57,7 +60,7 @@ const url = new URL(Astro.url.pathname, Astro.site);
     <footer class="site-foot">
       <div class="wrap foot">
         <a class="wordmark small" href="/" aria-label="be spex – home"><span class="be">be</span><span class="spex">spex</span></a>
-        <p>Small, focused apps for Linux. Free and open source.</p>
+        <p>Small, focused apps {platforms}. Free and open source.</p>
         <nav aria-label="Footer">
           <a href="https://github.com/bespex">GitHub</a>
           <a href="/apt/">Package repository</a>

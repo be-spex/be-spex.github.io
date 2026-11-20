@@ -12,7 +12,7 @@ Website ausliefern soll, kopiert sie nach `public/`.
 
 ## 1 Grundgedanke
 
-**be spex macht kleine, fokussierte Programme für Linux.** Jedes Programm tut eine Sache und tritt dann zurück. Die
+**be spex macht kleine, fokussierte Programme für Linux** (einzelne auch für Windows, siehe §2). Jedes Programm tut eine Sache und tritt dann zurück. Die
 Identität soll genauso sein: wenige Regeln, überall dieselben, kein Schmuck.
 
 Drei Sätze, die alles Weitere begründen:
@@ -36,14 +36,19 @@ be spex                         die Marke (Absender)
 ├── Tray-Helfer                 kleine Programme in der Leiste
 │   ├── Maillet   Mail          ├── HatRack   Arbeitskontexte
 │   └── PocketTray  Tray-Ordnung
-└── Arbeitsplatz                Programme, die man neben der Arbeit offen hat
-    └── CodeDeck  KI-Sitzungen
+├── Arbeitsplatz                Programme, die man neben der Arbeit offen hat
+│   └── CodeDeck  KI-Sitzungen
+└── Fotos                       Programme für eigene Bilder
+    └── Pictorix  Fotos sortieren, bewerten, einordnen (Linux und Windows)
 ```
 
 - **be spex** ist immer der Absender, nie Teil des Programmnamens („be spex CodeDeck“ ist Absender + Name).
 - **Qiew** ist eine Familie mit eigenem Schriftzug, aber ohne eigenes Icon. Die Viewer tragen das Familienzeichen
   im Namen: das **q**.
-- **Tray-Helfer** und **Arbeitsplatz** sind Gruppen für die Icon-Form, keine Marken. Sie erscheinen nicht als Namen.
+- **Tray-Helfer**, **Arbeitsplatz** und **Fotos** sind Gruppen für die Icon-Form, keine Marken. Sie erscheinen nicht als Namen.
+- **Pictorix** ist der Nachfolger von Image Organizr (iorg) und das erste Programm, das auch unter Windows läuft
+  (Installer, aktualisiert sich selbst). Linux bleibt die Heimat: Website und Texte sagen „for Linux“, bei
+  Pictorix „for Linux and Windows“; die Startseite ergänzt „some also for Windows“, sobald es veröffentlicht ist.
 
 ## 3 Schreibweisen
 
@@ -73,7 +78,7 @@ in seinem eigenen Paket unter `Recommends` (Paket = Befehl, wie bei allen andere
 | Qiew | `qiew` (mit `qiew-setup`) | `marq`, `jayq`, `xaq`, … | – |
 | CodeDeck | – | `codedeck` (Übergangspaket `codeck`) | `marq`, `dirq`, `jayq` als `Recommends` |
 
-Einzelne Programme (Maillet, HatRack, PocketTray, CodeDeck) brauchen kein Metapaket: Paket = Befehl.
+Einzelne Programme (Maillet, HatRack, PocketTray, CodeDeck, Pictorix) brauchen kein Metapaket: Paket = Befehl.
 
 **Aussprache** steht für jede App in `apps.ts` (`say`, `ipa`) und gehört auch in die README, gleich unter den Titel.
 CodeDeck wird gesagt, wie es geschrieben ist: „Code Deck“.
@@ -92,7 +97,8 @@ CodeDeck wird gesagt, wie es geschrieben ist: „Code Deck“.
 
 **App-Akzente** (aus den Icons, bleiben so): Trisq `#12909a` · Marq `#2f6fe0` · Jayq `#7c4ddb` · Xaq `#0f9d7a` ·
 Hyqe `#c4452d` · Cusq `#4d7c0f` · Dirq `#be185d` · Maiqe `#b45309` · Maillet `#6d5ef5` · PocketTray `#8fa3c4` ·
-HatRack `#2fa7e0` (aus dem Icon, neu in `apps.ts`) · CodeDeck `#6366f1` (Indigo, „KI“ in der App).
+HatRack `#2fa7e0` (aus dem Icon) · CodeDeck `#6366f1` (Indigo, „KI“ in der App) · Pictorix `#284f93` (Blau aus dem
+vorläufigen Icon; mit dem endgültigen Icon prüfen).
 
 Regel: Die App-Farben erscheinen in Icons, Website-Karten und App-Seiten, nie im Schriftzug.
 
@@ -240,10 +246,13 @@ zeigt dieselbe Seite.
 
 ## 13 Nächste Schritte (Vorschlag)
 
-1. Offen: PocketTray-Rahmen, App-ID bleibt. Entschieden (2026-11-16): Ort `brand/`, Schriftzüge mit höchstens zwei
+1. Offen: PocketTray-Rahmen, App-ID bleibt. **Pictorix:** Icon (heute vorläufig das App-Icon als PNG,
+   `public/icons/pictorix.png`; SVG in der Bauweise von §8 fehlt, Form für die Gruppe „Fotos“ festlegen),
+   Schriftzug (Idee hervorheben, §7) und Aussprache (`say`, `ipa`) – später zu gestalten. Entschieden (2026-11-16): Ort `brand/`, Schriftzüge mit höchstens zwei
    Farben (Orange + neutral, Transparenz erlaubt).
 2. Schriftzüge und Lockups als SVG-Pfade erzeugen (Open Sans 800), hell und dunkel, in `brand/`.
 3. Schreibweisen bereinigen: „be-spex“ in `.desktop`, `Cargo.toml`, README; `--version` angleichen.
-4. Website: Schriftzüge auf App-Seiten und Karten, HatRack und CodeDeck in `apps.ts`, OG-Bilder je App.
+4. Website: Schriftzüge auf App-Seiten und Karten, OG-Bilder je App (HatRack fehlt mangels Screenshot). HatRack,
+   CodeDeck und Pictorix stehen in `apps.ts` (CodeDeck und Pictorix noch privat).
 5. Domains: `bespex.run` als Pages-Domain, Subdomains als Weiterleitungen auf die App-Seiten.
 6. In den Apps: About-Dialog nach §11 (CodeDeck: zusammen mit Schritt A der Seitenleiste).

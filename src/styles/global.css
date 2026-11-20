@@ -122,6 +122,8 @@ code { font-family: var(--mono); font-size: .92em; }
 .kind { margin: 2px 0 0; color: var(--muted); font-size: 15px; font-weight: 600; }
 .tagline { font-size: 1.2rem; font-weight: 650; line-height: 1.35; letter-spacing: -.01em; }
 .labels { display: flex; flex-wrap: wrap; gap: 6px; }
+/* "Windows" next to what an app is: it runs there too. */
+.os { display: inline-block; margin-left: 8px; padding: 0 7px; border-radius: 6px; background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--fg); font-size: .8em; font-weight: 700; vertical-align: 1px; }
 .labels li { padding: 2px 9px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font: 600 12.5px/1.5 var(--mono); }
 .points li { position: relative; padding-left: 26px; margin-bottom: 7px; }
 .points li::before {
@@ -215,13 +217,11 @@ code { font-family: var(--mono); font-size: .92em; }
 .dock img { width: 40px; height: 40px; }
 
 /* ---- Home: sections ---- */
-.group, .feature, .install, .open { padding-block: clamp(48px, 7vw, 88px); }
-.group, .feature, .install, .open { border-top: 1px solid var(--line); }
+.group, .desktop, .install, .open { padding-block: clamp(48px, 7vw, 88px); }
+.group, .desktop, .install, .open { border-top: 1px solid var(--line); }
 /* The Qiew family has a band of its own across the page; the other apps stand on the plain page. */
 :root { --qiew-tint: color-mix(in srgb, var(--brand) 6%, var(--bg)); }
 .group { background: var(--qiew-tint); box-shadow: 0 0 0 100vmax var(--qiew-tint); clip-path: inset(0 -100vmax); border-top: 0; }
-.rest-head { margin-bottom: 0; padding-top: clamp(48px, 7vw, 88px); }
-.rest-head + .feature { border-top: 0; padding-top: 36px; }
 .cards.even { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (max-width: 980px) { .cards.even { grid-template-columns: 1fr; } }
 .section-head { margin-bottom: 36px; }
@@ -262,6 +262,11 @@ code { font-family: var(--mono); font-size: .92em; }
 .card .shot .frame { box-shadow: none; }
 .card .shot picture { display: block; aspect-ratio: 16 / 11; overflow: hidden; }
 .card .shot img { width: 185%; max-width: none; }
+/* Images that bring their own surroundings, and command samples, are shown whole. */
+.card .shot.bare picture { aspect-ratio: auto; }
+.card .shot.bare img { width: 100%; }
+.card .cmd.sample { margin: 0; }
+.card .cmd.sample pre { padding-right: 16px; font-size: 12.5px; white-space: pre; overflow: hidden; }
 .card .points { margin-top: 18px; font-size: 15.5px; }
 .card .more { margin-top: auto; padding-top: 14px; color: var(--accent); font-weight: 700; font-size: 15px; }
 @media (prefers-color-scheme: dark) { .card .more { filter: brightness(1.35); } }
@@ -282,23 +287,18 @@ code { font-family: var(--mono); font-size: .92em; }
 @media (max-width: 980px) { .shared { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .shared { grid-template-columns: 1fr; } }
 
-.feature { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); align-items: center; gap: clamp(28px, 5vw, 72px); }
-.feature.flip .feature-text { order: 2; }
-.feature-shot { justify-self: center; width: min(100%, 540px); }
 .app-title { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
-.app-title h2 { font-size: clamp(1.8rem, 3.4vw, 2.4rem); font-weight: 800; }
-.feature .points { margin: 18px 0; }
-@media (max-width: 900px) {
-  .feature { grid-template-columns: 1fr; }
-  .feature.flip .feature-text { order: 0; }
-}
 
 .install-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 300px); gap: clamp(24px, 4vw, 56px); }
 .install h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
 .install aside { padding: 22px 24px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); align-self: start; font-size: 15.5px; }
 .install aside h3 { margin-bottom: 10px; }
 .install aside p:last-child { margin-bottom: 0; }
-@media (max-width: 900px) { .install-grid { grid-template-columns: 1fr; } }
+.install aside .small { color: var(--muted); font-size: 14px; }
+/* With a Windows installer: a third column, below the other two on narrower screens. */
+.install-grid.three { grid-template-columns: minmax(0, 1fr) minmax(0, 280px) minmax(0, 280px); }
+@media (max-width: 1100px) { .install-grid.three { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } .install-grid.three > div { grid-column: 1 / -1; } }
+@media (max-width: 900px) { .install-grid, .install-grid.three { grid-template-columns: 1fr; } }
 
 .open { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: clamp(28px, 6vw, 80px); }
 .open .lead { margin-top: 14px; }
@@ -332,3 +332,25 @@ code { font-family: var(--mono); font-size: .92em; }
 .siblings a:hover { border-color: var(--accent); }
 .siblings strong { display: block; font-size: 17px; }
 .siblings span { color: var(--muted); font-size: 14.5px; }
+
+/* Ways of working with an app, each with its picture (e.g. Pictorix's modes). */
+.modes { padding-block: clamp(32px, 5vw, 56px); }
+.modes h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 8px; }
+.modes .lead { margin-bottom: 24px; }
+.modes ul { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; }
+.modes li { display: flex; flex-direction: column; gap: 6px; padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); color: var(--muted); font-size: 15px; }
+.modes img { width: 120px; height: 120px; margin: 0 auto 8px; }
+.modes strong { color: var(--fg); font-size: 16.5px; line-height: 1.3; }
+.modes code { margin-top: auto; padding: 4px 8px; border-radius: 6px; background: var(--sunken); color: var(--fg); font-size: 13.5px; align-self: flex-start; }
+.modes small { font-size: 13.5px; }
+@media (max-width: 1100px) { .modes ul { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 700px) { .modes ul { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 460px) { .modes ul { grid-template-columns: 1fr; } }
+
+.keys table { width: 100%; max-width: 860px; border-collapse: collapse; font-size: 15.5px; }
+.keys th { text-align: left; color: var(--muted); font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 0 16px 8px 0; border-bottom: 2px solid var(--accent); }
+.keys td { padding: 9px 16px 9px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.keys td:first-child { color: var(--muted); }
+.keys kbd { padding: 1px 7px; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 6px; background: var(--surface); font: 600 13.5px var(--mono); white-space: nowrap; }
+/* The mode pictures are drawn for a light ground. */
+@media (prefers-color-scheme: dark) { .modes img { padding: 6px; border-radius: 14px; background: #f3f1ec; } }

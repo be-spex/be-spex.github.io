@@ -18,6 +18,27 @@ export interface Shot {
   bare?: boolean;
 }
 
+export type Platform = "linux" | "windows";
+
+/** How to try an app that is not released: a sentence (`code` in backticks) and the commands. */
+export interface Try {
+  text: string;
+  lines: string[];
+}
+
+/** One way of working with an app, shown with a picture on its page (e.g. the modes of Pictorix). */
+export interface Mode {
+  title: string;
+  /** File in public/, e.g. "/modes/pictorix/order.png". */
+  image: string;
+  /** The question the app asks in this mode. */
+  question: string;
+  /** What comes out of it, e.g. a file name; shown as code. */
+  result: string;
+  /** A remark below the result. */
+  remark?: string;
+}
+
 export interface App {
   slug: string;
   name: string;
@@ -43,14 +64,28 @@ export interface App {
   group?: string;
   /** Accent colour, taken from the app icon. */
   accent: string;
+  /** Icon file in public/icons, if not `<slug>.svg` (e.g. a PNG until the SVG exists). */
+  icon?: string;
+  /** Where the app runs. Default: Linux only. */
+  platforms?: Platform[];
+  /** schema.org applicationCategory. Default: "UtilitiesApplication". */
+  category?: string;
   /** File types or surroundings as small labels, e.g. ".md" or "Cinnamon". */
   labels: string[];
   /** The three points for the home page. */
   highlights: string[];
   /** The full list for the app's page. */
   features: { title: string; text: string }[];
-  /** First shot: the one that has to make the impression. */
+  /** First shot: the one that has to make the impression. May be empty: then `sample` stands in, if given. */
   shots: Shot[];
+  /** Command lines shown as a sample where the app has no screenshot (e.g. a command-line tool). */
+  sample?: string[];
+  /** Ways of working, each with a picture: a section of their own on the app's page. */
+  modes?: { title: string; intro?: string; items: Mode[] };
+  /** Keyboard shortcuts for the app's page. */
+  keys?: { where: string; key: string; action: string }[];
+  /** For "preview" and "private": how to try the app from source. Default: the group's, else a pointer to the repository. */
+  tryIt?: Try;
   /** APT package name. */
   pkg: string;
   repo: string;
@@ -59,6 +94,8 @@ export interface App {
   /** Prefix of the app's release tags, e.g. "xaq-v" (monorepo) or "v". */
   tagPrefix: string;
   appImage: boolean;
+  /** Commands to run after installing the package, e.g. a setup step. */
+  afterInstall?: string[];
   /** SPDX identifier, if not MIT. */
   license?: string;
   /** A limitation worth knowing before installing. */
@@ -74,6 +111,8 @@ export interface Group {
   /** What all apps of the group share. */
   shared: { title: string; text: string }[];
   repo: string;
+  /** How to try one of the group's apps that is not released yet, if the app says nothing itself. */
+  tryIt?: (app: App) => Try;
 }
 
 export const groups: Group[] = [
@@ -91,6 +130,13 @@ export const groups: Group[] = [
       { title: "Easy on the eyes", text: "Four colour schemes, light and dark, remembered; Trisq takes its colours from the component it shows." },
     ],
     repo: "bespex/Qiew",
+    tryIt: (app) => ({
+      text: "It works, and you can build it from source. Needs Node.js, Rust and the usual Tauri requirements; the example file next to `run.sh` shows the common cases.",
+      lines: [
+        "git clone https://github.com/bespex/Qiew && cd Qiew && npm install",
+        `apps/${app.slug}/run.sh apps/${app.slug}/example.${app.labels[0].slice(1)}`,
+      ],
+    }),
   },
 ];
 
@@ -102,6 +148,10 @@ const wideShot = (file: string, width: number, height: number, title: string, al
 });
 const splitShot = (file: string, title: string, alt: string, caption?: string): Shot => ({
   file, themed: true, width: 2880, height: 1240, title, alt, caption,
+});
+
+const pictorixShot = (file: string, title: string, alt: string, caption?: string): Shot => ({
+  file, themed: true, width: 2200, height: 1480, title, alt, caption,
 });
 
 export const apps: App[] = [
@@ -240,6 +290,7 @@ export const apps: App[] = [
     description:
       "Maillet is a mail client that lives in the system tray and organises mail around what you do with it. See what's new at a glance, turn a mail into a task and keep track of where it stands. One-time passwords appear the moment they arrive.",
     accent: "#6d5ef5",
+    category: "CommunicationApplication",
     labels: ["IMAP", "System tray"],
     highlights: [
       "New mail at a glance, people before noise",
@@ -265,6 +316,47 @@ export const apps: App[] = [
     note: "Maillet does not replace your mail program yet: it reads, sorts and manages, but does not write mails.",
   },
   {
+    slug: "hatrack",
+    name: "HatRack",
+    kind: "Work context switcher",
+    tagline: "Put on a hat, and your desktop, your apps and your time log follow.",
+    search:
+      "HatRack is a free work context switcher for Linux: one command or one click in the tray puts on a hat – wallpaper, colour scheme, apps and websites follow, and every switch goes into a time log. Server optional, open source.",
+    description:
+      "Most of us wear several hats in a day: the job, a client project, a side project, private things. HatRack makes the switch explicit: one command or one click on the tray icon puts on a different hat, and with it a different wallpaper and colour scheme, the apps and websites that belong to it, and a new entry in the log. Over the day, that log becomes a time sheet.",
+    accent: "#2fa7e0",
+    category: "BusinessApplication",
+    labels: ["CLI", "System tray", "MCP"],
+    highlights: [
+      "A hat brings its wallpaper, colours, apps and sites",
+      "Every switch is logged: a time sheet by itself",
+      "One command, one click or one shortcut",
+    ],
+    features: [
+      { title: "Hats and activities", text: "Put on a hat for what you work on, add an activity if you like: hat on venom do review. hat off pauses the clock, hat on resumes." },
+      { title: "The look follows", text: "Each hat has its wallpaper and colour scheme, so you see at a glance which hat you are wearing. Built-in wallpapers in six colours, or your own." },
+      { title: "Apps and sites open", text: "Switching to a hat starts the programs, opens the addresses and folders and runs the scripts that belong to it." },
+      { title: "A log that tells the truth", text: "Every switch is appended, never changed; corrections are new entries. hat log today shows the day: which hat, which activity, how long." },
+      { title: "Tray and quick switcher", text: "A tray icon with a menu and a quick switcher you bind to a keyboard shortcut; the command line does the same." },
+      { title: "Server optional", text: "Without one, everything runs on your computer. With one, your devices share hats and log, there is a web view, and an AI assistant can read your time over MCP." },
+    ],
+    shots: [],
+    sample: [
+      "hat on venom            # work on VENOM",
+      "hat on venom do review  # ... with an activity",
+      "hat do meeting          # change the activity, keep the hat",
+      "hat off                 # pause: the look stays, the clock stops",
+      "hat                     # what am I working on, since when",
+      "hat log today           # today's overview",
+    ],
+    pkg: "hatrack",
+    repo: "bespex/HatRack",
+    tagPrefix: "v",
+    appImage: false,
+    afterInstall: ["hat setup"],
+    note: "The look changes on Cinnamon (X11) so far; on other desktops the time log, apps and notifications work.",
+  },
+  {
     slug: "pockettray",
     name: "PocketTray",
     kind: "Collapse your tray",
@@ -274,6 +366,7 @@ export const apps: App[] = [
     description:
       "Cinnamon's panel fills up with tray icons. PocketTray keeps the ones you use every day in the panel and tucks the rest into a small pocket that opens with a click.",
     accent: "#8fa3c4",
+    category: "DesktopEnhancementApplication",
     labels: ["Cinnamon", "Linux Mint"],
     highlights: ["A tidy panel, nothing lost", "One switch per icon", "Works with old and new tray icons"],
     features: [
@@ -427,6 +520,7 @@ export const apps: App[] = [
       "CodeDeck runs next to your AI coding sessions, not instead of them: see what each session is doing and what it changed, go back to the state before any turn, and give it exactly what it needs with your next prompt. It is not an editor; files open in small viewers like Marq and Dirq.",
     status: "private",
     accent: "#6366f1",
+    category: "DesktopEnhancementApplication",
     labels: ["Claude Code", "Git"],
     highlights: ["Every session, its step and what it changed", "A snapshot before every turn, to go back to", "You choose what goes with the next prompt"],
     features: [
@@ -445,6 +539,79 @@ export const apps: App[] = [
     repo: "bespex/CodeDeck",
     tagPrefix: "v",
     appImage: true,
+    tryIt: {
+      text: "It works and you can run it from source: Node.js, Rust and the usual Tauri requirements. Once released, `sudo apt install codedeck` brings the program `codedeck` together with Marq, Dirq and Jayq, which it recommends.",
+      lines: ["git clone https://github.com/bespex/CodeDeck && cd CodeDeck", "./dev ~/projects/your-project"],
+    },
+  },
+  {
+    // Successor of Image Organizr (iorg). Private until v2.0.0 is published: then remove `status`.
+    slug: "pictorix",
+    name: "Pictorix",
+    kind: "Photo sorter",
+    tagline: "Sort, rank and rate a folder full of photos – one quick decision at a time.",
+    search:
+      "Pictorix is a free photo sorter for Linux and Windows: rank, rate or categorize a folder of photos one decision at a time, then rename the files or move them into folders. No database, open source; the successor of Image Organizr.",
+    description:
+      "Pictorix shows you one image or one pair of images at a time and asks a single question: which one comes first, how many stars, which category? When you are done, it renames the files or moves them into folders, so any file manager shows your result – no database, no lock-in. It is the successor of Image Organizr (iorg).",
+    status: "private",
+    accent: "#284f93",
+    icon: "pictorix.png",
+    platforms: ["linux", "windows"],
+    category: "MultimediaApplication",
+    labels: [".jpg", ".png", ".webp", ".avif"],
+    highlights: [
+      "One question at a time: order, stars or category",
+      "Saved after every vote, undo everywhere",
+      "The result: plain file names and folders",
+    ],
+    features: [
+      { title: "Stop any time", text: "Progress is saved after every vote. Close Pictorix and open the folder again later: it offers to go on where you left off." },
+      { title: "Undo every vote", text: "Ctrl+Z or Backspace takes back the last decision, in every mode – the knockout tournaments included." },
+      { title: "Undo the result, too", text: "Every applied result can be taken back: right after applying, or later from the start screen of that folder." },
+      { title: "Safe renaming", text: "Everything is checked before the first file is touched; a conflict stops without any change. Sorting a folder again replaces the old prefix instead of adding one." },
+      { title: "Copy instead of move", text: "Write the result into a separate folder and keep the originals as they are." },
+      { title: "Just files", text: "No database, no catalogue: the result is in the file names and folders, and any file manager shows it." },
+      { title: "The usual formats", text: "JPG, PNG, WebP, GIF, BMP and AVIF; photos are shown upright according to their EXIF orientation." },
+      { title: "Knows how far it is", text: "The start screen estimates the votes each mode needs; while voting you see about how many are left." },
+      { title: "English and German", text: "Pictorix speaks both and follows the language of your system." },
+    ],
+    shots: [
+      pictorixShot("pictorix-order", "Fantasy birds – Pictorix", "Pictorix in the order mode: two images side by side, the question which one comes first, and how many comparisons are left"),
+      pictorixShot("pictorix-rate", "Fantasy birds – Pictorix", "Pictorix in the rate mode: one image with a row of ten stars below it", "Rate: one to ten stars, one key per image."),
+      pictorixShot("pictorix-categorize", "Fantasy birds – Pictorix", "Pictorix in the categorize mode: one image, the categories birds, fantasy and cats, and a field for a new one", "Categorize: the categories are created as you go."),
+      pictorixShot("pictorix-select", "Fantasy birds – Pictorix", "Pictorix's start screen for a folder of eight images: the modes as cards with an example file name and the votes each needs", "The start screen: pick a mode, see how many votes it takes."),
+      pictorixShot("pictorix-summary", "Fantasy birds – Pictorix", "Pictorix's summary of a categorize session: the images grouped by category with their new paths, and the choice to move them into subfolders or copy them into a folder", "Nothing changes on disk until you click Apply – and you can undo it afterwards."),
+    ],
+    modes: {
+      title: "Five ways to decide",
+      intro: "Each mode asks one question, again and again, and turns your answers into file names or folders.",
+      items: [
+        { title: "Order", image: "/modes/pictorix/order.png", question: "Which of two images comes first? Until every image has its place – the most precise ranking.", result: "001-beach.jpg" },
+        { title: "Knockout · Find the winner", image: "/modes/pictorix/simple-knockout.png", question: "Images compete in pairs and the winner moves on, until one image is left.", result: "001-beach.jpg", remark: "Images out in the same round share a placement." },
+        { title: "Knockout · Rank all", image: "/modes/pictorix/full-knockout.png", question: "Pairs, round by round, until every placement is decided.", result: "001-beach.jpg" },
+        { title: "Rate", image: "/modes/pictorix/rate.png", question: "How many stars? One to ten for each image.", result: "07-beach.jpg" },
+        { title: "Categorize", image: "/modes/pictorix/categorize.png", question: "Which category? You create the categories as you go.", result: "family/beach.jpg" },
+      ],
+    },
+    keys: [
+      { where: "Start screen", key: "1–4, Enter", action: "Pick a mode, start" },
+      { where: "Order, Knockout", key: "Enter", action: "Keep the order – the left image comes first" },
+      { where: "Order, Knockout", key: "←", action: "Move the right image to the front" },
+      { where: "Rate", key: "1–9, 0", action: "1–9 stars, 0 = ten stars" },
+      { where: "Categorize", key: "1–9", action: "Assign one of the first nine categories" },
+      { where: "Categorize", key: "Tab, then Enter", action: "Type and add a new category (Ctrl+Enter also assigns it)" },
+      { where: "While voting", key: "Ctrl+Z / Backspace", action: "Undo" },
+      { where: "While voting", key: "F11", action: "Full screen" },
+    ],
+    tryIt: {
+      text: "It works and you can run it from source: Node.js, Rust and the usual Tauri requirements. Once released, it comes as an APT package (`sudo apt install pictorix`), as an AppImage and as an installer for Windows.",
+      lines: ["git clone https://github.com/bespex/Pictorix && cd Pictorix && npm install", "npm run tauri dev"],
+    },
+    pkg: "pictorix",
+    repo: "bespex/Pictorix",
+    tagPrefix: "v",
+    appImage: true,
   },
 ];
 
@@ -457,3 +624,11 @@ export const previewsOf = (group: string) => shown.filter((a) => a.group === gro
 export const released = shown.filter((a) => a.status !== "preview");
 export const standalone = shown.filter((a) => !a.group);
 export const sourceUrl = (a: App) => `https://github.com/${a.repo}${a.repoPath ? `/tree/main/${a.repoPath}` : ""}`;
+/** Where the app runs; Linux unless it says otherwise. */
+export const platformsOf = (a: App): Platform[] => a.platforms ?? ["linux"];
+export const onWindows = (a: App) => platformsOf(a).includes("windows");
+/** "Linux" or "Linux and Windows", for titles and sentences. */
+export const platformText = (a: App) => platformsOf(a).map((p) => (p === "linux" ? "Linux" : "Windows")).join(" and ");
+export const iconOf = (a: App) => `/icons/${a.icon ?? `${a.slug}.svg`}`;
+/** How to try an app that is not released yet; null: only the pointer to its repository. */
+export const tryOf = (a: App): Try | null => a.tryIt ?? groups.find((g) => g.id === a.group)?.tryIt?.(a) ?? null;

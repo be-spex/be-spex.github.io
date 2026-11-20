@@ -8,6 +8,8 @@ import type { App } from "../data/apps";
 export interface Release {
   appImage?: string;
   deb?: string;
+  /** Windows installer (NSIS, `*_x64-setup.exe`). */
+  windows?: string;
 }
 
 interface GhRelease {
@@ -41,5 +43,6 @@ export async function latestRelease(app: App): Promise<Release | null> {
   return {
     appImage: asset(".AppImage"),
     deb: asset(".deb"),
+    windows: asset("_x64-setup.exe"),
   };
 }

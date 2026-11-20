@@ -1,14 +1,15 @@
 ---
-/** An app in a group: title, what it is, the screenshot, three points. */
-import type { App } from "../data/apps";
+/** An app on the home page: title, what it is, the screenshot (or a command sample), three points. */
+import { iconOf, onWindows, type App } from "../data/apps";
 import Shot from "./Shot.astro";
 
 interface Props {
   app: App;
 }
 const { app } = Astro.props;
+const shot = app.shots[0];
 ---
-<article class:list={["card", { preview: app.status === "preview" }]} style={`--accent: ${app.accent}`}>
+<article class:list={["card", { preview: app.status === "preview" }]} id={app.slug} style={`--accent: ${app.accent}`}>
   {app.say && (
     <p class="say" title={`${app.name} is pronounced like “${app.say}”`}>
       say “{app.say}”{app.ipa && <span> /{app.ipa}/</span>}
@@ -17,17 +18,21 @@ const { app } = Astro.props;
   <a class="card-link" href={`/${app.slug}/`} aria-label={`${app.name} – ${app.kind}`}>
     {app.status === "preview" && <span class="badge">In preparation</span>}
     <header>
-      <img class="icon" src={`/icons/${app.slug}.svg`} alt="" width="52" height="52" />
+      <img class="icon" src={iconOf(app)} alt="" width="52" height="52" />
       <div>
         <h3>{app.name}</h3>
-        <p class="kind">{app.kind}</p>
+        <p class="kind">{app.kind}{onWindows(app) && <span class="os" title="Also for Windows">Windows</span>}</p>
       </div>
       <ul class="labels" aria-label="File types">
         {app.labels.slice(0, 2).map((l) => <li>{l}</li>)}
       </ul>
     </header>
     <p class="tagline">{app.tagline}</p>
-    <Shot shot={app.shots[0]} />
+    {shot ? (
+      <Shot shot={shot} bare={shot.bare ?? !shot.themed} />
+    ) : app.sample && (
+      <div class="cmd sample"><pre><code>{app.sample.map((l) => l.replace(/\s+#.*$/, "")).join("\n")}</code></pre></div>
+    )}
     <ul class="points">
       {app.highlights.map((h) => <li>{h}</li>)}
     </ul>

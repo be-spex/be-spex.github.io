@@ -2,7 +2,8 @@
 import Base from "../layouts/Base.astro";
 import Shot from "../components/Shot.astro";
 import Command from "../components/Command.astro";
-import { apps, groups, sourceUrl, type App } from "../data/apps";
+import { existsSync } from "node:fs";
+import { apps, groups, iconOf, onWindows, platformText, sourceUrl, tryOf, type App } from "../data/apps";
 import { latestRelease } from "../lib/releases";
 
 export function getStaticPaths() {
@@ -22,6 +23,12 @@ const release = preview || wip ? null : await latestRelease(app);
 const releases = `https://github.com/${app.repo}/releases`;
 const [first, ...more] = app.shots;
 const page = new URL(`/${app.slug}/`, Astro.site).href;
+const windows = onWindows(app);
+const tryIt = tryOf(app);
+/** A sentence with `code` in backticks, split into text and code. */
+const parts = (text: string) => text.split("`").map((t, i) => ({ t, code: i % 2 === 1 }));
+// The image for sharing is cut from the first screenshot by scripts/og.sh; without one, the logo
+const og = existsSync(`public/og/${app.slug}.jpg`) ? `/og/${app.slug}.jpg` : undefined;
 /** What the app is, for search engines. */
 const schema = {
   "@context": "https://schema.org",
@@ -29,10 +36,10 @@ const schema = {
   name: app.name,
   description: app.search,
   url: page,
-  image: new URL(`/og/${app.slug}.jpg`, Astro.site).href,
-  screenshot: new URL(`/shots/${first.file}${first.themed ? "-light" : ""}.webp`, Astro.site).href,
-  applicationCategory: app.group ? "UtilitiesApplication" : app.slug === "maillet" ? "CommunicationApplication" : "DesktopEnhancementApplication",
-  operatingSystem: "Linux",
+  ...(og ? { image: new URL(og, Astro.site).href } : {}),
+  ...(first ? { screenshot: new URL(`/shots/${first.file}${first.themed ? "-light" : ""}.webp`, Astro.site).href } : {}),
+  applicationCategory: app.category ?? "UtilitiesApplication",
+  operatingSystem: windows ? "Linux, Windows" : "Linux",
   offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
   license: `https://spdx.org/licenses/${app.license ?? "MIT"}.html`,
   isAccessibleForFree: true,
@@ -41,14 +48,14 @@ const schema = {
   author: { "@type": "Organization", name: "be spex", url: Astro.site!.href },
 };
 ---
-<Base title={`${app.name} – ${app.kind} for Linux · be spex`} description={app.search} accent={app.accent} image={`/og/${app.slug}.jpg`} schema={wip ? undefined : schema} noindex={wip}>
+<Base title={`${app.name} – ${app.kind} for ${platformText(app)} · be spex`} description={app.search} accent={app.accent} image={og} schema={wip ? undefined : schema} noindex={wip}>
   <section class="app-hero wrap">
     <header class="app-title big">
-      <img class="icon" src={`/icons/${app.slug}.svg`} alt="" width="84" height="84" />
+      <img class="icon" src={iconOf(app)} alt="" width="84" height="84" />
       <div>
         <h1>{app.name}</h1>
         <p class="kind">
-          {app.kind}{app.say && <span> · say “{app.say}”{app.ipa && <span class="ipa"> /{app.ipa}/</span>}</span>}{group && <span> · part of <a href={`/#${group.id}`}>{group.name}</a></span>}
+          {app.kind}{app.say && <span> · say “{app.say}”{app.ipa && <span class="ipa"> /{app.ipa}/</span>}</span>}{group && <span> · part of <a href={`/#${group.id}`}>{group.name}</a></span>}{windows && <span> · for {platformText(app)}</span>}
         </p>
       </div>
     </header>
@@ -65,9 +72,15 @@ const schema = {
     </ul>
   </section>
 
-  <section class:list={["wrap", "app-shot", { narrow: first.width < 2000 }]}>
-    <Shot shot={first} eager bare={first.bare ?? !first.themed} />
-  </section>
+  {first ? (
+    <section class:list={["wrap", "app-shot", { narrow: first.width < 2000 }]}>
+      <Shot shot={first} eager bare={first.bare ?? !first.themed} />
+    </section>
+  ) : app.sample && (
+    <section class="wrap app-shot narrow">
+      <div class="shot"><Command lines={app.sample} /></div>
+    </section>
+  )}
 
   <section class="wrap features">
     <h2>What it does</h2>
@@ -78,11 +91,43 @@ const schema = {
     </ul>
   </section>
 
+  {app.modes && (
+    <section class="wrap modes">
+      <h2>{app.modes.title}</h2>
+      {app.modes.intro && <p class="lead">{app.modes.intro}</p>}
+      <ul>
+        {app.modes.items.map((m) => (
+          <li>
+            <img src={m.image} alt="" width="150" height="150" loading="lazy" />
+            <strong>{m.title}</strong>
+            <span>{m.question}</span>
+            {m.remark && <small>{m.remark}</small>}
+            <code>{m.result}</code>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
   {more.map((s) => (
     <section class:list={["wrap", "app-shot", { narrow: s.width < 2000 }]}>
       <Shot shot={s} bare={s.bare ?? !s.themed} />
     </section>
   ))}
+
+  {app.keys && (
+    <section class="wrap features keys">
+      <h2>Keyboard</h2>
+      <table>
+        <thead><tr><th scope="col">Where</th><th scope="col">Key</th><th scope="col">Action</th></tr></thead>
+        <tbody>
+          {app.keys.map((k) => (
+            <tr><td>{k.where}</td><td><kbd>{k.key}</kbd></td><td>{k.action}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
+  )}
 
   {group && (
     <section class="wrap features shared-block">
@@ -95,28 +140,18 @@ const schema = {
     </section>
   )}
 
-  {wip ? (
+  {preview || wip ? (
     <section class="wrap install" id="get">
       <header class="section-head">
         <p class="eyebrow">Try it</p>
         <h2>{app.name} is not released yet</h2>
-        <p class="lead">It works and you can run it from source: Node.js, Rust and the usual Tauri requirements. Once released, <code>sudo apt install {app.pkg}</code> brings the program <code>codedeck</code> together with Marq, Dirq and Jayq, which it recommends.</p>
+        {tryIt ? (
+          <p class="lead">{parts(tryIt.text).map((p) => (p.code ? <code>{p.t}</code> : p.t))}</p>
+        ) : (
+          <p class="lead">It works, and you can build it from source: <a href={sourceUrl(app)}>the repository</a> explains how.</p>
+        )}
       </header>
-      <Command lines={["git clone https://github.com/bespex/CodeDeck && cd CodeDeck", "./dev ~/projects/your-project"]} />
-    </section>
-  ) : preview ? (
-    <section class="wrap install" id="get">
-      <header class="section-head">
-        <p class="eyebrow">Try it</p>
-        <h2>{app.name} is not released yet</h2>
-        <p class="lead">It works, and you can build it from source. Needs Node.js, Rust and the usual Tauri requirements; the example file next to <code>run.sh</code> shows the common cases.</p>
-      </header>
-      <Command
-        lines={[
-          "git clone https://github.com/bespex/Qiew && cd Qiew && npm install",
-          `apps/${app.slug}/run.sh apps/${app.slug}/example.${app.labels[0].slice(1)}`,
-        ]}
-      />
+      {tryIt && <Command lines={tryIt.lines} />}
     </section>
   ) : (
   <section class="wrap install" id="get">
@@ -125,7 +160,7 @@ const schema = {
       <h2>Get {app.name}</h2>
       {app.note && <p class="note">{app.note}</p>}
     </header>
-    <div class="install-grid">
+    <div class:list={["install-grid", { three: windows }]}>
       <div>
         <h3>With APT (Debian, Ubuntu, Linux Mint)</h3>
         <Command
@@ -135,7 +170,7 @@ const schema = {
             "sudo apt install ./be-spex-archive-keyring.deb && sudo apt update",
           ]}
         />
-        <Command lines={[`sudo apt install ${app.pkg}`]} />
+        <Command lines={[`sudo apt install ${app.pkg}`, ...(app.afterInstall ?? [])]} />
       </div>
       <aside>
         {app.appImage ? (
@@ -154,6 +189,16 @@ const schema = {
         )}
         <p><a href={releases}>All versions, downloads and release notes on GitHub →</a></p>
       </aside>
+      {windows && (
+        <aside>
+          <h3>For Windows</h3>
+          <p>A setup program for Windows 10 and 11 (x64), no admin rights needed. {app.name} offers updates itself.</p>
+          <p>
+            <a class="btn" href={release?.windows ?? releases}>Download the installer</a>
+          </p>
+          <p class="small">The installer is not code-signed yet, so SmartScreen may warn about an unknown publisher: click <em>More info</em>, then <em>Run anyway</em>.</p>
+        </aside>
+      )}
     </div>
   </section>
   )}
@@ -165,7 +210,7 @@ const schema = {
         {siblings.map((s) => (
           <li>
             <a href={`/${s.slug}/`} style={`--accent: ${s.accent}`}>
-              <img src={`/icons/${s.slug}.svg`} alt="" width="44" height="44" />
+              <img src={iconOf(s)} alt="" width="44" height="44" />
               <span><strong>{s.name}</strong>{s.kind}</span>
             </a>
           </li>
