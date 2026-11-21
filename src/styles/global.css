@@ -355,3 +355,35 @@ code { font-family: var(--mono); font-size: .92em; }
 .keys td:first-child { color: var(--muted); }
 .keys kbd { padding: 1px 7px; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 6px; background: var(--surface); font: 600 13.5px var(--mono); white-space: nowrap; }
 /* The mode pictures are drawn for a light ground. */
+
+/* The manual of CodeDeck (src/layouts/Manual.astro): navigation at the left, the page beside it. */
+.manual { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); padding-block: 36px; }
+.manual-nav { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 14.5px; }
+.manual-nav a { color: var(--fg); text-decoration: none; }
+.manual-nav a:hover { color: var(--link); }
+.manual-home { display: block; margin-bottom: 18px; font-weight: 800; }
+.manual-part { margin-bottom: 16px; }
+.manual-part p { margin: 0 0 6px; color: var(--muted); font-size: 12.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.manual-part li a { display: block; padding: 3px 0 3px 10px; border-left: 2px solid var(--line); }
+.manual-part li a[aria-current="page"] { border-left-color: var(--accent); color: var(--link); font-weight: 650; }
+.manual-app { display: inline-block; margin-top: 6px; color: var(--muted) !important; font-size: 13.5px; }
+.manual-page { max-width: 76ch; }
+.manual-page h1 { font-size: clamp(1.8rem, 3.4vw, 2.4rem); font-weight: 800; line-height: 1.15; margin-bottom: 14px; }
+.manual-purpose { color: var(--muted); font-size: 1.05rem; padding: 10px 14px; border-left: 3px solid var(--accent); background: var(--surface); border-radius: 0 8px 8px 0; }
+.manual-body h2 { font-size: 1.4rem; font-weight: 800; margin: 2.2em 0 .5em; }
+.manual-body h3 { font-size: 1.12rem; font-weight: 750; margin: 1.6em 0 .4em; }
+.manual-body p, .manual-body li { line-height: 1.65; }
+.manual-body ul, .manual-body ol { padding-left: 1.3em; list-style: revert; }
+.manual-body img { max-width: 100%; height: auto; border-radius: 10px; box-shadow: var(--shadow); }
+.manual-body table { border-collapse: collapse; font-size: 15px; }
+.manual-body th, .manual-body td { text-align: left; padding: 6px 14px 6px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+/* A plan's instructions for writing the page: set apart, they go once the content stands. */
+.plan { margin: 14px 0; padding: 12px 16px; border: 1px dashed color-mix(in srgb, var(--brand) 55%, var(--line)); border-radius: 10px; background: color-mix(in srgb, var(--brand) 5%, transparent); font-size: 14.5px; }
+.plan > :first-child { margin-top: 0; }
+.plan > :last-child { margin-bottom: 0; }
+.plan strong:first-child { color: var(--link); }
+.manual-steps { display: flex; justify-content: space-between; gap: 16px; margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line); font-weight: 650; }
+@media (max-width: 860px) {
+  .manual { grid-template-columns: 1fr; }
+  .manual-nav { position: static; max-height: none; }
+}

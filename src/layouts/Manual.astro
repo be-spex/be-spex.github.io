@@ -1,0 +1,75 @@
+---
+// The manual of CodeDeck (/codedeck/manual/<lang>/): every page is a Markdown file under
+// src/pages/codedeck/manual/<lang>/ with this layout. Its frontmatter says where it stands:
+//   title    heading of the page        nav      shorter title for the navigation (optional)
+//   part     0 start, 1 introduction, 2 tutorial, 3 reference, 4 appendix
+//   order    place within its part      purpose  what the page is for, shown below the heading
+//   draft    true while the page is a plan: not indexed, marked as a draft
+// The navigation is built from all pages of the same language.
+import Base from "./Base.astro";
+import { apps } from "../data/apps";
+
+interface Frontmatter {
+  title: string;
+  nav?: string;
+  part: number;
+  order: number;
+  purpose?: string;
+  draft?: boolean;
+  description?: string;
+}
+const { frontmatter } = Astro.props as { frontmatter: Frontmatter };
+const lang = Astro.url.pathname.split("/")[3] ?? "de";
+const words = {
+  de: { manual: "Handbuch", parts: ["Start", "Einleitung", "Tutorial", "Nachschlagen", "Anhang"], purpose: "Zweck", draft: "Entwurf: Diese Seite ist ein Bauplan. Die Kästen „Arbeitsanweisung“ sagen, was hier entstehen soll; sie verschwinden, sobald der Inhalt steht.", back: "Zurück", next: "Weiter", app: "Zu CodeDeck" },
+  en: { manual: "Manual", parts: ["Start", "Introduction", "Tutorial", "Reference", "Appendix"], purpose: "Purpose", draft: "Draft: this page is a plan. The boxes “Instructions” say what is to be written here; they go once the content stands.", back: "Back", next: "Next", app: "To CodeDeck" },
+}[lang === "en" ? "en" : "de"];
+
+type Page = { url: string; frontmatter: Frontmatter };
+const all = Object.values(import.meta.glob<Page>("../pages/codedeck/manual/**/*.md", { eager: true }))
+  .filter((p) => p.url?.startsWith(`/codedeck/manual/${lang}/`))
+  .sort((a, b) => a.frontmatter.part - b.frontmatter.part || a.frontmatter.order - b.frontmatter.order);
+const here = all.findIndex((p) => p.url.replace(/\/$/, "") === Astro.url.pathname.replace(/\/$/, ""));
+const previous = here > 0 ? all[here - 1] : null;
+const next = here >= 0 && here < all.length - 1 ? all[here + 1] : null;
+const parts = words.parts.map((name, i) => ({ name, pages: all.filter((p) => p.frontmatter.part === i) })).filter((p) => p.pages.length);
+const accent = apps.find((a) => a.slug === "codedeck")?.accent;
+const label = (p: Page) => p.frontmatter.nav ?? p.frontmatter.title;
+---
+<Base
+  title={`${frontmatter.title} – CodeDeck ${words.manual}`}
+  description={frontmatter.description ?? frontmatter.purpose ?? `CodeDeck ${words.manual}`}
+  accent={accent}
+  noindex={frontmatter.draft}
+  lang={lang}
+>
+  <div class="wrap manual">
+    <nav class="manual-nav" aria-label={words.manual}>
+      <a class="manual-home" href={`/codedeck/manual/${lang}/`}>CodeDeck · {words.manual}</a>
+      {parts.map((part) => (
+        <div class="manual-part">
+          {part.name !== words.parts[0] && <p>{part.name}</p>}
+          <ul>
+            {part.pages.map((p) => (
+              <li><a href={p.url} aria-current={p === all[here] ? "page" : undefined}>{label(p)}</a></li>
+            ))}
+          </ul>
+        </div>
+      ))}
+      <a class="manual-app" href="/codedeck/">{words.app}</a>
+    </nav>
+    <article class="manual-page">
+      {frontmatter.draft && <p class="note wip">{words.draft}</p>}
+      <p class="eyebrow">{words.parts[frontmatter.part]}</p>
+      <h1>{frontmatter.title}</h1>
+      {frontmatter.purpose && (
+        <p class="manual-purpose"><strong>{words.purpose}:</strong> {frontmatter.purpose}</p>
+      )}
+      <div class="manual-body"><slot /></div>
+      <footer class="manual-steps">
+        {previous ? <a href={previous.url}>← {label(previous)}</a> : <span />}
+        {next && <a href={next.url}>{label(next)} →</a>}
+      </footer>
+    </article>
+  </div>
+</Base>
