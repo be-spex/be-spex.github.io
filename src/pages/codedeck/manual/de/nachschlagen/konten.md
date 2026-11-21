@@ -1,6 +1,7 @@
 ---
 layout: ../../../../../layouts/Manual.astro
 title: "Konten und Verbrauch"
+nav: "Konten und Verbrauch"
 part: 3
 order: 10
 purpose: >-

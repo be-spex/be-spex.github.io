@@ -358,13 +358,14 @@ code { font-family: var(--mono); font-size: .92em; }
 
 /* The manual of CodeDeck (src/layouts/Manual.astro): navigation at the left, the page beside it. */
 .manual { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); padding-block: 36px; }
-.manual-nav { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 14.5px; }
+.manual-nav { position: sticky; top: 92px; align-self: start; max-height: calc(100vh - 116px); overflow-y: auto; font-size: 14.5px; }
 .manual-nav a { color: var(--fg); text-decoration: none; }
 .manual-nav a:hover { color: var(--link); }
 .manual-home { display: block; margin-bottom: 18px; font-weight: 800; }
 .manual-part { margin-bottom: 16px; }
 .manual-part p { margin: 0 0 6px; color: var(--muted); font-size: 12.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-.manual-part li a { display: block; padding: 3px 0 3px 10px; border-left: 2px solid var(--line); }
+.manual-part li a { display: flex; gap: 8px; padding: 3px 0 3px 10px; border-left: 2px solid var(--line); line-height: 1.35; }
+.manual-mark { flex: 0 0 1.3em; color: var(--muted); font-variant-numeric: tabular-nums; text-align: right; }
 .manual-part li a[aria-current="page"] { border-left-color: var(--accent); color: var(--link); font-weight: 650; }
 .manual-app { display: inline-block; margin-top: 6px; color: var(--muted) !important; font-size: 13.5px; }
 .manual-page { max-width: 76ch; }
@@ -382,6 +383,11 @@ code { font-family: var(--mono); font-size: .92em; }
 .plan > :first-child { margin-top: 0; }
 .plan > :last-child { margin-bottom: 0; }
 .plan strong:first-child { color: var(--link); }
+/* A box set apart from the running text, e.g. the technical background at the end of a page. */
+.box { margin: 22px 0; padding: 14px 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); font-size: 15px; }
+.box > :first-child { margin-top: 0; }
+.box > :last-child { margin-bottom: 0; }
+.box h3 { margin-top: 0 !important; }
 .manual-steps { display: flex; justify-content: space-between; gap: 16px; margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line); font-weight: 650; }
 @media (max-width: 860px) {
   .manual { grid-template-columns: 1fr; }

@@ -1,6 +1,7 @@
 ---
 layout: ../../../../../layouts/Manual.astro
 title: "E · Installation und Aktualisierung"
+nav: "Installation"
 part: 4
 order: 5
 purpose: >-

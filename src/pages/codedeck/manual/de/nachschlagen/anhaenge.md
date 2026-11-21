@@ -1,6 +1,7 @@
 ---
 layout: ../../../../../layouts/Manual.astro
 title: "Anhänge und Nächster Prompt"
+nav: "Nächster Prompt"
 part: 3
 order: 6
 purpose: >-

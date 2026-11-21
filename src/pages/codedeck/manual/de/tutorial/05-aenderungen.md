@@ -1,6 +1,7 @@
 ---
 layout: ../../../../../layouts/Manual.astro
 title: "Wenn eine Runde fertig ist: Änderungen"
+nav: "Änderungen"
 part: 2
 order: 5
 purpose: >-

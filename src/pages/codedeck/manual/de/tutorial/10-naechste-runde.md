@@ -1,6 +1,7 @@
 ---
 layout: ../../../../../layouts/Manual.astro
 title: "Die Runde abschließen"
+nav: "Runde abschließen"
 part: 2
 order: 10
 purpose: >-

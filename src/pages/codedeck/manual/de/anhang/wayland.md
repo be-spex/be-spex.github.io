@@ -1,6 +1,7 @@
 ---
 layout: ../../../../../layouts/Manual.astro
 title: "C · Wayland und X11"
+nav: "Wayland und X11"
 part: 4
 order: 3
 purpose: >-

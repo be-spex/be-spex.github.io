@@ -1,6 +1,7 @@
 ---
 layout: ../../../../../layouts/Manual.astro
 title: "KI-Sessions im Detail"
+nav: "KI-Sessions"
 part: 3
 order: 3
 purpose: >-

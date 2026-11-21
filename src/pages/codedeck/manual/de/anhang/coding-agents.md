@@ -1,6 +1,7 @@
 ---
 layout: ../../../../../layouts/Manual.astro
 title: "B · Coding-Agents"
+nav: "Coding-Agents"
 part: 4
 order: 2
 purpose: >-

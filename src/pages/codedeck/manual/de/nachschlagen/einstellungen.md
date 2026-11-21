@@ -1,6 +1,7 @@
 ---
 layout: ../../../../../layouts/Manual.astro
 title: "Einstellungen, Themes und Sprache"
+nav: "Einstellungen"
 part: 3
 order: 11
 purpose: >-

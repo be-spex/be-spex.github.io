@@ -1,6 +1,7 @@
 ---
 layout: ../../../../../layouts/Manual.astro
 title: "Vorbereitung: CodeDeck einrichten"
+nav: "Vorbereitung"
 part: 2
 order: 1
 purpose: >-

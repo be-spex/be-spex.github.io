@@ -1,6 +1,7 @@
 ---
 layout: ../../../../../layouts/Manual.astro
 title: "Das Projektfenster"
+nav: "Das Projektfenster"
 part: 2
 order: 2
 purpose: >-

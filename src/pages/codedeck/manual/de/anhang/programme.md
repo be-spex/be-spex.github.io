@@ -1,6 +1,7 @@
 ---
 layout: ../../../../../layouts/Manual.astro
 title: "A · Benötigte und hilfreiche Programme"
+nav: "Programme"
 part: 4
 order: 1
 purpose: >-

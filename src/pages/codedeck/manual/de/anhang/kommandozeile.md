@@ -1,6 +1,7 @@
 ---
 layout: ../../../../../layouts/Manual.astro
 title: "D · Kommandozeile"
+nav: "Kommandozeile"
 part: 4
 order: 4
 purpose: >-

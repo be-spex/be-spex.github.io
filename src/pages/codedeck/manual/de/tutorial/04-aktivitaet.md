@@ -1,6 +1,7 @@
 ---
 layout: ../../../../../layouts/Manual.astro
 title: "Während sie arbeitet: Aktivität"
+nav: "Aktivität"
 part: 2
 order: 4
 purpose: >-

@@ -1,6 +1,7 @@
 ---
 layout: ../../../../../layouts/Manual.astro
 title: "Git-Grundlagen für CodeDeck"
+nav: "Git-Grundlagen"
 part: 3
 order: 2
 purpose: >-

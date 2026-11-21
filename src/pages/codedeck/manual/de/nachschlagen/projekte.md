@@ -1,6 +1,7 @@
 ---
 layout: ../../../../../layouts/Manual.astro
 title: "Projekte und Fenster"
+nav: "Projekte und Fenster"
 part: 3
 order: 9
 purpose: >-

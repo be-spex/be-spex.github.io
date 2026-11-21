@@ -1,6 +1,7 @@
 ---
 layout: ../../../../../layouts/Manual.astro
 title: "Eine KI-Session starten und verfolgen"
+nav: "KI-Session starten"
 part: 2
 order: 3
 purpose: >-

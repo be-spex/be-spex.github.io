@@ -1,6 +1,7 @@
 ---
 layout: ../../../../../layouts/Manual.astro
 title: "Wenn etwas nicht klappt"
+nav: "Wenn etwas nicht klappt"
 part: 3
 order: 14
 purpose: >-

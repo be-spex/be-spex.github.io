@@ -1,6 +1,7 @@
 ---
 layout: ../../../../../layouts/Manual.astro
 title: "KI-Grundlagen für CodeDeck"
+nav: "KI-Grundlagen"
 part: 3
 order: 1
 purpose: >-

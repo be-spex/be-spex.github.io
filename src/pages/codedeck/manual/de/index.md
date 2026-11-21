@@ -1,6 +1,7 @@
 ---
 layout: ../../../../layouts/Manual.astro
 title: "CodeDeck-Handbuch"
+nav: "Start"
 part: 0
 order: 0
 purpose: >-

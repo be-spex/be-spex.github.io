@@ -1,6 +1,7 @@
 ---
 layout: ../../../../../layouts/Manual.astro
 title: "Sicher aufbewahrt: Trail und Sicherungspunkte"
+nav: "Trail und Sicherungspunkte"
 part: 2
 order: 8
 purpose: >-

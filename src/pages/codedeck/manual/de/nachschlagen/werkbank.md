@@ -1,6 +1,7 @@
 ---
 layout: ../../../../../layouts/Manual.astro
 title: "Werkbank, Scratch-Ordner und @ai-Hinweise"
+nav: "Werkbank"
 part: 3
 order: 7
 purpose: >-

@@ -1,6 +1,7 @@
 ---
 layout: ../../../../../layouts/Manual.astro
 title: "Übergabe: Nächster Prompt"
+nav: "Nächster Prompt"
 part: 2
 order: 7
 purpose: >-

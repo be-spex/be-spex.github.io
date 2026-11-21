@@ -34,13 +34,20 @@ const previous = here > 0 ? all[here - 1] : null;
 const next = here >= 0 && here < all.length - 1 ? all[here + 1] : null;
 const parts = words.parts.map((name, i) => ({ name, pages: all.filter((p) => p.frontmatter.part === i) })).filter((p) => p.pages.length);
 const accent = apps.find((a) => a.slug === "codedeck")?.accent;
+// Until the manual is linked from the site (menu entry "Handbuch"), no page of it goes into search
+// engines, finished or not; it is not in the sitemap either. Set to true at the launch.
+const listed = false;
 const label = (p: Page) => p.frontmatter.nav ?? p.frontmatter.title;
+// Tutorial chapters carry their number, appendix pages their letter, in a column of their own, so
+// the short labels stay on one line and line up.
+const mark = (p: Page) =>
+  p.frontmatter.order === 0 ? "" : p.frontmatter.part === 2 ? String(p.frontmatter.order) : p.frontmatter.part === 4 ? "ABCDEFGHIJ"[p.frontmatter.order - 1] : "";
 ---
 <Base
   title={`${frontmatter.title} – CodeDeck ${words.manual}`}
   description={frontmatter.description ?? frontmatter.purpose ?? `CodeDeck ${words.manual}`}
   accent={accent}
-  noindex={frontmatter.draft}
+  noindex={!listed || frontmatter.draft}
   lang={lang}
 >
   <div class="wrap manual">
@@ -51,7 +58,7 @@ const label = (p: Page) => p.frontmatter.nav ?? p.frontmatter.title;
           {part.name !== words.parts[0] && <p>{part.name}</p>}
           <ul>
             {part.pages.map((p) => (
-              <li><a href={p.url} aria-current={p === all[here] ? "page" : undefined}>{label(p)}</a></li>
+              <li><a href={p.url} aria-current={p === all[here] ? "page" : undefined} title={p.frontmatter.title}>{mark(p) && <span class="manual-mark">{mark(p)}</span>}{label(p)}</a></li>
             ))}
           </ul>
         </div>
@@ -72,4 +79,20 @@ const label = (p: Page) => p.frontmatter.nav ?? p.frontmatter.title;
       </footer>
     </article>
   </div>
+  <script is:inline>
+    // Every page loads anew, and the navigation would start at its top again: keep where it was
+    // scrolled to, or else bring the current page into view.
+    (() => {
+      const nav = document.querySelector(".manual-nav");
+      if (!nav) return;
+      const kept = sessionStorage.getItem("manual-nav");
+      if (kept !== null) nav.scrollTop = Number(kept);
+      const here = nav.querySelector('[aria-current="page"]');
+      if (here) {
+        const box = nav.getBoundingClientRect(), item = here.getBoundingClientRect();
+        if (item.top < box.top || item.bottom > box.bottom) here.scrollIntoView({ block: "center" });
+      }
+      addEventListener("pagehide", () => sessionStorage.setItem("manual-nav", String(nav.scrollTop)));
+    })();
+  </script>
 </Base>

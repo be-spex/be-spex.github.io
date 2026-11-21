@@ -1,6 +1,7 @@
 ---
 layout: ../../../../../layouts/Manual.astro
 title: "Änderungen, Runden und Diffs"
+nav: "Änderungen und Runden"
 part: 3
 order: 4
 purpose: >-

@@ -1,6 +1,7 @@
 ---
 layout: ../../../../../layouts/Manual.astro
 title: "Wartet auf dich: Meldungen und Nicht stören"
+nav: "Meldungen"
 part: 3
 order: 8
 purpose: >-

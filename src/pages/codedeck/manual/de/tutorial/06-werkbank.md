@@ -1,6 +1,7 @@
 ---
 layout: ../../../../../layouts/Manual.astro
 title: "Was sonst anfiel: Werkbank"
+nav: "Werkbank"
 part: 2
 order: 6
 purpose: >-
