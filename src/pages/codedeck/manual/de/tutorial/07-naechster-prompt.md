@@ -28,7 +28,7 @@ Angehängt wird mit der **Büroklammer** dort, wo dir etwas begegnet:
 
 Auch Textstellen aus den Betrachtern von be spex können hier landen, im Bild unten eine Abfrage aus Jayq. Alles, was angehängt ist, sammelt der Reiter Nächster Prompt, nach Art geordnet und jeweils mit seiner Herkunft.
 
-![Der Reiter Nächster Prompt: oben „Für: Wählen …“, darunter die angehängten Dateien mit ihrer geschätzten Größe in Tokens, eine Abfrage aus Jayq und ein Ordner, darunter die Startregeln](/codedeck/manual/de/naechster-prompt-reiter.webp)
+![Der Reiter Nächster Prompt: oben „Für: Wählen…“, darunter die angehängten Dateien mit ihrer geschätzten Größe in Tokens, eine Abfrage aus Jayq und ein Ordner, darunter die Startregeln](/codedeck/manual/de/naechster-prompt-reiter.webp)
 
 Mit dem Kreuz an einem Eintrag nimmst du ihn wieder heraus, mit **alle entfernen** eine ganze Art. Die Zahl neben jeder Datei schätzt, wie viele **Tokens** es kostet, wenn die KI die Datei liest. Tokens sind die Einheit, in der Coding-Agents Text zählen und abrechnen. Große Anhänge füllen also das Gedächtnis der Session und dein Kontingent schneller.
 
@@ -57,7 +57,7 @@ Wählst du eine Session, bekommt nur sie die Anhänge, mit ihrem nächsten Promp
 
 Unten in der Sessionspalte steht immer eine **Zusammenfassung** des Reiters: für wen die Anhänge sind, worauf sie warten, wie viel von welcher Art angehängt ist und wie viele Tokens es ungefähr kostet, wenn die KI alle Dateien liest. **Öffnen** führt in den Reiter, **Leeren** entfernt alle Anhänge.
 
-![Die Zusammenfassung „Nächster Prompt“ unten in der Sessionspalte: „Für: Wählen …“, „Wartet auf deinen nächsten Prompt“, „4 Dateien“ und „etwa 7.7k Tokens, wenn Claude alle Dateien liest“](/codedeck/manual/de/naechster-prompt-zusammenfassung.webp)
+![Die Zusammenfassung „Nächster Prompt“ unten in der Sessionspalte: „Für: Wählen…“, „Wartet auf deinen nächsten Prompt“, „4 Dateien“ und „etwa 7.7k Tokens, wenn Claude alle Dateien liest“](/codedeck/manual/de/naechster-prompt-zusammenfassung.webp)
 
 ## Die Startregeln
 

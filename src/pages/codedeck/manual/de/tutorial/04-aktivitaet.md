@@ -54,7 +54,7 @@ Die meisten Coding-Agents arbeiten mit einem **Kontingent**: In einem bestimmten
 
 Jeder Balken nennt, wie viel Prozent verbraucht sind, wann das Kontingent neu beginnt und wie viel des Zeitraums schon vorbei ist. Die weiße Markierung im Balken zeigt diesen Anteil der Zeit: Reicht der Balken über die Markierung hinaus, verbrauchst du schneller, als die Zeit vergeht. Wird es knapp, färbt sich der Balken bernsteinfarben und warnt **bei diesem Tempo vor dem Reset aufgebraucht**.
 
-CodeDeck schätzt dabei nichts, die Zahlen kommen vom Coding-Agent selbst über seine Statuszeile, und zwar mit einer laufenden Session. Bevor die erste Session geantwortet hat, gibt es deshalb noch keine Zahlen. Wenn die Zahlen noch nicht eingerichtet sind, klickst du auf die Balken oben in der Sessionspalte und dort auf **Einrichten …**. Die Balken in der Sessionspalte zeigen nur das Konto des Projekts, die Karten hier alle Konten. Mehr dazu steht unter [Konten und Verbrauch](/codedeck/manual/de/nachschlagen/konten/).
+CodeDeck schätzt dabei nichts, die Zahlen kommen vom Coding-Agent selbst über seine Statuszeile, und zwar mit einer laufenden Session. Bevor die erste Session geantwortet hat, gibt es deshalb noch keine Zahlen. Wenn die Zahlen noch nicht eingerichtet sind, klickst du auf die Balken oben in der Sessionspalte und dort auf **Einrichten…**. Die Balken in der Sessionspalte zeigen nur das Konto des Projekts, die Karten hier alle Konten. Mehr dazu steht unter [Konten und Verbrauch](/codedeck/manual/de/nachschlagen/konten/).
 
 ## Geschriebene Dokumente und die Glocke
 

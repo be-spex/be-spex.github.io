@@ -64,9 +64,9 @@ Für CodeDeck ist ein **Projekt** ein Ordner, in dem du mit einem Coding-Agent a
 
 Beim ersten Start ist die Liste noch leer, und CodeDeck bietet dir zwei Wege an, sie zu füllen.
 
-![Die leere Projektliste mit dem Hinweis „Noch keine Projekte“ und den beiden Knöpfen „Projekt hinzufügen …“ und „Alle Projekte in einem Verzeichnis…“](/codedeck/manual/de/vorbereitung-leere-liste.webp)
+![Die leere Projektliste mit dem Hinweis „Noch keine Projekte“ und den beiden Knöpfen „Projekt hinzufügen…“ und „Alle Projekte in einem Verzeichnis…“](/codedeck/manual/de/vorbereitung-leere-liste.webp)
 
-Mit **Projekt hinzufügen …** wählst du einen einzelnen Ordner aus, der dann auf die Liste kommt. Mit **Alle Projekte in einem Verzeichnis…** wählst du einen übergeordneten Ordner, und CodeDeck nimmt jeden Ordner darin als eigenes Projekt auf. Das ist praktisch, wenn du alle deine Projekte zum Beispiel unter `~/projects` sammelst.
+Mit **Projekt hinzufügen…** wählst du einen einzelnen Ordner aus, der dann auf die Liste kommt. Mit **Alle Projekte in einem Verzeichnis…** wählst du einen übergeordneten Ordner, und CodeDeck nimmt jeden Ordner darin als eigenes Projekt auf. Das ist praktisch, wenn du alle deine Projekte zum Beispiel unter `~/projects` sammelst.
 
 Später, wenn die Liste nicht mehr leer ist, findest du beide Befehle im Menü ⋯ neben der Überschrift „Projekte“. Ein Klick auf ein Projekt in der Liste öffnet es in einem **Projektfenster**. Wie dieses Fenster aufgebaut ist, zeigt dir das nächste Kapitel ausführlich.
 
