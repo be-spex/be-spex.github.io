@@ -37,7 +37,11 @@ Gib deiner Session jetzt einen Auftrag. Schreibe dazu im Chat der Session, also 
 
 Jede Session steht in der Liste als **Karte**. Die Karten stehen in der Reihenfolge, in der die Sessions gestartet wurden, und behalten ihren Platz. So springt nichts, wenn eine Session fragt oder fertig wird.
 
-Oben auf der Karte stehen der Kurzname, der Titel der Session und rechts ihr **Status** als farbige Marke:
+Oben auf der Karte stehen der Kurzname, der Titel der Session und rechts ihr **Status** als farbige Marke.
+
+![Drei Session-Karten nebeneinander: links „arbeitet“ mit dem aktuellen Schritt, in der Mitte „fragt · 3 min“ mit der Erlaubnisfrage, dem Befehl und dem Knopf „Antworten“, rechts „Runde fertig · vor 6 min“ mit den letzten Worten der Session und „Runde ansehen“](/codedeck/manual/de/session-starten-zustaende.webp)
+
+Die wichtigsten Zustände sind diese:
 
 - **arbeitet** bedeutet, dass die Session gerade an deinem Auftrag arbeitet. Darunter steht der Schritt, an dem sie ist, zum Beispiel die Datei, die sie gerade bearbeitet.
 - **fragt** bedeutet, dass die Session auf eine Antwort von dir wartet, und die Zeit daneben sagt, seit wann. Darunter steht ihre Frage. Wenn sie um Erlaubnis für einen Befehl oder eine Datei bittet, steht der Befehl oder die Datei gleich mit dabei, damit du ohne Umweg entscheiden kannst.
@@ -65,7 +69,11 @@ Eine Einschränkung solltest du kennen: Bei Claude Code kommen Erlaubnisfragen d
 
 Ist eine Runde fertig, zeigt die Karte zusätzlich **Runde ansehen**. Dieser Knopf öffnet im Deck den Reiter Änderungen mit genau dem, was die Session in dieser Runde geändert hat. Darum geht es in [Kapitel 5](/codedeck/manual/de/tutorial/05-aenderungen/). Bei einer beendeten Session steht dort **Fortsetzen**: Damit setzt du ihre Unterhaltung in einer neuen Session in tmux fort.
 
-Wenn du mit der Maus auf eine Karte zeigst, erscheinen rechts oben weitere Werkzeuge. Je nach Session sind das **In der Desktop-App öffnen** und **In einem Terminal öffnen**, außerdem **Neu starten** und **Beenden** für Sessions, die CodeDeck gestartet hat. Beenden hält nur das Programm an: Die Unterhaltung bleibt erhalten und lässt sich fortsetzen. Eine Session, die du von Hand gestartet hast, endet dagegen dort, wo sie läuft. Bei einer fertigen Runde findest du außerdem das Häkchen **Angesehen**, das die Karte bis zur nächsten Runde beiseitelegt. Das Menü **Mehr** öffnest du auch mit einem Rechtsklick. Darin kannst du die Session umbenennen und ihr einen eigenen Kurznamen geben, ihren Startbefehl kopieren oder eine Session, die nicht mehr läuft, aus der Liste nehmen.
+Wenn du mit der Maus auf eine Karte zeigst, erscheinen links neben dem Knopf kleine Werkzeuge als Symbole. Was jedes Symbol tut, sagt dir sein Hinweis, wenn du darauf zeigst.
+
+![Eine Session-Karte mit eingeblendeten Werkzeugen: Desktop-App, Terminal und ⋯ neben dem Knopf „Desktop“, darunter das geöffnete Menü mit „Umbenennen“, „Startbefehl kopieren“ und „Aus der Liste nehmen“](/codedeck/manual/de/session-starten-werkzeuge.webp)
+
+Je nach Session sind das **In der Desktop-App öffnen** und **In einem Terminal öffnen**, außerdem **Neu starten** und **Beenden** für Sessions, die CodeDeck gestartet hat. Beenden hält nur das Programm an: Die Unterhaltung bleibt erhalten und lässt sich fortsetzen. Eine Session, die du von Hand gestartet hast, endet dagegen dort, wo sie läuft. Bei einer fertigen Runde findest du außerdem das Häkchen **Angesehen**, das die Karte bis zur nächsten Runde beiseitelegt. Das letzte Symbol, ⋯, öffnet das Menü **Mehr**. Dasselbe Menü öffnest du mit einem Rechtsklick auf die Karte. Darin kannst du die Session umbenennen und ihr einen eigenen Kurznamen geben, ihren Startbefehl kopieren oder eine Session, die nicht mehr läuft, aus der Liste nehmen.
 
 ## Coding-Agent und Konto wählen
 
