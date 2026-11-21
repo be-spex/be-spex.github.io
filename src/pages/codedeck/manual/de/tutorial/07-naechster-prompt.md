@@ -28,7 +28,7 @@ Angehängt wird mit der **Büroklammer** dort, wo dir etwas begegnet:
 
 Auch Textstellen aus den Betrachtern von be spex können hier landen, im Bild unten eine Abfrage aus Jayq. Alles, was angehängt ist, sammelt der Reiter Nächster Prompt, nach Art geordnet und jeweils mit seiner Herkunft.
 
-![Der Reiter Nächster Prompt: oben „Für: Wählen…“, darunter die angehängten Dateien mit ihrer geschätzten Größe in Tokens, eine Abfrage aus Jayq und ein Ordner, darunter die Startregeln](/codedeck/manual/de/naechster-prompt-reiter.webp)
+![Der Reiter Nächster Prompt: oben „Für: Wählen…“, darunter die angehängten Dateien mit ihrer geschätzten Größe in Tokens, eine Abfrage aus Jayq und ein Ordner](/codedeck/manual/de/naechster-prompt-liste.webp)
 
 Mit dem Kreuz an einem Eintrag nimmst du ihn wieder heraus, mit **alle entfernen** eine ganze Art. Die Zahl neben jeder Datei schätzt, wie viele **Tokens** es kostet, wenn die KI die Datei liest. Tokens sind die Einheit, in der Coding-Agents Text zählen und abrechnen. Große Anhänge füllen also das Gedächtnis der Session und dein Kontingent schneller.
 
@@ -60,6 +60,8 @@ Unten in der Sessionspalte steht immer eine **Zusammenfassung** des Reiters: fü
 ![Die Zusammenfassung „Nächster Prompt“ unten in der Sessionspalte: „Für: Wählen…“, „Wartet auf deinen nächsten Prompt“, „4 Dateien“ und „etwa 7.7k Tokens, wenn Claude alle Dateien liest“](/codedeck/manual/de/naechster-prompt-zusammenfassung.webp)
 
 ## Die Startregeln
+
+![Die Startregeln: „zuletzt um 11:56 an Per-client rate limit for orders“, darunter die Erklärung und die beiden Regeln im Wortlaut](/codedeck/manual/de/naechster-prompt-startregeln.webp)
 
 Unter den Anhängen stehen die **Startregeln**. Sie sind kein Anhang: Jede neue Session bekommt sie einmal beim Start, solange das Projekt in CodeDeck offen ist, und noch einmal, nachdem ihr Gedächtnis geleert oder verdichtet wurde. Heute sind es zwei kurze Regeln: Entwürfe und Wegwerf-Dateien gehören in den Scratch-Ordner, und wenn die KI eine Seite irgendwo veröffentlicht, nennt sie deren Link. Die Regeln stehen hier Wort für Wort, damit du jederzeit siehst, was die KI von CodeDeck bekommt.
 

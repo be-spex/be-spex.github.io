@@ -15,13 +15,13 @@ Neben den eigentlichen Änderungen entsteht während einer Runde oft noch mehr: 
 
 Würde die KI ihre Entwürfe und Wegwerf-Dateien einfach irgendwo ins Projekt legen, lägen sie zwischen den echten Änderungen und landeten leicht in einem Commit. Deshalb bekommt jede neue KI-Session von CodeDeck eine **Startregel** mit: Entwürfe, Mock-ups, Wegwerf-Skripte und Testdaten gehören in den Ordner `.scratch/` im Projekt. Was trotzdem anderswo landet, findet CodeDeck ebenfalls und zeigt es dir.
 
-![Der Reiter Werkbank mit drei Kacheln: oben „Außerhalb des Projekts“ mit zwei Dateien und einer Seite online, darunter „Hinweise in deinen Dateien“ mit drei offenen Hinweisen, unten der Scratch-Ordner mit Dateien und Ordnern](/codedeck/manual/de/werkbank-reiter.webp)
-
 Die Werkbank zeigt ihren Inhalt in **Kacheln**, oben das, was am ehesten eine Entscheidung von dir braucht. Was du seit deinem letzten Blick noch nicht gesehen hast, trägt die Marke **neu** oder **geändert**, und am Reiter zeigt ein Punkt, dass es Neues gibt. Jede Kachel lässt sich mit dem Pfeil vor ihrem Titel zuklappen, und das Fragezeichen rechts erklärt sie.
 
 ## Der Scratch-Ordner
 
 Der **Scratch-Ordner** `.scratch/` liegt in deinem Projekt, wird von Git aber ignoriert. CodeDeck trägt ihn dafür in die lokale Ausschlussliste von Git ein (`.git/info/exclude`), nicht in die `.gitignore`, sodass sich an deinem Projekt nichts ändert. Was dort liegt, kommt also nie aus Versehen in einen Commit.
+
+![Die Kachel Scratch-Ordner mit 19 Dateien: Dateien mit Größe und Alter, zwei davon als „neu“ markiert, zwei Ordner, oben der Knopf „2 älter als 7 Tage löschen“](/codedeck/manual/de/werkbank-scratch.webp)
 
 Die Kachel listet die Dateien und Ordner mit Größe, Alter und der Session, die sie geschrieben hat. Mit den Werkzeugen rechts siehst du eine Datei an, bearbeitest sie, zeigst sie im Dateimanager oder legst sie in den Papierkorb. Ein Doppelklick öffnet eine Datei zum Ansehen, ein Klick mit der mittleren Maustaste zum Bearbeiten.
 
@@ -29,7 +29,10 @@ Willst du eine Datei behalten, **ziehst du sie auf einen Ordner in der Dateilist
 
 ## Außerhalb des Projekts
 
-Manchmal schreibt eine Session trotzdem eine Datei außerhalb des Projekts, zum Beispiel nach `/tmp` oder in ihren eigenen Ordner. Solche Dateien zeigt die Kachel **Außerhalb des Projekts** unter **Dateien**, mit der Session, die sie geschrieben hat. Mit **In den Scratch-Ordner** holst du eine Kopie ins Projekt, von dort kannst du sie wie oben ins Projekt ziehen. Das Original bleibt, wo es ist.
+Manchmal schreibt eine Session trotzdem eine Datei außerhalb des Projekts, zum Beispiel nach `/tmp` oder in ihren eigenen Ordner. Solche Dateien zeigt die Kachel **Außerhalb des Projekts** unter **Dateien**, mit der Session, die sie geschrieben hat.
+
+![Die Kachel „Außerhalb des Projekts“: unter Dateien eine neue Datei in ~/.claude/plans mit dem Knopf „In den Scratch-Ordner“ und eine bereits kopierte Datei aus /tmp, unter Online ein Artefakt auf claude.ai](/codedeck/manual/de/werkbank-ausserhalb.webp)
+ Mit **In den Scratch-Ordner** holst du eine Kopie ins Projekt, von dort kannst du sie wie oben ins Projekt ziehen. Das Original bleibt, wo es ist.
 
 Unter **Online** stehen Seiten, die eine Session im Internet veröffentlicht hat, etwa ein Artefakt auf claude.ai, ein Gist oder ein Paste. Davon gibt es keine Datei, nur die Adresse, die die Session am Ende ihrer Runde nennt. CodeDeck merkt sie sich, damit sie nicht im Chat verloren geht. Du öffnest die Seite im Browser oder kopierst ihren Link.
 
@@ -47,6 +50,8 @@ Manchmal fällt dir beim Lesen einer Datei etwas auf, das die KI erledigen soll.
 ```
 
 Wichtig ist, dass `@ai` am Anfang der Zeile steht. Steht schon anderer Text davor, oder steht die Zeile in einem Codeblock in einer Markdown-Datei, ist sie kein Hinweis. So bleiben Texte, die nur über solche Hinweise sprechen, außen vor.
+
+![Die Kachel „Hinweise in deinen Dateien“ mit drei offenen Hinweisen in docs/api.md und docs/limits.md, jeweils mit Zeilennummer, rechts oben „Alle anhängen“](/codedeck/manual/de/werkbank-hinweise.webp)
 
 Die Kachel **Hinweise in deinen Dateien** sammelt alle Hinweise im Projekt mit Datei und Zeile. Mit der Büroklammer an einem Hinweis hängst du ihn an deinen nächsten Prompt, mit **Alle anhängen** alle auf einmal. Hat die KI einen Hinweis erledigt und die Zeile entfernt, verschwindet er aus der Liste, und CodeDeck zählt ihn als erledigt. Kann dein Coding-Agent keine Anhänge entgegennehmen, kopierst du die Hinweise mit **Als Aufgabe kopieren** und fügst sie im Chat ein.
 

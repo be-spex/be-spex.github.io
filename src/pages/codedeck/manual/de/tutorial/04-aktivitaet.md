@@ -26,7 +26,7 @@ Zeigst du mit der Maus auf einen Reiter, erklärt er in ein paar Sätzen, wofür
 
 Oben im Reiter Aktivität steht die **Zeitleiste** des Tages. Jede KI-Session hat darin eine Zeile mit ihrem Kurznamen, ihrem Titel, der Zahl ihrer Runden und dem Zeitpunkt, an dem sie zuletzt aktiv war.
 
-![Der Reiter Aktivität: oben die Zeitleiste mit drei Sessions, darunter „Wie sicher ist deine Arbeit“ mit 6 Dateien, 3 Commits und 9 Snapshots, dann die Verbrauchskarten zweier Konten und die Liste „Geschriebene Dokumente“](/codedeck/manual/de/aktivitaet-reiter.webp)
+![Oben der Reiter Aktivität mit der Zeitleiste des Tages: drei Sessions mit ihren Blöcken, darüber die Legende mit „arbeitet“, „fragt“, „im Hintergrund“ und „Snapshot vor einer Runde“](/codedeck/manual/de/aktivitaet-zeitleiste.webp)
 
 Die Blöcke in einer Zeile zeigen, was die Session wann getan hat. Die Legende über der Zeitleiste nennt die Zeichen:
 
@@ -42,6 +42,9 @@ Zeigst du mit der Maus auf einen Block, siehst du den Prompt, der die Runde ausg
 
 Darunter fasst CodeDeck in drei Zahlen zusammen, wie gut deine Arbeit gerade gesichert ist:
 
+![„Wie sicher ist deine Arbeit“: 6 Dateien nicht committet, 3 Commits committet, noch nicht gepusht, 9 Snapshots zum Zurückgehen, darunter ein erklärender Satz](/codedeck/manual/de/aktivitaet-sicherheit.webp)
+
+
 - **Nicht committet** zählt die Dateien mit Änderungen, die noch nicht in Git gesichert sind. Sie gibt es nur in deinem Projektordner und in den Snapshots.
 - **Committet, noch nicht gepusht** zählt die Commits, die nur auf deinem Rechner liegen und noch nicht auf dem Server.
 - **Snapshots zum Zurückgehen** zählt die Snapshots, zu denen du zurückkehren kannst.
@@ -52,6 +55,8 @@ Der Satz darunter sagt, was das für dich bedeutet, zum Beispiel „Was noch nic
 
 Die meisten Coding-Agents arbeiten mit einem **Kontingent**: In einem bestimmten Zeitraum darfst du nur eine gewisse Menge nutzen, danach musst du warten, bis es neu beginnt. Der Abschnitt **Verbrauch** zeigt für jedes Konto eine Karte mit einem Balken je Zeitraum, bei Claude Code für die letzten fünf Stunden und für die Woche.
 
+![Der Abschnitt Verbrauch mit den Karten der Konten Work und Private, je ein Balken für die letzten fünf Stunden und für die Woche; bei Private ist der Fünf-Stunden-Balken bernsteinfarben mit der Warnung „bei diesem Tempo vor dem Reset aufgebraucht“](/codedeck/manual/de/aktivitaet-verbrauch.webp)
+
 Jeder Balken nennt, wie viel Prozent verbraucht sind, wann das Kontingent neu beginnt und wie viel des Zeitraums schon vorbei ist. Die weiße Markierung im Balken zeigt diesen Anteil der Zeit: Reicht der Balken über die Markierung hinaus, verbrauchst du schneller, als die Zeit vergeht. Wird es knapp, färbt sich der Balken bernsteinfarben und warnt **bei diesem Tempo vor dem Reset aufgebraucht**.
 
 CodeDeck schätzt dabei nichts, die Zahlen kommen vom Coding-Agent selbst über seine Statuszeile, und zwar mit einer laufenden Session. Bevor die erste Session geantwortet hat, gibt es deshalb noch keine Zahlen. Wenn die Zahlen noch nicht eingerichtet sind, klickst du auf die Balken oben in der Sessionspalte und dort auf **Einrichten…**. Die Balken in der Sessionspalte zeigen nur das Konto des Projekts, die Karten hier alle Konten. Mehr dazu steht unter [Konten und Verbrauch](/codedeck/manual/de/nachschlagen/konten/).
@@ -59,6 +64,8 @@ CodeDeck schätzt dabei nichts, die Zahlen kommen vom Coding-Agent selbst über 
 ## Geschriebene Dokumente und die Glocke
 
 Ganz unten listet **Geschriebene Dokumente** die Markdown-, HTML- und Textdateien, die deine Sessions in den letzten 24 Stunden geschrieben haben, die neueste oben. Oft ist ein solches Dokument das eigentliche Ergebnis einer Runde, etwa ein Konzept oder eine Zusammenfassung. Mit dem Auge öffnest du es zum Lesen, mit dem Stift zum Bearbeiten in deinem Editor.
+
+![„Geschriebene Dokumente – letzte 24 Stunden“ mit zwei Markdown-Dateien, jeweils mit dem Kurznamen der Session, der Uhrzeit und den Symbolen zum Ansehen und Bearbeiten](/codedeck/manual/de/aktivitaet-dokumente.webp)
 
 Die **Glocke** rechts in der Reiterleiste öffnet **Hinweise und Tipps**. Dort findest du Tipps zum gerade offenen Reiter, die letzten Ereignisse im Projekt unter **Was geschah**, was jeder Coding-Agent mit CodeDeck kann, und unter **Erkannt auf diesem Rechner**, welche Programme CodeDeck gefunden hat.
 
