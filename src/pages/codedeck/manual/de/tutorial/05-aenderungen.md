@@ -9,70 +9,65 @@ purpose: >-
 draft: true
 ---
 
-<aside class="plan">
-
-**Arbeitsanweisung:** Entspricht Schritt 4 der Führung; zentrales Kapitel, besonders ausführlich. Prüfen: `ChangesView.tsx`,
- `DiffParts.tsx`, `src/turns.ts`, `src/notes.ts`, `src/reviewed.ts`, `RowTools.tsx`. Bilder: Änderungen „alles
- nicht Committete“, eine Runde gewählt, Kommentar an einer Zeile, Schalter „Angesehen“, Werkzeuge einer Zeile,
- Kurzbericht der Runde.
-
-</aside>
+Deine Session meldet **Runde fertig**. Jetzt kommt der wichtigste Schritt einer Arbeitsrunde: Du prüfst, was die KI geändert hat. Dafür ist der Reiter **Änderungen** da. Am schnellsten kommst du mit **Runde ansehen** auf der Karte der Session hin.
 
 ## Was eine Runde ist
 
-<aside class="plan">
+Eine **Runde** ist alles, was eine KI-Session auf einen deiner Prompts hin tut, bis sie fertig ist und wieder auf dich wartet. CodeDeck legt vor der ersten Änderung einer Runde einen Sicherungspunkt an und, wenn sich etwas geändert hat, einen zweiten am Ende. Was zwischen diesen beiden Punkten liegt, ist genau das, was die Runde geändert hat. So kannst du jede Runde für sich ansehen, auch wenn mehrere Sessions im selben Projekt arbeiten.
 
-**Inhalt:** Alles, was eine KI-Session auf einen deiner Prompts hin tut, bis sie fertig ist und wieder auf dich wartet.
-   Warum CodeDeck in Runden denkt (Sicherungspunkt am Anfang und Ende).
+## Was du dir ansiehst
 
-</aside>
+Oben im Reiter wählst du, welche Änderungen angezeigt werden:
+
+- **Alles nicht Committete** zeigt alle Änderungen seit dem letzten Commit, egal von wem. So öffnet der Reiter, wenn du nichts anderes gewählt hast.
+- **Runde 6**, **Runde 7** und so weiter zeigen die letzten Runden, jeweils mit dem Kurznamen der Session. Ältere Runden seit dem letzten Commit findest du unter **Frühere**.
+- Wählst du einen Punkt auf dem **Trail**, zeigt der Reiter, was dieser Commit oder Sicherungspunkt geändert hat. Klickst du mit gedrückter **Strg**-Taste einen zweiten Punkt an, vergleicht CodeDeck die beiden. Mehr dazu in [Kapitel 8](/codedeck/manual/de/tutorial/08-trail/).
+
+![Eine gewählte Runde im Reiter Änderungen: „Was Claude in Runde 6 getan hat“ mit „fertig 11:45“, darunter die Session, was du gefragt hast, was sie am Ende gesagt hat, die Zahlen der Änderungen und der Baum der geänderten Dateien](/codedeck/manual/de/aenderungen-runde.webp)
+
+Bei einer Runde steht oben ein **Kurzbericht**: welche Session sie ausgeführt hat, was du gefragt hast und was die Session am Ende gesagt hat. Läuft die Runde noch, steht dort **arbeitet noch**, und du siehst, was sich bisher geändert hat. Rechts daneben hängst du mit **Anhängen** die ganze Runde an deinen nächsten Prompt, öffnest sie mit **Dirq** nebeneinander in einem Diff-Programm, falls es installiert ist, oder springst mit **Vor dieser Runde…** zum Sicherungspunkt davor, von dem aus du zurückgehen kannst.
 
 ## Den Diff lesen
 
-<aside class="plan">
+Ein **Diff** zeigt, was sich in einer Datei geändert hat: entfernte Zeilen rot mit einem Minus, neue Zeilen grün mit einem Plus, dazwischen ein paar unveränderte Zeilen zur Orientierung. Mehr dazu erklären die [Git-Grundlagen](/codedeck/manual/de/nachschlagen/git-grundlagen/).
 
-**Inhalt:** Was ein Diff ist (für Leser ohne Git-Erfahrung, Link Git-Grundlagen). Ansicht Struktur und Code, Zeichen für
-   neu, geändert, gelöscht, verschoben. Farbe der Session, die eine Datei geschrieben hat.
+Rechts oben wählst du zwischen zwei Ansichten. **Struktur** zeigt die geänderten Dateien und Ordner als Baum und sagt bei jeder, was mit ihr geschehen ist: neu, gelöscht, geändert, verschoben oder umbenannt. Die Zahlen darüber fassen das zusammen, und ein Klick auf eine Zahl filtert den Baum. Ein Klick auf eine Datei klappt ihren Diff an Ort und Stelle auf. **Code** zeigt alle Diffs untereinander, Datei für Datei.
 
-</aside>
-
-## Was du dir ansiehst: jetzt, Runde, Commit, Sicherungspunkt
-
-<aside class="plan">
-
-**Inhalt:** Die Auswahl oben (Frühere, Runden, „Alles nicht Committete“) und die Wahl über den Trail; Vergleich zweier
-   Punkte mit Strg+Klick.
-
-</aside>
+Neben jeder Datei steht der Kurzname der Session, die sie geschrieben hat, in ihrer Farbe. Die Zahlen rechts nennen die hinzugefügten und entfernten Zeilen.
 
 ## Zeilen kommentieren
 
-<aside class="plan">
+Fällt dir an einer Zeile etwas auf, schreibst du der KI direkt dort einen **Kommentar**. Zeige in der Ansicht Code mit der Maus auf die Zeile und klicke auf die Sprechblase, die am Rand erscheint. Schreibe, was sich ändern soll, und klicke auf **An den nächsten Prompt hängen** oder drücke **Strg+Enter**.
 
-**Inhalt:** Die Sprechblase an einer Zeile; der Kommentar geht mit dem nächsten Prompt an die KI. Strg+Enter.
+![Ein Kommentar unter einer Zeile im Diff: „Hier bitte auch den Fall ohne Client-ID abdecken.“, darunter der Hinweis, dass er mit Datei, Zeile und Zeilentext an den nächsten Prompt gehängt wird, und die Knöpfe „Abbrechen“ und „An den nächsten Prompt hängen“](/codedeck/manual/de/aenderungen-kommentar.webp)
 
-</aside>
+Der Kommentar bleibt an der Zeile stehen und geht mit deinem nächsten Prompt an die Session, zusammen mit der Datei, der Zeilennummer und dem Text der Zeile. So musst du der KI nicht beschreiben, welche Stelle du meinst. Wie das Anhängen im Ganzen funktioniert, zeigt [Kapitel 7](/codedeck/manual/de/tutorial/07-naechster-prompt/).
 
 ## Dateien als angesehen markieren
 
-<aside class="plan">
+Bei vielen geänderten Dateien verliert man leicht den Überblick, was man schon geprüft hat. Rechts an jeder Datei steht deshalb der Schalter **Angesehen**. Hast du dir eine Datei angesehen, klickst du darauf: Sie klappt zu, und oben steigt die Zahl, zum Beispiel „2 von 5 angesehen“.
 
-**Inhalt:** Der Schalter „Angesehen“ und der Hinweis „seit dem Ansehen geändert“.
+Die Markierung gilt nur für dich und hat keinen Einfluss darauf, was in einen Commit kommt. Ändert sich die Datei danach noch einmal, zum Beispiel in der nächsten Runde, zeigt CodeDeck **seit dem Ansehen geändert**, damit du sie dir erneut ansiehst.
 
-</aside>
+## Dateien öffnen, anhängen und verwerfen
 
-## Dateien öffnen und anhängen
+Zeigst du mit der Maus auf eine Datei, erscheinen ihre Werkzeuge:
 
-<aside class="plan">
+![Eine Datei im Baum mit eingeblendeten Werkzeugen: Ansehen, Bearbeiten, Diff in Dirq, Anhängen und Verwerfen, rechts der Schalter „Angesehen“](/codedeck/manual/de/aenderungen-werkzeuge.webp)
 
-**Inhalt:** Die Werkzeuge einer Zeile beim Überfahren: ansehen, bearbeiten, in Dirq öffnen, anhängen. Kein Doppelklick.
+- **Ansehen** öffnet die Datei zum Lesen, **Bearbeiten** in deinem Editor. Welches Programm dabei startet, sagt der Hinweis am Symbol.
+- **Diff in Dirq** öffnet ihren Diff nebeneinander in Dirq, falls es installiert ist.
+- **Anhängen** hängt die Änderung dieser einen Datei an deinen nächsten Prompt.
+- **Verwerfen** nimmt die Änderungen an der Datei zurück, die noch nicht committet sind. CodeDeck fragt vorher nach, denn das lässt sich nicht rückgängig machen.
 
-</aside>
+Ein Klick auf eine Datei klappt nur ihren Diff auf und zu. Öffnen, Bearbeiten und alles andere geht bewusst nur über die Werkzeuge, damit du nichts aus Versehen auslöst.
 
 ## Probier es aus
 
-<aside class="plan">
+Öffne nach einer fertigen Runde den Reiter **Änderungen** über **Runde ansehen** und lies den Kurzbericht. Klicke in der Ansicht **Struktur** auf eine Datei und sieh dir ihren Diff an. Wechsle zur Ansicht **Code**, kommentiere eine Zeile und markiere danach eine Datei als **Angesehen**.
 
-**Inhalt:** Nach einer Runde den Diff durchgehen, eine Zeile kommentieren und eine Datei als angesehen markieren.
+## Mehr dazu
 
-</aside>
+- [Änderungen und Runden](/codedeck/manual/de/nachschlagen/aenderungen/): alle Ansichten, Vergleiche und Sonderfälle wie sehr lange Diffs.
+- [Nächster Prompt](/codedeck/manual/de/nachschlagen/anhaenge/): was alles angehängt werden kann und wie es bei der KI ankommt.
+- [Git-Grundlagen](/codedeck/manual/de/nachschlagen/git-grundlagen/): Diff, Commit und Branch erklärt.
