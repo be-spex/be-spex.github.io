@@ -27,7 +27,7 @@ Es gibt zwei Wege, eine Session zu starten, und beide führen zum selben Ergebni
 
 CodeDeck startet die Session in **tmux**, einem Programm, das Terminal-Sitzungen im Hintergrund weiterlaufen lässt. Das hat zwei Vorteile: Die Session läuft weiter, auch wenn du CodeDeck oder ein Terminalfenster schließt, und du kannst sie jederzeit in einem Terminal öffnen. Bei Claude Code startet CodeDeck die Session außerdem so, dass du sie auch aus der Desktop-App, im Browser oder vom Handy aus erreichst.
 
-Gleich nach dem Klick erscheint am Ende der Liste die Zeile **Wird gestartet …**. Sie bleibt, bis die Session ihren ersten Schritt meldet. Bei einer neuen Session in einem Ordner, in dem der Coding-Agent noch nie gearbeitet hat, fragt er oft zuerst, ob du dem Ordner vertraust. Bis diese Frage beantwortet ist, meldet er sich nicht, deshalb steht an der Zeile **fragt vielleicht**. Mit dem Knopf **Terminal** öffnest du die Session, beantwortest die Frage und verlässt das Terminal wieder. In tmux geht das mit der Tastenfolge **Strg+B** und danach **D**, die Session läuft dabei weiter.
+Gleich nach dem Klick erscheint am Ende der Liste die Zeile **Wird gestartet …**. Sie bleibt, bis die Session ihren ersten Schritt meldet. Bei einer neuen Session in einem Ordner, in dem der Coding-Agent noch nie gearbeitet hat, fragt er oft zuerst, ob du dem Ordner vertraust. Bis diese Frage beantwortet ist, meldet er sich nicht, deshalb steht an der Zeile **fragt vielleicht**. Mit dem Knopf **Terminal** öffnest du die Session und beantwortest die Frage. Danach kannst du das Terminalfenster einfach schließen: Die Session läuft in tmux weiter, nur das Fenster, das auf sie schaut, ist weg. Wer lieber mit der Tastatur arbeitet, verlässt tmux mit **Strg+B** und danach **D** und hat das Terminal dann wieder für anderes frei.
 
 **Von Hand** startest du eine Session wie gewohnt: Du öffnest ein Terminal im Projektordner und startest dort deinen Coding-Agent. Auch diese Session meldet sich in CodeDeck, sobald sie ihren ersten Schritt tut, vorausgesetzt, dein Coding-Agent ist mit CodeDeck verbunden (siehe [Kapitel 1](/codedeck/manual/de/tutorial/01-vorbereitung/)). Sessions, die schon vor CodeDeck liefen, findet CodeDeck in den Protokollen des Coding-Agents und zeigt sie ebenfalls an.
 
@@ -79,7 +79,7 @@ Die beiden Balken unter dem Konto zeigen, wie viel von deinem Kontingent beim An
 
 ## Probier es aus
 
-Starte in deinem Projekt mit **＋** eine neue Session. Wenn die Zeile **fragt vielleicht** zeigt, öffne die Session mit **Terminal**, beantworte die Frage und verlasse das Terminal mit **Strg+B** und dann **D**. Gib der Session im Chat eine kleine Aufgabe und beobachte, wie ihr Status von **arbeitet** zu **Runde fertig** wechselt. Wenn sie zwischendurch um Erlaubnis fragt, antworte ihr über **Antworten**. Klappe zum Schluss die Einzelheiten ihrer Karte auf und sieh nach, welche Dateien sie geschrieben hat.
+Starte in deinem Projekt mit **＋** eine neue Session. Wenn die Zeile **fragt vielleicht** zeigt, öffne die Session mit **Terminal**, beantworte die Frage und schließe das Terminalfenster wieder. Gib der Session im Chat eine kleine Aufgabe und beobachte, wie ihr Status von **arbeitet** zu **Runde fertig** wechselt. Wenn sie zwischendurch um Erlaubnis fragt, antworte ihr über **Antworten**. Klappe zum Schluss die Einzelheiten ihrer Karte auf und sieh nach, welche Dateien sie geschrieben hat.
 
 ## Mehr dazu
 

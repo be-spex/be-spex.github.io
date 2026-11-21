@@ -30,7 +30,7 @@ draft: true
 
 **Ursache:** Eine Erlaubnisfrage stellt der Coding-Agent in dem Programm, in dem die Session tatsächlich läuft, also im Terminal. Bei Claude Code sollen solche Fragen über Remote Control auch an die Desktop-App, den Browser und das Handy weitergereicht werden. Das klappt derzeit nicht zuverlässig: Je nach Version von Claude Code und je nach Art der Frage kommt sie dort an oder nicht. Das ist ein bekanntes Problem von Claude Code, für das es zahlreiche Fehlermeldungen gibt, und keines von CodeDeck. CodeDeck greift in die Erlaubnisfragen nicht ein.
 
-**Abhilfe:** Öffne die Session im Terminal und beantworte die Frage dort. In der Sessionspalte geht das mit dem Werkzeug **In einem Terminal öffnen**, das erscheint, wenn du mit der Maus auf die Karte zeigst, oder mit einem Klick der mittleren Maustaste auf die Karte. Läuft die Session in tmux, verlässt du das Terminal danach mit **Strg+B** und dann **D**, die Session läuft weiter. Danach kannst du in der Desktop-App wie gewohnt weiterarbeiten.
+**Abhilfe:** Öffne die Session im Terminal und beantworte die Frage dort. In der Sessionspalte geht das mit dem Werkzeug **In einem Terminal öffnen**, das erscheint, wenn du mit der Maus auf die Karte zeigst, oder mit einem Klick der mittleren Maustaste auf die Karte. Läuft die Session in tmux, schließt du das Terminalfenster danach einfach wieder, die Session läuft weiter. Danach kannst du in der Desktop-App wie gewohnt weiterarbeiten.
 
 Das Verhalten wird weiter beobachtet. Sobald klar ist, wann Fragen ankommen und wann nicht, wird CodeDeck darauf eingestellt.
 
