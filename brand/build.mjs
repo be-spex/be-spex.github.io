@@ -120,14 +120,14 @@ table{border-collapse:collapse;width:100%;font-size:13px}td{border-bottom:1px so
   <div class="card"><span class="lbl">Kopf · README, App-Seite</span><div class="lock">${icon("codedeck", 76)}<div>${owm(others[0][2], 48)}<div class="tl">The quiet radar beside your AI</div></div></div></div>
   <div class="card"><span class="lbl">Kopf · Qiew-Viewer</span><div class="lock">${icon("jayq", 76)}<div>${qwm(qiew[2][2], qiew[2][1], 48)}<div class="tl">JSON, pretty-printed and foldable</div></div></div></div>
   <div class="card"><span class="lbl">URL · Folien, Aufkleber, Social</span><div style="display:flex;flex-direction:column;gap:12px;padding:6px 0">
-    <span class="url">${owm([["code", "o"], ["deck", ""]], 34)}<span class="d">.bespex.run</span></span>
-    <span class="url">${qwm(qiew[2][2], qiew[2][1], 34)}<span class="d">.bespex.run</span></span></div><span class="why">Subdomain = Befehl, bei Produkten der Produktname (codedeck; codeck leitet weiter). Neu gesetzt in Open Sans 800 und als Pfade, statt „Nimbus Sans“ als Text im SVG.</span></div>
+    <span class="url"><span class="d">bespex.run/</span>${owm([["code", "o"], ["deck", ""]], 34)}</span>
+    <span class="url"><span class="d">bespex.run/</span>${qwm(qiew[2][2], qiew[2][1], 34)}</span></div><span class="why">Pfad = Befehl, bei Produkten der Produktname (codedeck; codeck leitet weiter), keine Subdomains. Neu gesetzt in Open Sans 800 und als Pfade, statt „Nimbus Sans“ als Text im SVG.</span></div>
 </div>
 
 <h2>7 · Wo was zu sehen ist</h2>
 <div class="row c3">
-  <div class="win"><div class="wbar">Über CodeDeck</div><div class="about">${icon("codedeck", 72)}${owm(others[0][2], 38)}<span class="k">AI session radar for Linux · say „Codeck“</span><span class="k">Version 0.1.1</span><a>codedeck.bespex.run</a><div class="foot"><span>MIT License</span>${bespex(14, false)}</div></div></div>
-  <div class="win"><div class="wbar">orders.json – Jayq</div><div class="about">${icon("jayq", 72)}${qwm(qiew[2][2], qiew[2][1], 38)}<span class="k">JSON viewer · Qiew · say „Jake“</span><span class="k">Version 1.4.0</span><a>jayq.bespex.run</a><div class="foot"><span>MIT License</span>${bespex(14, false)}</div></div></div>
+  <div class="win"><div class="wbar">Über CodeDeck</div><div class="about">${icon("codedeck", 72)}${owm(others[0][2], 38)}<span class="k">AI session radar for Linux · say „Codeck“</span><span class="k">Version 0.1.1</span><a>bespex.run/codedeck</a><div class="foot"><span>MIT License</span>${bespex(14, false)}</div></div></div>
+  <div class="win"><div class="wbar">orders.json – Jayq</div><div class="about">${icon("jayq", 72)}${qwm(qiew[2][2], qiew[2][1], 38)}<span class="k">JSON viewer · Qiew · say „Jake“</span><span class="k">Version 1.4.0</span><a>bespex.run/jayq</a><div class="foot"><span>MIT License</span>${bespex(14, false)}</div></div></div>
   <div style="display:flex;flex-direction:column;gap:12px">
     <div class="term"><span class="p">$</span> codedeck --version<br>codedeck 0.1.3 · be spex<br><span class="p">$</span> jayq --help | head -1<br>Jayq – JSON viewer · Qiew · be spex</div>
     <div class="term" style="font-size:12px">[Desktop Entry]<br>Name=Jayq<br>GenericName=JSON Viewer<br>Comment=JSON, pretty-printed and foldable – be spex<br>Icon=jayq</div>
@@ -137,8 +137,8 @@ table{border-collapse:collapse;width:100%;font-size:13px}td{border-bottom:1px so
   <div class="og"><span class="lbl" style="color:#a2a8b2">Social-/OG-Bild 1200 × 630</span>${owm(others[0][2], 56)}<div style="color:#ecedf0;font-size:15px;max-width:50%;margin-bottom:26px">The quiet radar beside your AI.</div><div style="position:absolute;left:34px;bottom:24px">${bespex(18, false)}</div><div class="shot"><i></i><i></i><i></i><i></i></div></div>
   <div class="doc"><div class="h"><span style="display:flex;align-items:center;gap:8px">${icon("codedeck", 26)}<b style="font-size:14px">CodeDeck</b></span><span style="--grey:#7b828c">${bespex(14, false)}</span></div><h3>Konzept: Seitenleiste</h3><p style="margin:0;color:#5d646e">Dokumentkopf: App links, Absender rechts, orange Linie als einziger Akzent. Fließtext Open Sans, Überschriften fett ohne Farbe.</p><div class="f"><span>CodeDeck · Konzept Seitenleiste</span><span>16.11.2026 · Seite 1</span></div></div>
   <div class="card"><span class="lbl">Domains</span><table>
-    <tr><td>Hauptseite</td><td class="mono">bespex.run</td></tr><tr><td>App</td><td class="mono">maillet · hatrack · pockettray .bespex.run</td></tr><tr><td>Produkt</td><td class="mono">codedeck.bespex.run (codeck → hierher)</td></tr>
-    <tr><td>Qiew</td><td class="mono">qiew.bespex.run · jayq.bespex.run …</td></tr><tr><td>Umleitung</td><td class="mono">codeck.bespex.run → codedeck</td></tr>
+    <tr><td>Hauptseite</td><td class="mono">bespex.run</td></tr><tr><td>App</td><td class="mono">bespex.run/maillet · /hatrack · /pockettray</td></tr><tr><td>Produkt</td><td class="mono">bespex.run/codedeck (codeck → hierher)</td></tr>
+    <tr><td>Qiew</td><td class="mono">bespex.run/qiew · bespex.run/jayq …</td></tr><tr><td>Umleitung</td><td class="mono">bespex.run/codeck → /codedeck</td></tr>
     <tr><td>App-ID</td><td class="mono">net.spex.&lt;app&gt; bleibt</td></tr><tr><td>Repos</td><td class="mono">github.com/bespex/&lt;Name&gt;</td></tr></table></div>
 </div>
 </body></html>`;

@@ -199,7 +199,7 @@ Drei Formen, eine Bauweise: 512 × 512, abgerundet, ein **heller Hauptglyph** un
 |---|---|---|
 | **Kopf** | Icon (Höhe = 2 Zeilen) · Schriftzug · darunter `tagline` klein | README-Kopf, App-Seite, About-Dialog |
 | **Zeile** | Icon (Höhe = Versalhöhe × 1,4) · Schriftzug | Website-Karte, Menüs, Dokumentkopf |
-| **URL** | Schriftzug · `.bespex.run` in Schriftfarbe, normale Stärke, Punkte als Kreise | Folien, Aufkleber, Social-Bilder (wie `Logos/url-*.svg`) |
+| **URL** | `bespex.run/` in Schriftfarbe, normale Stärke, Punkte als Kreise · Schriftzug | Folien, Aufkleber, Social-Bilder (wie `Logos/url-*.svg`) |
 | **Absender** | „be spex“ einzeilig, klein, rechts oder unten | Fußzeilen, About, Dokumente |
 
 ## 10 Domains und Kennungen
@@ -207,16 +207,15 @@ Drei Formen, eine Bauweise: 512 × 512, abgerundet, ein **heller Hauptglyph** un
 | Was | Regel | Beispiele |
 |---|---|---|
 | Hauptseite | `bespex.run`, bis zum Umzug weiter `bespex.github.io` (Umzug: GitHub Pages mit eigener Domain, alte Adresse leitet um) | |
-| App | `<befehl>.bespex.run` → App-Seite der Website | `maillet.bespex.run`, `jayq.bespex.run` |
-| Familie mit mehreren Programmen | `<familie>.bespex.run` | `qiew.bespex.run` |
-| Familie | `qiew.bespex.run` → Qiew-Abschnitt | |
-| Weiterleitungen | Langformen, alte Namen | `codeck.bespex.run` → `codedeck.bespex.run` |
+| App | `bespex.run/<befehl>` = App-Seite der Website, darunter z. B. das Handbuch | `bespex.run/maillet`, `bespex.run/codedeck/manual/de/` |
+| Familie mit mehreren Programmen | `bespex.run/<familie>` → Abschnitt der Familie | `bespex.run/qiew` |
+| Weiterleitungen | Langformen, alte Namen, als Pfad | `bespex.run/codeck` → `bespex.run/codedeck` |
 | Pakete | APT-Quelle unter `bespex.run/apt` (Repository `bespex/apt`), Schlüssel als ASCII unter `bespex.run/key.asc`; weitere Formate je Pfad: `bespex.run/rpm`, `bespex.run/arch` | |
 | App-ID | bleibt `net.spex.<app>` (alle zehn Tauri-Apps nutzen sie; ein Wechsel verschiebt Einstellungen und Dateizuordnungen). Für Flathub braucht es eine bestätigte Domain: dann `run.bespex.<app>`, als eigene Entscheidung | |
 | Repos | `github.com/bespex/<Name>` | `bespex/CodeDeck`, `bespex/Qiew` |
 
-Subdomains folgen dem **Befehl** (kurz, klein, eindeutig): `codedeck.bespex.run`; der alte Name `codeck.bespex.run`
-zeigt dieselbe Seite.
+Pfade folgen dem **Befehl** (kurz, klein, eindeutig): `bespex.run/codedeck`; der alte Name `bespex.run/codeck` zeigt
+dieselbe Seite. Subdomains je App gibt es nicht (geändert 2026-11-21): eine Domain, eine Website, die Apps als Pfade.
 
 ## 11 Wo was zu sehen ist
 
@@ -258,5 +257,5 @@ zeigt dieselbe Seite.
 4. Website: Schriftzüge auf App-Seiten und Karten, OG-Bilder je App (HatRack fehlt mangels Screenshot). HatRack,
    CodeDeck und Pictorix stehen in `apps.ts` (CodeDeck noch privat, HatRack
    `unlisted`: eigene Seite ohne Verlinkung).
-5. Domains: `bespex.run` als Pages-Domain, Subdomains als Weiterleitungen auf die App-Seiten.
+5. Domains: `bespex.run` als Pages-Domain; die App-Seiten liegen als Pfade darunter (`bespex.run/<befehl>`), keine Subdomains.
 6. In den Apps: About-Dialog nach §11 (CodeDeck: zusammen mit Schritt A der Seitenleiste).
