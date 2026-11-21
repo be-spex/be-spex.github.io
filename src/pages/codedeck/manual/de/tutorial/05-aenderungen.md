@@ -50,16 +50,15 @@ Die Markierung gilt nur für dich und hat keinen Einfluss darauf, was in einen C
 
 ## Dateien öffnen, anhängen und verwerfen
 
-Zeigst du mit der Maus auf eine Datei, erscheinen ihre Werkzeuge:
+Zeigst du mit der Maus auf eine Datei, erscheinen ihre beiden häufigsten Werkzeuge und das Menü ⋯:
 
-![Eine Datei im Baum mit eingeblendeten Werkzeugen: Ansehen, Bearbeiten, Diff in Dirq, Anhängen und Verwerfen, rechts der Schalter „Angesehen“](/codedeck/manual/de/aenderungen-werkzeuge.webp)
+![Eine Datei im Baum mit eingeblendeten Werkzeugen: Bearbeiten, Anhängen und ⋯, rechts der Schalter „Angesehen“](/codedeck/manual/de/aenderungen-werkzeuge.webp)
 
-- **Ansehen** öffnet die Datei zum Lesen, **Bearbeiten** in deinem Editor. Welches Programm dabei startet, sagt der Hinweis am Symbol.
-- **Diff in Dirq** öffnet ihren Diff nebeneinander in Dirq, falls es installiert ist.
+- **Bearbeiten** öffnet die Datei in deinem Editor. Welches Programm dabei startet, sagt der Hinweis am Symbol.
 - **Anhängen** hängt die Änderung dieser einen Datei an deinen nächsten Prompt.
-- **Verwerfen** nimmt die Änderungen an der Datei zurück, die noch nicht committet sind. CodeDeck fragt vorher nach, denn das lässt sich nicht rückgängig machen.
+- **⋯** öffnet ein Menü mit allem Weiteren: **Ansehen** zum Lesen, **Diff in Dirq** nebeneinander, falls Dirq installiert ist, **Im Baum zeigen**, das die Datei in der Dateiliste aufsucht, und **Verwerfen**. Verwerfen nimmt die Änderungen an der Datei zurück, die noch nicht committet sind. CodeDeck fragt vorher nach, denn das lässt sich nicht rückgängig machen.
 
-Ein Klick auf eine Datei klappt nur ihren Diff auf und zu. Öffnen, Bearbeiten und alles andere geht bewusst nur über die Werkzeuge, damit du nichts aus Versehen auslöst.
+Ein Klick auf eine Datei klappt nur ihren Diff auf und zu. Öffnen, Bearbeiten und alles andere geht bewusst nur über die Werkzeuge und das Menü, damit du nichts aus Versehen auslöst.
 
 ## Probier es aus
 

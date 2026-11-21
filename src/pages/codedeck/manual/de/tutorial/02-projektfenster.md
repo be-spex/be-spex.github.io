@@ -47,7 +47,7 @@ Neue Projekte nimmst du über das Menü ⋯ neben der Überschrift „Projekte�
 
 In den nächsten Kapiteln brauchst du die Dateiliste ab und zu, deshalb hier das Wichtigste. Sie zeigt die Dateien deines Projekts als Baum. Dateien und Ordner mit Änderungen, die noch nicht committet sind, sind farbig hervorgehoben. Hat eine Session eine Datei gerade geändert, steht daneben ein Punkt in der Farbe dieser Session. Über das Feld **Geöffnete Ordner filtern** oben findest du eine Datei schnell.
 
-Zeigst du mit der Maus auf eine Datei, erscheinen ihre Werkzeuge: Ansehen, Bearbeiten, Im Dateimanager zeigen und die **Büroklammer**, mit der du die Datei an deinen nächsten Prompt hängst. Außerdem kannst du Dateien aus der Werkbank auf einen Ordner der Dateiliste ziehen, um sie ins Projekt zu übernehmen. Alles Weitere, vor allem die Git-Aktionen oben in der Liste, zeigt [Kapitel 9](/codedeck/manual/de/tutorial/09-commit/).
+Ein Doppelklick öffnet eine Datei zum Ansehen, ein Klick mit der mittleren Maustaste zum Bearbeiten. Zeigst du mit der Maus auf eine Datei, erscheinen zwei Werkzeuge: **Bearbeiten** und die **Büroklammer**, mit der du die Datei an deinen nächsten Prompt hängst. Alles Weitere steht im Menü, das du mit ⋯ oder einem Rechtsklick öffnest, zum Beispiel Umbenennen, Ausblenden oder Als wichtig markieren. Außerdem kannst du Dateien aus der Werkbank auf einen Ordner der Dateiliste ziehen, um sie ins Projekt zu übernehmen. Alles Weitere, vor allem die Git-Aktionen oben in der Liste, zeigt [Kapitel 9](/codedeck/manual/de/tutorial/09-commit/).
 
 ## Das CodeDeck-Menü und die Schnelleinstellungen
 
