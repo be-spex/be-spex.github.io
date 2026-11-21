@@ -12,7 +12,7 @@ purpose: >-
 
 Das Tutorial folgt einer einzigen **Arbeitsrunde**: Du gibst einer KI-Session einen Auftrag, verfolgst, wie sie arbeitet, prüfst ihr Ergebnis, gibst ihr den nächsten Auftrag mit allem, was sie dafür braucht, und sicherst am Ende deine Arbeit mit einem Commit. Jedes Kapitel behandelt eine Station dieser Runde und den Bereich von CodeDeck, der dir dabei hilft.
 
-Am meisten lernst du, wenn du CodeDeck dabei geöffnet hast und alles an einem eigenen, kleinen Projekt ausprobierst. Wenn du kein passendes Projekt zur Hand hast, legst du einen leeren Ordner an und machst ihn mit dem Befehl `git init` zu einem Git-Repository. Für die ersten Schritte genügt das.
+Am meisten lernst du, wenn du CodeDeck dabei geöffnet hast und alles an einem eigenen, kleinen Projekt ausprobierst. Wenn du kein passendes Projekt zur Hand hast, legst du einfach einen leeren Ordner an und nimmst ihn in CodeDeck auf. CodeDeck bietet dir dann an, ihn mit einem Klick zu einem Git-Repository zu machen. Wie das geht, zeigt das erste Kapitel. Für die ersten Schritte genügt so ein Ordner.
 
 Die Kapitel bauen aufeinander auf. Lies sie deshalb beim ersten Mal der Reihe nach. Am Ende jedes Kapitels findest du unter **Probier es aus** eine kleine Übung und unter **Mehr dazu** die Seiten, auf denen du ein Thema vertiefen kannst.
 

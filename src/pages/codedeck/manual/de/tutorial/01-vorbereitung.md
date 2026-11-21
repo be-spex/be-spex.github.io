@@ -48,6 +48,16 @@ Mit **Projekt hinzufügen …** wählst du einen einzelnen Ordner aus, der dann 
 
 Später, wenn die Liste nicht mehr leer ist, findest du beide Befehle im Menü ⋯ neben der Überschrift „Projekte“. Ein Klick auf ein Projekt in der Liste öffnet es in einem **Projektfenster**. Öffne jetzt dein erstes Projekt, denn den nächsten Schritt erledigst du dort. Wie das Projektfenster aufgebaut ist, zeigt dir das nächste Kapitel ausführlich.
 
+### Wenn der Ordner noch kein Git-Repository ist
+
+CodeDeck braucht für viele seiner Aufgaben ein **Git-Repository**: Nur dann kann es Sicherungspunkte anlegen, dir zeigen, was sich in jeder Runde geändert hat, und zu einem früheren Stand zurückgehen. Ein Git-Repository ist dabei nichts Aufwendiges. Es entsteht einfach in deinem Projektordner, du brauchst dafür weder einen Server noch ein Konto irgendwo.
+
+Wenn der Ordner, den du aufgenommen hast, noch kein Git-Repository ist, musst du dafür nicht ins Terminal wechseln. CodeDeck erledigt das auf Wunsch für dich. Unten in der Dateiliste steht dann „Kein Git-Repo“ und daneben der Knopf **git init**. Denselben Knopf findest du mit einer kurzen Erklärung auch in der Glocke oben rechts in der Reiterleiste.
+
+![Der Hinweis „Dieser Ordner hat kein Git-Repository“ in der Glocke: Er erklärt, was ein lokales Repository ermöglicht und was ohne es leer bleibt, darunter der Knopf „git init“](/codedeck/manual/de/vorbereitung-git-init.webp)
+
+Ein Klick auf **git init** macht den Ordner zu einem Git-Repository mit dem Branch `main`. CodeDeck tut das nie von selbst, weil es dein Projekt verändert, sondern nur, wenn du den Knopf drückst. An deinen Dateien ändert sich dabei nichts.
+
 ## Den Coding-Agent verbinden
 
 Damit CodeDeck sieht, was deine KI-Sessions tun, muss dein Coding-Agent CodeDeck Bescheid geben: wenn eine Session startet, wenn sie arbeitet, wenn sie dich etwas fragt und wenn sie mit ihrer Runde fertig ist. Dafür verbindest du den Coding-Agent einmal mit CodeDeck.
@@ -66,7 +76,7 @@ Wie diese Meldungen technisch funktionieren, erklären die [KI-Grundlagen](/code
 
 ## Probier es aus
 
-Füge ein eigenes kleines Projekt zur Liste hinzu und öffne es mit einem Klick. Öffne danach über das CodeDeck-Menü noch einmal **Willkommen und Rechner-Check** und sieh nach, ob alle Programme, die als essenziell eingestuft sind, gefunden wurden. Prüfe zum Schluss in den Einstellungen unter **Coding-Agents**, ob dort bei deiner Konfiguration **Verbunden** steht.
+Füge ein eigenes kleines Projekt zur Liste hinzu und öffne es mit einem Klick. Wenn es noch kein Git-Repository ist, mach es mit **git init** zu einem. Öffne danach über das CodeDeck-Menü noch einmal **Willkommen und Rechner-Check** und sieh nach, ob alle Programme, die als essenziell eingestuft sind, gefunden wurden. Prüfe zum Schluss in den Einstellungen unter **Coding-Agents**, ob dort bei deiner Konfiguration **Verbunden** steht.
 
 ## Mehr dazu
 
