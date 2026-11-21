@@ -70,6 +70,14 @@ Ist dir in der Nachricht ein Fehler unterlaufen und der Commit ist noch nicht ge
 
 Solange Commits nur auf deinem Rechner liegen, sind sie bei einem Defekt der Festplatte verloren, und niemand sonst sieht sie. Pushe deshalb regelmäßig, spätestens wenn eine Arbeit fertig ist. Öffne dazu die Git-Aktionen und klicke auf **Push**. Danach wird die Linie auf dem Trail grau, und am obersten Commit steht der Name des Servers.
 
+### Ohne Server kein Push
+
+Pushen setzt voraus, dass dein Repository mit einem zweiten Repository auf einem Server verbunden ist, zum Beispiel bei GitHub, GitLab oder auf einem eigenen Server. Git nennt diese Verbindung ein **Remote**, und das erste heißt meist `origin`. Hast du dein Projekt mit einem Server geklont, besteht die Verbindung schon.
+
+Hast du dein Repository dagegen mit **git init** angelegt, wie in [Kapitel 1](/codedeck/manual/de/tutorial/01-vorbereitung/) beschrieben, gibt es zunächst nur das Repository auf deinem Rechner. Committen geht trotzdem, und auch die Snapshots funktionieren, nur Push gibt es dann nicht. Die Git-Aktionen sagen dir das mit „Noch kein Remote: dieses Repo gibt es nur hier.“
+
+Um es zu ändern, legst du beim Anbieter deiner Wahl ein leeres Repository an und kopierst dessen Adresse, zum Beispiel `git@github.com:du/projekt.git`. In den Git-Aktionen trägst du sie unter **Remote hinzufügen** ein. CodeDeck verbindet dein Repository damit als `origin`, und der nächste Klick auf **Push** veröffentlicht deinen Branch dort.
+
 ## Probier es aus
 
 Committe die Änderungen deiner letzten Runde im Reiter **Änderungen** mit einer kurzen Nachricht. Öffne dann mit **Strg+G** die Git-Aktionen, zeige mit der Maus auf **Push**, lies den Befehl und klicke darauf. Sieh zum Schluss auf dem Trail nach, wie sich die Farbe der Linie geändert hat.
