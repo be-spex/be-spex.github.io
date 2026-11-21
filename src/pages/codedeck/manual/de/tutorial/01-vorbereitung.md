@@ -52,11 +52,11 @@ Später, wenn die Liste nicht mehr leer ist, findest du beide Befehle im Menü �
 
 CodeDeck braucht für viele seiner Aufgaben ein **Git-Repository**: Nur dann kann es Sicherungspunkte anlegen, dir zeigen, was sich in jeder Runde geändert hat, und zu einem früheren Stand zurückgehen. Ein Git-Repository ist dabei nichts Aufwendiges. Es entsteht einfach in deinem Projektordner, du brauchst dafür weder einen Server noch ein Konto irgendwo.
 
-Wenn der Ordner, den du aufgenommen hast, noch kein Git-Repository ist, musst du dafür nicht ins Terminal wechseln. CodeDeck erledigt das auf Wunsch für dich. Unten in der Dateiliste steht dann „Kein Git-Repo“ und daneben der Knopf **git init**. Denselben Knopf findest du mit einer kurzen Erklärung auch in der Glocke oben rechts in der Reiterleiste.
+Wenn der Ordner, den du aufgenommen hast, noch kein Git-Repository ist, musst du dafür nicht ins Terminal wechseln. CodeDeck erledigt das auf Wunsch für dich. Sobald du das Projekt öffnest, siehst du in der Mitte des Fensters den Hinweis **Dieser Ordner hat kein Git-Repository**. Er erklärt kurz, wozu das Repository gut ist, und darunter steht der Knopf **git init**.
 
-![Der Hinweis „Dieser Ordner hat kein Git-Repository“ in der Glocke: Er erklärt, was ein lokales Repository ermöglicht und was ohne es leer bleibt, darunter der Knopf „git init“](/codedeck/manual/de/vorbereitung-git-init.webp)
+![Der Hinweis „Dieser Ordner hat kein Git-Repository“ in der Mitte des Projektfensters: Er erklärt, was ein lokales Repository ermöglicht und was ohne es leer bleibt, darunter der Knopf „git init“](/codedeck/manual/de/vorbereitung-git-init.webp)
 
-Ein Klick auf **git init** macht den Ordner zu einem Git-Repository mit dem Branch `main`. CodeDeck tut das nie von selbst, weil es dein Projekt verändert, sondern nur, wenn du den Knopf drückst. An deinen Dateien ändert sich dabei nichts.
+Ein Klick auf **git init** macht den Ordner zu einem Git-Repository mit dem Branch `main`. CodeDeck tut das nie von selbst, weil es dein Projekt verändert, sondern nur, wenn du den Knopf drückst. An deinen Dateien ändert sich dabei nichts. Den Knopf findest du außerdem unten in der Dateiliste neben „Kein Git-Repo“, falls du den Hinweis in der Mitte gerade nicht vor dir hast.
 
 ## Den Coding-Agent verbinden
 
