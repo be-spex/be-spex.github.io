@@ -81,7 +81,7 @@ Ganz oben in der Sessionspalte steht, mit welchem **Konto** und welchem Coding-A
 
 ![Das Menü der Kontowahl: „Die KI-Sessions dieses Projekts laufen mit“, darunter die Konten Work mit Häkchen und Private, ganz unten „Konten einrichten…“](/codedeck/manual/de/session-starten-konto.webp)
 
-Mit einem Klick auf den Namen wählst du ein anderes Konto für dieses Projekt. Neue Sessions starten dann mit diesem Konto. Laufen gerade noch Sessions mit dem bisherigen Konto, fragt CodeDeck nach, ob du sie **weiterlaufen lassen** willst, bis sie enden, oder ob CodeDeck sie **jetzt beenden** soll. **Konten einrichten…** öffnet die Einstellungen im Bereich Coding-Agents.
+Mit einem Klick auf den Namen wählst du ein anderes Konto für dieses Projekt. Diese Wahl bestimmt nur zwei Dinge: mit welchem Coding-Agent und welchem Konto **neue** Sessions starten, wenn du sie mit ▶ oder ＋ startest, und **welcher Verbrauch** in den Balken darunter angezeigt wird. Sessions, die schon laufen, behalten ihr Konto, und Sessions, die du von Hand startest, laufen mit dem Konto, mit dem du sie startest. Laufen gerade noch Sessions mit dem bisherigen Konto, fragt CodeDeck nach, ob du sie **weiterlaufen lassen** willst, bis sie enden, oder ob CodeDeck sie **jetzt beenden** soll. **Konten einrichten…** öffnet die Einstellungen im Bereich Coding-Agents.
 
 Die beiden Balken unter dem Konto zeigen, wie viel von deinem Kontingent beim Anbieter verbraucht ist. Was sie bedeuten, erklärt das nächste Kapitel.
 
