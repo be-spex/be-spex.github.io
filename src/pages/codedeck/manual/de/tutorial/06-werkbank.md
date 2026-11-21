@@ -21,7 +21,7 @@ Die Werkbank zeigt ihren Inhalt in **Kacheln**, oben das, was am ehesten eine En
 
 Der **Scratch-Ordner** `.scratch/` liegt in deinem Projekt, wird von Git aber ignoriert. CodeDeck trägt ihn dafür in die lokale Ausschlussliste von Git ein (`.git/info/exclude`), nicht in die `.gitignore`, sodass sich an deinem Projekt nichts ändert. Was dort liegt, kommt also nie aus Versehen in einen Commit.
 
-![Die Kachel Scratch-Ordner mit 19 Dateien: Dateien mit Größe und Alter, zwei davon als „neu“ markiert, zwei Ordner](/codedeck/manual/de/werkbank-scratch.webp)
+![Die Kachel Scratch-Ordner mit 20 Dateien: Dateien mit Größe und Alter, zwei davon als „neu“ markiert, zwei Ordner](/codedeck/manual/de/werkbank-scratch.webp)
 
 Die Kachel listet die Dateien und Ordner mit Größe, Alter und der Session, die sie geschrieben hat. Mit den Werkzeugen rechts siehst du eine Datei an, bearbeitest sie, zeigst sie im Dateimanager oder legst sie in den Papierkorb. Ein Doppelklick öffnet eine Datei zum Ansehen, ein Klick mit der mittleren Maustaste zum Bearbeiten.
 
