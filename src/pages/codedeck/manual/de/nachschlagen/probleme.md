@@ -26,11 +26,13 @@ draft: true
 
 ## Die Frage steht im Terminal, aber nicht in der Desktop-App
 
-<aside class="plan">
+**Was du siehst:** CodeDeck meldet, dass eine KI-Session fragt, zum Beispiel um Erlaubnis für einen Befehl. In der Desktop-App deines Coding-Agents, im Browser oder auf dem Handy erscheint die Frage aber nicht, und die Session wirkt dort, als hinge sie. Öffnest du die Session im Terminal, steht die Frage dort.
 
-**Inhalt:** Die Frage ist ein Dialog im laufenden Programm.
+**Ursache:** Eine Erlaubnisfrage stellt der Coding-Agent in dem Programm, in dem die Session tatsächlich läuft, also im Terminal. Bei Claude Code sollen solche Fragen über Remote Control auch an die Desktop-App, den Browser und das Handy weitergereicht werden. Das klappt derzeit nicht zuverlässig: Je nach Version von Claude Code und je nach Art der Frage kommt sie dort an oder nicht. Das ist ein bekanntes Problem von Claude Code, für das es zahlreiche Fehlermeldungen gibt, und keines von CodeDeck. CodeDeck greift in die Erlaubnisfragen nicht ein.
 
-</aside>
+**Abhilfe:** Öffne die Session im Terminal und beantworte die Frage dort. In der Sessionspalte geht das mit dem Werkzeug **In einem Terminal öffnen**, das erscheint, wenn du mit der Maus auf die Karte zeigst, oder mit einem Klick der mittleren Maustaste auf die Karte. Läuft die Session in tmux, verlässt du das Terminal danach mit **Strg+B** und dann **D**, die Session läuft weiter. Danach kannst du in der Desktop-App wie gewohnt weiterarbeiten.
+
+Das Verhalten wird weiter beobachtet. Sobald klar ist, wann Fragen ankommen und wann nicht, wird CodeDeck darauf eingestellt.
 
 ## ▶ und ＋ fehlen
 

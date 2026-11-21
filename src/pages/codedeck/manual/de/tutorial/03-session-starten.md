@@ -55,11 +55,13 @@ Sessions, mit denen du gerade nicht beschäftigt bist, sammelt CodeDeck unter **
 
 Unten rechts auf jeder Karte steht der Knopf, der dich in die Session bringt. Welcher es ist, hängt davon ab, wo die Session läuft und was gerade gebraucht wird:
 
-- **Antworten** erscheint, wenn die Session dich etwas fragt. Er bringt dich dorthin, wo du ihr antworten kannst.
+- **Antworten** erscheint, wenn die Session dich etwas fragt. Er bringt dich dorthin, wo die Session läuft, in die Desktop-App, wenn sie dort erreichbar ist, sonst ins Terminal.
 - **Desktop** öffnet die Session in der Desktop-App deines Coding-Agents, wenn sie dort erreichbar ist.
 - **Terminal** öffnet die Session in einem Terminalfenster. Läuft sie in tmux, hängt sich das neue Fenster an ihre tmux-Sitzung. Hast du sie selbst in einem Terminal gestartet, holt CodeDeck dieses Fenster nach vorn. Das geht allerdings nur unter X11, unter Wayland wechselst du selbst dorthin.
 
 Dasselbe erreichst du mit einem Doppelklick auf die Karte. Ein Klick mit der mittleren Maustaste öffnet die Session immer im Terminal.
+
+Eine Einschränkung solltest du kennen: Bei Claude Code kommen Erlaubnisfragen derzeit nicht immer in der Desktop-App an, im Terminal stehen sie dagegen immer. Wenn die Desktop-App keine Frage zeigt, obwohl CodeDeck **fragt** meldet, öffne die Session also im Terminal, am schnellsten mit der mittleren Maustaste. Mehr dazu steht unter [Wenn etwas nicht klappt](/codedeck/manual/de/nachschlagen/probleme/#die-frage-steht-im-terminal-aber-nicht-in-der-desktop-app).
 
 Ist eine Runde fertig, zeigt die Karte zusätzlich **Runde ansehen**. Dieser Knopf öffnet im Deck den Reiter Änderungen mit genau dem, was die Session in dieser Runde geändert hat. Darum geht es in [Kapitel 5](/codedeck/manual/de/tutorial/05-aenderungen/). Bei einer beendeten Session steht dort **Fortsetzen**: Damit setzt du ihre Unterhaltung in einer neuen Session in tmux fort.
 
