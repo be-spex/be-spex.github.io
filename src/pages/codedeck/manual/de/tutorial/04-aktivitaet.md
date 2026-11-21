@@ -65,6 +65,8 @@ CodeDeck schätzt dabei nichts, die Zahlen kommen vom Coding-Agent selbst über 
 
 Ganz unten listet **Geschriebene Dokumente** die Markdown-, HTML- und Textdateien, die deine Sessions in den letzten 24 Stunden geschrieben haben, die neueste oben. Oft ist ein solches Dokument das eigentliche Ergebnis einer Runde, etwa ein Konzept oder eine Zusammenfassung. Mit dem Auge öffnest du es zum Lesen, mit dem Stift zum Bearbeiten in deinem Editor.
 
+Der Unterschied zum Reiter Änderungen: Dort siehst du jede geänderte Datei als Diff, um zu prüfen, was sich Zeile für Zeile geändert hat. Hier stehen nur Dokumente, und du liest sie am Stück, auch wenn sie schon committet sind. Arbeitest du an einem Konzept und legst vor allem Markdown-Dateien an, ist diese Liste lang und deckt sich weitgehend mit den Änderungen. Änderst du dagegen hauptsächlich Programmcode, etwa in Java, steht hier wenig oder nichts, denn Code taucht nur im Reiter Änderungen auf.
+
 ![„Geschriebene Dokumente – letzte 24 Stunden“ mit zwei Markdown-Dateien, jeweils mit dem Kurznamen der Session, der Uhrzeit und den Symbolen zum Ansehen und Bearbeiten](/codedeck/manual/de/aktivitaet-dokumente.webp)
 
 Die **Glocke** rechts in der Reiterleiste öffnet **Hinweise und Tipps**. Dort findest du Tipps zum gerade offenen Reiter, die letzten Ereignisse im Projekt unter **Was geschah**, was jeder Coding-Agent mit CodeDeck kann, und unter **Erkannt auf diesem Rechner**, welche Programme CodeDeck gefunden hat.
