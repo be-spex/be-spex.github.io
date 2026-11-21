@@ -19,7 +19,7 @@ Die Dateiliste ganz rechts zeigt die Dateien deines Projekts als Baum. Ist sie z
 
 **Was du im Baum siehst:**
 
-- Dateien und Ordner mit Änderungen, die noch nicht committet sind, haben einen farbigen Namen. Ein Buchstabe rechts sagt, was passiert ist: **M** für geändert, **A** für neu hinzugefügt, **?** für neu und Git noch unbekannt, **R** für umbenannt. Gelöschte Dateien bleiben grau und durchgestrichen stehen, bis du committest.
+- Dateien und Ordner mit Änderungen, die noch nicht committet sind, haben einen farbigen Namen. Ein Buchstabe rechts sagt, was passiert ist: **M** für geändert, **A** für neu hinzugefügt, **?** für neu und Git noch unbekannt, **R** für umbenannt. Das sind die Kurzzeichen, die Git selbst verwendet, etwa im Befehl `git status --short`, nach den englischen Wörtern *modified*, *added* und *renamed*. CodeDeck übernimmt sie, damit du sie auch im Terminal und in anderen Git-Programmen wiedererkennst. Zeigst du mit der Maus auf einen Buchstaben, erklärt CodeDeck ihn. Gelöschte Dateien bleiben grau und durchgestrichen stehen, bis du committest.
 - Ein zugeklappter Ordner zeigt neben seinem Namen, wie viele Änderungen in ihm liegen. Lässt du die Maus auf seinem Namen ruhen, siehst du einen Steckbrief: Dateien, Größe, geschätzte Tokens, Änderungen und welche Sessions darin geschrieben haben.
 - Ein Punkt in der Farbe einer Session zeigt, dass sie die Datei gerade geändert hat. In den Schnelleinstellungen der Liste kannst du einstellen, dass die Punkte bis zum nächsten Commit bleiben.
 - Ein **@** zeigt eine Datei mit @ai-Hinweisen, eine Büroklammer eine angehängte Datei.
