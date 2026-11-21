@@ -6,7 +6,6 @@ part: 2
 order: 6
 purpose: >-
   Du weißt, wo Entwürfe und Wegwerf-Dateien der KI landen, wie du Brauchbares ins Projekt übernimmst und wie du der KI mit @ai-Hinweisen Aufgaben in Dateien hinterlässt.
-draft: true
 ---
 
 Neben den eigentlichen Änderungen entsteht während einer Runde oft noch mehr: ein Entwurf, Testdaten, ein kleines Skript zum Ausprobieren oder eine Seite, die die KI irgendwo veröffentlicht hat. Der Reiter **Werkbank** sammelt all das, getrennt von deiner eigentlichen Arbeit. Dort stehen auch die Aufgaben, die du der KI mit `@ai` in deinen Dateien hinterlassen hast.

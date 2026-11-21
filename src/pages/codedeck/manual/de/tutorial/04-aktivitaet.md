@@ -6,7 +6,6 @@ part: 2
 order: 4
 purpose: >-
   Du verstehst die Zeitleiste der Sessions, siehst, wie sicher deine Arbeit gerade ist, und liest den Verbrauch deines Kontos ab.
-draft: true
 ---
 
 Deine Session arbeitet jetzt an ihrem Auftrag. Während du wartest oder an etwas anderem arbeitest, gibt dir der Reiter **Aktivität** den Überblick über die letzten Stunden.

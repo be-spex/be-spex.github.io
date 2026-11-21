@@ -6,7 +6,6 @@ part: 2
 order: 7
 purpose: >-
   Du verstehst, was Anhängen bedeutet, was du alles an den nächsten Prompt hängen kannst und wie es beim Coding-Agent ankommt.
-draft: true
 ---
 
 Du hast die Runde geprüft, Zeilen kommentiert und vielleicht einen @ai-Hinweis geschrieben. Jetzt bereitest du die nächste Runde vor. Der Reiter **Nächster Prompt** zeigt dir, was die KI dabei zusätzlich zu deinem Prompt bekommt.

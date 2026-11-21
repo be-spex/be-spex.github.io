@@ -6,7 +6,6 @@ part: 2
 order: 5
 purpose: >-
   Du siehst dir an, was eine Runde geändert hat, kommentierst einzelne Zeilen für die KI und markierst Dateien als angesehen.
-draft: true
 ---
 
 Deine Session meldet **Runde fertig**. Jetzt kommt der wichtigste Schritt einer Arbeitsrunde: Du prüfst, was die KI geändert hat. Dafür ist der Reiter **Änderungen** da. Am schnellsten kommst du mit **Runde ansehen** auf der Karte der Session hin.
