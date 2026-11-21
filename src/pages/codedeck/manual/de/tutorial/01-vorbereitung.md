@@ -72,7 +72,7 @@ Später, wenn die Liste nicht mehr leer ist, findest du beide Befehle im Menü �
 
 ### Wenn der Ordner noch kein Git-Repository ist
 
-CodeDeck braucht für viele seiner Aufgaben ein **Git-Repository**: Nur dann kann es Sicherungspunkte anlegen, dir zeigen, was sich in jeder Runde geändert hat, und zu einem früheren Stand zurückgehen. Ein Git-Repository ist dabei nichts Aufwendiges. Es entsteht einfach in deinem Projektordner, du brauchst dafür weder einen Server noch ein Konto irgendwo.
+CodeDeck braucht für viele seiner Aufgaben ein **Git-Repository**: Nur dann kann es **Snapshots** anlegen, also Sicherungen deiner Projektdateien, zu denen du zurückkehren kannst, dir zeigen, was sich in jeder Runde geändert hat, und zu einem früheren Stand zurückgehen. Ein Git-Repository ist dabei nichts Aufwendiges. Es entsteht einfach in deinem Projektordner, du brauchst dafür weder einen Server noch ein Konto irgendwo.
 
 Wenn der Ordner, den du aufgenommen hast, noch kein Git-Repository ist, musst du dafür nicht ins Terminal wechseln. CodeDeck erledigt das auf Wunsch für dich. Sobald du das Projekt öffnest, siehst du in der Mitte des Fensters den Hinweis **Dieser Ordner hat kein Git-Repository**. Er erklärt kurz, wozu das Repository gut ist, und darunter steht der Knopf **git init**.
 

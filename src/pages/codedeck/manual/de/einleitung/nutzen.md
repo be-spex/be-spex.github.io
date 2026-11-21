@@ -34,7 +34,7 @@ CodeDeck zeigt dir die Änderungen an einem Ort. Zuerst siehst du als Übersicht
 
 Manchmal gefällt dir das Ergebnis einer Runde nicht, oder die KI hat sich verrannt. Ohne Vorsorge ist es mühsam, den Stand von vorher wiederherzustellen, besonders wenn du seit dem letzten Commit noch anderes geändert hast.
 
-CodeDeck legt deshalb von selbst einen **Sicherungspunkt** an, bevor eine Session in einer Runde zum ersten Mal etwas in deinem Projekt ändert, und einen weiteren, wenn sie fertig ist. Du siehst diese Punkte auf dem **Trail**, dem Verlauf deines Projekts am Rand des Fensters. Mit einem Klick auf einen Sicherungspunkt siehst du, was sich seitdem geändert hat, und mit „Hierher zurückgehen“ stellst du die Dateien so wieder her, wie sie zu diesem Zeitpunkt waren. Bevor CodeDeck das tut, sichert es auch den aktuellen Stand. Du kannst den Schritt zurück also ebenfalls wieder rückgängig machen.
+CodeDeck legt deshalb von selbst einen **Snapshot** an, also eine Sicherung deiner Projektdateien, bevor eine Session in einer Runde zum ersten Mal etwas in deinem Projekt ändert, und einen weiteren, wenn sie fertig ist. Du siehst diese Punkte auf dem **Trail**, dem Verlauf deines Projekts am Rand des Fensters. Mit einem Klick auf einen Snapshot siehst du, was sich seitdem geändert hat, und mit „Hierher zurückgehen“ stellst du die Dateien so wieder her, wie sie zu diesem Zeitpunkt waren. Bevor CodeDeck das tut, sichert es auch den aktuellen Stand. Du kannst den Schritt zurück also ebenfalls wieder rückgängig machen.
 
 Der Trail zeigt dir außerdem mit seiner Farbe, **wie sicher deine Arbeit** gerade ist: ob es noch Änderungen gibt, die nicht committet sind, ob deine Commits nur auf deinem Rechner liegen oder ob sie schon auf einem Server sind.
 

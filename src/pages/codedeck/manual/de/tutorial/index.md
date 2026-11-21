@@ -35,6 +35,6 @@ Eine **Runde** ist alles, was eine KI-Session auf einen deiner Prompts hin tut, 
 5. [Änderungen](/codedeck/manual/de/tutorial/05-aenderungen/): Du siehst dir an, was eine Runde geändert hat, und kommentierst einzelne Zeilen.
 6. [Werkbank](/codedeck/manual/de/tutorial/06-werkbank/): Du schaust, was neben dem eigentlichen Projekt entstanden ist.
 7. [Nächster Prompt](/codedeck/manual/de/tutorial/07-naechster-prompt/): Du gibst der KI für die nächste Runde mit, was sie braucht.
-8. [Trail und Sicherungspunkte](/codedeck/manual/de/tutorial/08-trail/): Du siehst, wie sicher deine Arbeit ist, und gehst bei Bedarf zurück.
+8. [Trail und Snapshots](/codedeck/manual/de/tutorial/08-trail/): Du siehst, wie sicher deine Arbeit ist, und gehst bei Bedarf zurück.
 9. [Dateien und Commit](/codedeck/manual/de/tutorial/09-commit/): Du findest dich im Dateibaum zurecht und bringst das Ergebnis mit Commit und Push in Git.
 10. [Runde abschließen](/codedeck/manual/de/tutorial/10-naechste-runde/): Du fasst die Runde zusammen, beginnst die nächste und arbeitest mit mehreren Sessions und Projekten zugleich.

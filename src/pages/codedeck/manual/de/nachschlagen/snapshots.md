@@ -1,10 +1,10 @@
 ---
 layout: ../../../../../layouts/Manual.astro
-title: "Sicherungspunkte"
+title: "Snapshots"
 part: 3
 order: 5
 purpose: >-
-  Wie CodeDeck deine Arbeit vor jeder Runde sichert, wo die Sicherungspunkte liegen und wie du zurückgehst.
+  Wie CodeDeck deine Arbeit vor jeder Runde sichert, wo die Snapshots liegen und wie du zurückgehst.
 draft: true
 ---
 
@@ -22,7 +22,7 @@ draft: true
 
 </aside>
 
-## Wo die Sicherungspunkte liegen
+## Wo die Snapshots liegen
 
 <aside class="plan">
 

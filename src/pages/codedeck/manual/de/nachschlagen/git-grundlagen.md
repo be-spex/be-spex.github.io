@@ -69,6 +69,6 @@ draft: true
 
 <aside class="plan">
 
-**Inhalt:** Die drei Stufen: nur im Ordner, committet, auf dem Remote; dazu Sicherungspunkte.
+**Inhalt:** Die drei Stufen: nur im Ordner, committet, auf dem Remote; dazu Snapshots.
 
 </aside>

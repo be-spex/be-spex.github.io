@@ -14,7 +14,7 @@ Jetzt beginnt die eigentliche Arbeitsrunde. In diesem Kapitel startest du eine K
 
 Eine **KI-Session** ist ein Gespräch mit deinem Coding-Agent in einem bestimmten Projekt. Du schreibst im Chat der Session, was du möchtest, und die KI arbeitet daraufhin in deinem Projektordner: Sie liest Dateien, ändert sie und führt Befehle aus. Die Session läuft in einem Terminal oder in der Desktop-App deines Coding-Agents, nicht in CodeDeck. CodeDeck zeigt dir, was sie tut.
 
-In einem Projekt können mehrere Sessions gleichzeitig laufen, zum Beispiel eine für eine neue Funktion und eine für die Dokumentation. Jede bekommt in CodeDeck eine eigene **Farbe** und einen **Kurznamen** aus einem Buchstaben, die sie überall behält: in der Sessionspalte, an den Dateien, die sie geändert hat, und an ihren Sicherungspunkten auf dem Trail. Mehr über Sessions erfährst du auf der Seite [KI-Sessions](/codedeck/manual/de/nachschlagen/sessions/).
+In einem Projekt können mehrere Sessions gleichzeitig laufen, zum Beispiel eine für eine neue Funktion und eine für die Dokumentation. Jede bekommt in CodeDeck eine eigene **Farbe** und einen **Kurznamen** aus einem Buchstaben, die sie überall behält: in der Sessionspalte, an den Dateien, die sie geändert hat, und an ihren Snapshots auf dem Trail. Mehr über Sessions erfährst du auf der Seite [KI-Sessions](/codedeck/manual/de/nachschlagen/sessions/).
 
 ## Eine Session starten
 

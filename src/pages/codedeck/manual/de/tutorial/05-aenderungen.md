@@ -13,7 +13,7 @@ Deine Session meldet **Runde fertig**. Jetzt kommt der wichtigste Schritt einer 
 
 ## Was eine Runde ist
 
-Eine **Runde** ist alles, was eine KI-Session auf einen deiner Prompts hin tut, bis sie fertig ist und wieder auf dich wartet. CodeDeck legt vor der ersten Änderung einer Runde einen Sicherungspunkt an und, wenn sich etwas geändert hat, einen zweiten am Ende. Was zwischen diesen beiden Punkten liegt, ist genau das, was die Runde geändert hat. So kannst du jede Runde für sich ansehen, auch wenn mehrere Sessions im selben Projekt arbeiten.
+Eine **Runde** ist alles, was eine KI-Session auf einen deiner Prompts hin tut, bis sie fertig ist und wieder auf dich wartet. CodeDeck legt vor der ersten Änderung einer Runde einen **Snapshot** an, eine Sicherung deiner Projektdateien, und, wenn sich etwas geändert hat, einen zweiten am Ende. Was zwischen diesen beiden Punkten liegt, ist genau das, was die Runde geändert hat. So kannst du jede Runde für sich ansehen, auch wenn mehrere Sessions im selben Projekt arbeiten.
 
 ## Was du dir ansiehst
 
@@ -21,11 +21,11 @@ Oben im Reiter wählst du, welche Änderungen angezeigt werden:
 
 - **Alles nicht Committete** zeigt alle Änderungen seit dem letzten Commit, egal von wem. So öffnet der Reiter, wenn du nichts anderes gewählt hast.
 - **Runde 6**, **Runde 7** und so weiter zeigen die letzten Runden, jeweils mit dem Kurznamen der Session. Ältere Runden seit dem letzten Commit findest du unter **Frühere**.
-- Wählst du einen Punkt auf dem **Trail**, zeigt der Reiter, was dieser Commit oder Sicherungspunkt geändert hat. Klickst du mit gedrückter **Strg**-Taste einen zweiten Punkt an, vergleicht CodeDeck die beiden. Mehr dazu in [Kapitel 8](/codedeck/manual/de/tutorial/08-trail/).
+- Wählst du einen Punkt auf dem **Trail**, zeigt der Reiter, was dieser Commit oder Snapshot geändert hat. Klickst du mit gedrückter **Strg**-Taste einen zweiten Punkt an, vergleicht CodeDeck die beiden. Mehr dazu in [Kapitel 8](/codedeck/manual/de/tutorial/08-trail/).
 
 ![Eine gewählte Runde im Reiter Änderungen: „Was Claude in Runde 6 getan hat“ mit „fertig 11:45“, darunter die Session, was du gefragt hast, was sie am Ende gesagt hat, die Zahlen der Änderungen und der Baum der geänderten Dateien](/codedeck/manual/de/aenderungen-runde.webp)
 
-Bei einer Runde steht oben ein **Kurzbericht**: welche Session sie ausgeführt hat, was du gefragt hast und was die Session am Ende gesagt hat. Läuft die Runde noch, steht dort **arbeitet noch**, und du siehst, was sich bisher geändert hat. Rechts daneben hängst du mit **Anhängen** die ganze Runde an deinen nächsten Prompt, öffnest sie mit **Dirq** nebeneinander in einem Diff-Programm, falls es installiert ist, oder springst mit **Vor dieser Runde…** zum Sicherungspunkt davor, von dem aus du zurückgehen kannst.
+Bei einer Runde steht oben ein **Kurzbericht**: welche Session sie ausgeführt hat, was du gefragt hast und was die Session am Ende gesagt hat. Läuft die Runde noch, steht dort **arbeitet noch**, und du siehst, was sich bisher geändert hat. Rechts daneben hängst du mit **Anhängen** die ganze Runde an deinen nächsten Prompt, öffnest sie mit **Dirq** nebeneinander in einem Diff-Programm, falls es installiert ist, oder springst mit **Vor dieser Runde…** zum Snapshot davor, von dem aus du zurückgehen kannst.
 
 ## Den Diff lesen
 

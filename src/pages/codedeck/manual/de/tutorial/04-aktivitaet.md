@@ -33,7 +33,7 @@ Die Blöcke in einer Zeile zeigen, was die Session wann getan hat. Die Legende �
 - Ein **gefüllter Block** bedeutet, dass die Session gearbeitet hat. Ein Block entspricht ungefähr einer Runde.
 - Ein **gerahmter Block** bedeutet, dass die Session dich etwas gefragt und auf deine Antwort gewartet hat.
 - Ein **gestreifter Block** bedeutet, dass die Runde zwar vorbei war, aber etwas weiterlief, das die Session gestartet hatte, zum Beispiel ein Build. Weiß CodeDeck nicht, wann es endete, läuft der Block blass aus.
-- Ein kleines **Dreieck** unter der Zeile markiert einen Sicherungspunkt, den CodeDeck vor einer Runde angelegt hat.
+- Ein kleines **Dreieck** unter der Zeile markiert einen Snapshot, den CodeDeck vor einer Runde angelegt hat.
 - Die senkrechte Linie zeigt die aktuelle Uhrzeit.
 
 Zeigst du mit der Maus auf einen Block, siehst du den Prompt, der die Runde ausgelöst hat, und wie lange die Session gearbeitet und gewartet hat. Mit den Pfeilen oben links blätterst du zu früheren Tagen, das Kalendersymbol bringt dich zurück zu heute. Mit **Strg** und dem Mausrad zoomst du an der Stelle des Mauszeigers hinein, durch Ziehen verschiebst du den Ausschnitt, und ein Doppelklick zeigt wieder den ganzen Tag. Das Fragezeichen neben der Überschrift erklärt alle Zeichen und Begriffe.
@@ -42,9 +42,9 @@ Zeigst du mit der Maus auf einen Block, siehst du den Prompt, der die Runde ausg
 
 Darunter fasst CodeDeck in drei Zahlen zusammen, wie gut deine Arbeit gerade gesichert ist:
 
-- **Nicht committet** zählt die Dateien mit Änderungen, die noch nicht in Git gesichert sind. Sie gibt es nur in deinem Projektordner und in den Sicherungspunkten.
+- **Nicht committet** zählt die Dateien mit Änderungen, die noch nicht in Git gesichert sind. Sie gibt es nur in deinem Projektordner und in den Snapshots.
 - **Committet, noch nicht gepusht** zählt die Commits, die nur auf deinem Rechner liegen und noch nicht auf dem Server.
-- **Snapshots zum Zurückgehen** zählt die Sicherungspunkte, zu denen du zurückkehren kannst.
+- **Snapshots zum Zurückgehen** zählt die Snapshots, zu denen du zurückkehren kannst.
 
 Der Satz darunter sagt, was das für dich bedeutet, zum Beispiel „Was noch nicht in Git gesichert ist, gibt es nur in deinem Ordner und in den Snapshots.“ Ist alles gepusht, steht dort, dass nichts gefährdet ist. Was Commit und Push genau sind, erklären die [Git-Grundlagen](/codedeck/manual/de/nachschlagen/git-grundlagen/).
 
@@ -72,4 +72,4 @@ Gib deiner Session einen Auftrag und öffne den Reiter **Aktivität**, während 
 
 - [KI-Sessions](/codedeck/manual/de/nachschlagen/sessions/): Runden, Hintergrundaufgaben und was CodeDeck über eine Session weiß.
 - [Konten und Verbrauch](/codedeck/manual/de/nachschlagen/konten/): Verbrauch einrichten und mehrere Konten.
-- [Sicherungspunkte](/codedeck/manual/de/nachschlagen/sicherungspunkte/): wann CodeDeck sie anlegt und wie lange sie bleiben.
+- [Snapshots](/codedeck/manual/de/nachschlagen/snapshots/): wann CodeDeck sie anlegt und wie lange sie bleiben.

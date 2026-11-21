@@ -20,7 +20,7 @@ draft: true
 
 <aside class="plan">
 
-**Inhalt:** jetzt, Runde, Commit, Sicherungspunkt, Vergleich; Struktur und Code.
+**Inhalt:** jetzt, Runde, Commit, Snapshot, Vergleich; Struktur und Code.
 
 </aside>
 

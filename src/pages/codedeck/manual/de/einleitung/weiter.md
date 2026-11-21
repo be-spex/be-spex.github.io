@@ -20,7 +20,7 @@ Eine Kurzfassung davon steckt auch in CodeDeck selbst. Im CodeDeck-Menü hinter 
 
 ## Nachschlagen: wenn du etwas genau wissen willst
 
-Der Teil [Nachschlagen](/codedeck/manual/de/nachschlagen/) ist nach Themen geordnet und muss nicht der Reihe nach gelesen werden. Jede Seite behandelt ein Thema vollständig, zum Beispiel KI-Sessions, Änderungen und Runden, Sicherungspunkte, den nächsten Prompt, die Werkbank, Meldungen oder Einstellungen. Hierher kommst du, wenn du im Alltag auf eine Frage stößt oder eine Funktion genauer verstehen möchtest, als das Tutorial sie erklärt.
+Der Teil [Nachschlagen](/codedeck/manual/de/nachschlagen/) ist nach Themen geordnet und muss nicht der Reihe nach gelesen werden. Jede Seite behandelt ein Thema vollständig, zum Beispiel KI-Sessions, Änderungen und Runden, Snapshots, den nächsten Prompt, die Werkbank, Meldungen oder Einstellungen. Hierher kommst du, wenn du im Alltag auf eine Frage stößt oder eine Funktion genauer verstehen möchtest, als das Tutorial sie erklärt.
 
 Zum Nachschlagen gehören auch die Grundlagen zu Git und zur Arbeit mit einer KI, die Tastenkürzel und ein Glossar mit allen Begriffen. Wenn etwas nicht so funktioniert, wie du es erwartest, hilft dir die Seite [Wenn etwas nicht klappt](/codedeck/manual/de/nachschlagen/probleme/) weiter.
 

@@ -34,4 +34,4 @@ CodeDeck macht sichtbar, was die KI geändert hat, und es macht es leicht, einen
 
 ## Keine Bremse für die KI
 
-CodeDeck fragt nicht vor jeder Änderung nach, ob die KI sie machen darf. Die KI arbeitet so frei, wie du es in deinem Coding-Agent eingestellt hast. Abgesichert wird stattdessen hinterher: Weil vor jeder Runde ein Sicherungspunkt entsteht, kannst du jederzeit zurück. Das ist bequemer, als jeden einzelnen Schritt vorher zu genehmigen.
+CodeDeck fragt nicht vor jeder Änderung nach, ob die KI sie machen darf. Die KI arbeitet so frei, wie du es in deinem Coding-Agent eingestellt hast. Abgesichert wird stattdessen hinterher: Weil vor jeder Runde ein Snapshot entsteht, kannst du jederzeit zurück. Das ist bequemer, als jeden einzelnen Schritt vorher zu genehmigen.

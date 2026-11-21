@@ -18,7 +18,7 @@ Der Chat zeigt dir dabei aber nur einen langen, durchlaufenden Text. Nach einer 
 
 CodeDeck ist eine Desktop-App für Linux, die neben deinem Coding-Agent läuft. Sie übernimmt nicht das Gespräch mit der KI, sondern zeigt dir, was dabei herauskommt.
 
-In einem eigenen Fenster siehst du jederzeit, **welche KI-Sessions** in deinem Projekt arbeiten, welche gerade **auf dich warten** und **was sie geändert haben**. Jedes Mal, bevor eine Session in deinem Projekt etwas ändert, legt CodeDeck von selbst einen **Sicherungspunkt** an, zu dem du später zurückkehren kannst. Und wenn du der KI für den nächsten Schritt etwas mitgeben möchtest, etwa eine Datei, eine Änderung oder einen Kommentar zu einer Zeile, sammelt CodeDeck das für dich und hängt es an deinen **nächsten Prompt**.
+In einem eigenen Fenster siehst du jederzeit, **welche KI-Sessions** in deinem Projekt arbeiten, welche gerade **auf dich warten** und **was sie geändert haben**. Jedes Mal, bevor eine Session in deinem Projekt etwas ändert, legt CodeDeck von selbst einen **Snapshot** an, eine Sicherung deiner Projektdateien, zu der du später zurückkehren kannst. Und wenn du der KI für den nächsten Schritt etwas mitgeben möchtest, etwa eine Datei, eine Änderung oder einen Kommentar zu einer Zeile, sammelt CodeDeck das für dich und hängt es an deinen **nächsten Prompt**.
 
 CodeDeck drängt sich dabei nicht in den Vordergrund. Solange alles läuft, kannst du das Fenster ignorieren oder in den Hintergrund schieben. Erst wenn eine Session etwas von dir braucht, meldet sich CodeDeck.
 
@@ -50,6 +50,6 @@ Der erste Weg sind die **Hooks** deines Coding-Agents. Hooks sind kleine Befehle
 
 Der zweite Weg ist **Git**. Den Stand deines Projekts, die Änderungen und den Verlauf liest CodeDeck mit dem ganz normalen Programm `git` auf der Kommandozeile. Deshalb gelten deine eigene Git-Konfiguration und deine Zugangsdaten, und jeder Befehl, den CodeDeck ausführt, wird dir angezeigt.
 
-Auch die **Sicherungspunkte** sind Git-Commits. CodeDeck legt sie aber nicht auf deinen Branches an, sondern unter einem eigenen Namen (`refs/codedeck/snapshots/`) und über eine Kopie des Git-Index. Deine Branches, dein Index und das, was du pushst, bleiben dadurch unberührt.
+Auch die **Snapshots** sind Git-Commits. CodeDeck legt sie aber nicht auf deinen Branches an, sondern unter einem eigenen Namen (`refs/codedeck/snapshots/`) und über eine Kopie des Git-Index. Deine Branches, dein Index und das, was du pushst, bleiben dadurch unberührt.
 
 </aside>
