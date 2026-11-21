@@ -6,7 +6,6 @@ part: 2
 order: 3
 purpose: >-
   Du startest eine KI-Session, erkennst an ihrem Status, was sie gerade tut, und antwortest ihr, wenn sie dich etwas fragt.
-draft: true
 ---
 
 Jetzt beginnt die eigentliche Arbeitsrunde. In diesem Kapitel startest du eine KI-Session, gibst ihr einen Auftrag und verfolgst in der Spalte **Sessions**, was sie tut. Wenn sie dich etwas fragt, antwortest du ihr.
