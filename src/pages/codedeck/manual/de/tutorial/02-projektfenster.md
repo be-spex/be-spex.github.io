@@ -27,7 +27,7 @@ Du musst dir diese Aufteilung nicht sofort merken. Jedes Symbol in CodeDeck erkl
 
 ## Die Projektliste
 
-Ganz oben in der linken Spalte steht der **Name des Projekts**, das dieses Fenster gerade zeigt, und darunter der Ordner, in dem es liegt. Das farbige Zeichen links daneben ist das Zeichen des Projekts. CodeDeck gibt jedem Projekt eine eigene Farbe, damit du die Projekte auch in der Taskleiste deines Desktops auseinanderhalten kannst.
+Ganz oben in der linken Spalte steht der **Name des Projekts**, das dieses Fenster gerade zeigt, und darunter der Ordner, in dem es liegt. Das farbige Zeichen links daneben ist die **Marke** des Projekts. CodeDeck gibt jedem Projekt eine eigene Farbe und zeigt zunächst den Anfangsbuchstaben seines Namens, damit du die Projekte auch in der Taskleiste deines Desktops auseinanderhalten kannst. Du kannst die Marke aber auch selbst gestalten: Öffne mit einem Rechtsklick auf das Projekt in der Liste sein Menü und wähle **Marke ändern…**. Dort suchst du dir ein Symbol aus einer großen Auswahl, ein Emoji oder einen Buchstaben aus und legst die Farbe fest. Die Marke erscheint danach in der Projektliste, im Projektfenster und im Symbol des Fensters in der Taskleiste. Über das Menü einer Gruppe änderst du die Marke aller Projekte darin auf einmal.
 
 ![Die Projektliste: oben das aktuelle Projekt orbit-api, darunter „Wartet in anderen Projekten“ mit vier Karten, dann „Zuletzt“ und die Projekte, gruppiert nach Ordnern](/codedeck/manual/de/projektfenster-projektliste.webp)
 
@@ -68,7 +68,7 @@ Mit **Nicht stören** schaltest du die Meldungen von CodeDeck für eine Weile ab
 
 Die Breite der Sessions und der Dateiliste kannst du ändern, indem du die Trennlinie zwischen zwei Spalten mit der Maus ziehst. Das Deck in der Mitte nimmt sich den Platz, der übrig bleibt.
 
-Wenn du mehr Platz brauchst, kannst du Spalten auch ganz zuklappen. Die **Dateiliste** ist bei einem neuen Projekt zugeklappt. Du klappst sie mit **Strg+B** auf und wieder zu. Zugeklappt bleibt von ihr eine schmale Leiste am rechten Rand, und ein Klick auf den Knopf oben in der Leiste öffnet sie. Die **Projektliste** klappst du mit **Strg+Shift+L** oder mit einem Klick auf das Zeichen des Projekts oben links zu. Zugeklappt zeigt sie nur noch die Zeichen deiner Projekte untereinander, und ein Klick auf ein Zeichen wechselt weiterhin das Projekt.
+Wenn du mehr Platz brauchst, kannst du Spalten auch ganz zuklappen. Die **Dateiliste** ist bei einem neuen Projekt zugeklappt. Du klappst sie mit **Strg+B** auf und wieder zu. Zugeklappt bleibt von ihr eine schmale Leiste am rechten Rand, und ein Klick auf den Knopf oben in der Leiste öffnet sie. Die **Projektliste** klappst du mit **Strg+Shift+L** oder mit einem Klick auf die Marke des Projekts oben links zu. Zugeklappt zeigt sie nur noch die Marken deiner Projekte untereinander, und ein Klick auf eine Marke wechselt weiterhin das Projekt.
 
 CodeDeck merkt sich die Breiten und die zugeklappte Dateiliste für jedes Projekt einzeln. So kann jedes Projekt so aussehen, wie es für die Arbeit daran am besten passt. Ob die Projektliste zugeklappt ist, gilt dagegen für alle Projekte gemeinsam, denn mit ihr bewegst du dich zwischen den Projekten.
 
