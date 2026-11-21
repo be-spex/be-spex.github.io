@@ -39,7 +39,7 @@ Auch mit der Tastatur kommst du durch den Baum: Die Pfeiltasten bewegen dich, **
 
 Oben in der Dateiliste steht der **Branch**, auf dem du arbeitest, im Bild `feature/rate-limit`. Die Zahlen daneben fassen zusammen, was offen ist: Die Zahl mit dem Dokument nennt die Änderungen, die noch nicht committet sind, die Zahl mit **↑** die Commits, die noch nicht gepusht sind, und eine Zahl mit **↓** die Commits, die auf dem Server warten.
 
-![Die zugeklappte Dateiliste als schmale Leiste: oben das Symbol für den Branch, darunter die Zahlen 5 und 2](/codedeck/manual/de/dateien-leiste.webp)
+![Der obere Teil der zugeklappten Dateiliste: der Knopf zum Aufklappen, darunter das Symbol für den Branch mit den Zahlen 5 und 2](/codedeck/manual/de/dateien-leiste.webp)
 
 Auch die zugeklappte Leiste zeigt diese Zahlen, damit du sie immer im Blick hast.
 
