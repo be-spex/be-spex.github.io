@@ -18,11 +18,11 @@ Der Chat zeigt dir dabei aber nur einen langen, durchlaufenden Text. Nach einer 
 
 CodeDeck ist eine Desktop-App für Linux, die neben deinem Coding-Agent läuft. Sie übernimmt nicht das Gespräch mit der KI, sondern zeigt dir, was dabei herauskommt.
 
-In einem eigenen Fenster siehst du jederzeit, **welche KI-Sessions** in deinem Projekt arbeiten, welche gerade **auf dich warten** und **was sie geändert haben**. Jedes Mal, bevor eine Session in deinem Projekt etwas ändert, legt CodeDeck von selbst einen **Snapshot** an, eine Sicherung deiner Projektdateien, zu der du später zurückkehren kannst. Und wenn du der KI für den nächsten Schritt etwas mitgeben möchtest, etwa eine Datei, eine Änderung oder einen Kommentar zu einer Zeile, sammelt CodeDeck das für dich und hängt es an deinen **nächsten Prompt**.
+In einem eigenen Fenster siehst du jederzeit, **welche KI-Sessions** in deinem Projekt arbeiten, welche gerade **auf dich warten** und **was sie geändert haben**. Jedes Mal, bevor eine Session in deinem Projekt etwas ändert, legt CodeDeck von selbst einen **Snapshot** an, eine Sicherung deiner Projektdateien, zu der du später zurückkehren kannst. Und wenn du der KI für den nächsten Schritt etwas mitgeben möchtest, etwa eine Datei, eine Änderung oder einen Kommentar zu einer Zeile, sammelt CodeDeck das für dich und hängt es an deinen **nächsten Prompt**. Und weil CodeDeck dir auch die **Dateien deines Projekts** als Baum zeigt, in dem jede Datei, die eine Session geändert hat, deren Farbe trägt, siehst du auf einen Blick, wo im Projekt gerade gearbeitet wird.
 
 CodeDeck drängt sich dabei nicht in den Vordergrund. Solange alles läuft, kannst du das Fenster ignorieren oder in den Hintergrund schieben. Erst wenn eine Session etwas von dir braucht, meldet sich CodeDeck.
 
-![Das Projektfenster von CodeDeck: links die Projektliste, daneben die KI-Sessions des Projekts mit ihrem Zustand, in der Mitte die Änderungen als Dateibaum und rechts der Trail mit dem Verlauf des Projekts](/codedeck/manual/de/einleitung-projektfenster.webp)
+![Das Projektfenster von CodeDeck: links die Projektliste, daneben die KI-Sessions des Projekts mit ihrem Zustand, in der Mitte die Änderungen als Dateibaum, rechts davon der Trail mit dem Verlauf des Projekts und ganz rechts die Dateien des Projekts](/codedeck/manual/de/einleitung-projektfenster.webp)
 
 ## Du arbeitest weiter wie gewohnt
 
