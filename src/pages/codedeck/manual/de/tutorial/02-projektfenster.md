@@ -8,7 +8,7 @@ purpose: >-
   Du lernst die Bereiche des Projektfensters kennen und weißt, wo du was findest und wie du zwischen Projekten wechselst.
 ---
 
-Im vorigen Kapitel hast du dein erstes Projekt geöffnet. Das Fenster, das sich dabei geöffnet hat, ist das **Projektfenster**. In ihm verbringst du die meiste Zeit mit CodeDeck. Dieses Kapitel verschafft dir zuerst einen Überblick über seine Bereiche und erklärt dann die linke Spalte genauer, mit der du dich zwischen deinen Projekten bewegst.
+Im vorigen Kapitel hast du dein erstes Projekt geöffnet. Das Fenster, das sich dabei geöffnet hat, ist das **Projektfenster**. Es zeigt dir immer ein Projekt, das gerade angezeigte, mit allem, was dazugehört: seine KI-Sessions, ihre Änderungen, seinen Verlauf und seine Dateien. In diesem Fenster verbringst du die meiste Zeit mit CodeDeck. Dieses Kapitel verschafft dir einen Überblick über seine Bereiche. Danach lernst du die Projektliste genauer kennen, mit der du bestimmst, welches Projekt das Fenster zeigt, und die Menüs, die du von überall erreichst.
 
 ## Die Bereiche auf einen Blick
 
@@ -16,7 +16,7 @@ Das Projektfenster ist in Spalten aufgeteilt. Jede Spalte beantwortet eine Frage
 
 ![Das Projektfenster mit allen Spalten, nummeriert von 1 bis 6: links die Projektliste, daneben die KI-Sessions und darunter Nächster Prompt, in der Mitte das Deck, rechts davon der Trail und ganz rechts die Dateiliste](/codedeck/manual/de/projektfenster-bereiche.webp)
 
-1. **Die Projektliste** ganz links zeigt, an welchem Projekt du gerade bist und ob in deinen anderen Projekten etwas los ist. Sie ist das Thema dieses Kapitels.
+1. **Die Projektliste** ganz links zeigt, welches Projekt das Fenster gerade anzeigt, und ob in deinen anderen Projekten etwas los ist. Mit ihr wechselst du zu einem anderen Projekt. Wie das geht, erklärt der Abschnitt [Die Projektliste](#die-projektliste) weiter unten.
 2. **Die Sessions** daneben zeigen alle KI-Sessions dieses Projekts, was sie gerade tun und ob eine auf dich wartet. Oben in dieser Spalte startest du neue Sessions. Darum geht es in Kapitel 3, [KI-Session starten](/codedeck/manual/de/tutorial/03-session-starten/).
 3. **Nächster Prompt** unten in derselben Spalte fasst zusammen, was du für die nächste Runde an den Prompt gehängt hast. Kapitel 7, [Nächster Prompt](/codedeck/manual/de/tutorial/07-naechster-prompt/), erklärt das Anhängen.
 4. **Das Deck** in der Mitte ist die große Arbeitsfläche. Es hat vier Reiter: **Aktivität** zeigt, was die Sessions in den letzten Stunden getan haben, **Änderungen** zeigt, was sie geändert haben, **Werkbank** sammelt, was sonst noch angefallen ist, und **Nächster Prompt** zeigt alles, was mit deinem nächsten Prompt mitgeht. Rechts in der Reiterleiste steht die Frage, die der offene Reiter beantwortet, und die Glocke daneben zeigt dir die letzten Ereignisse und Tipps. Jeder Reiter hat sein eigenes Kapitel, von [Aktivität](/codedeck/manual/de/tutorial/04-aktivitaet/) bis [Nächster Prompt](/codedeck/manual/de/tutorial/07-naechster-prompt/).
