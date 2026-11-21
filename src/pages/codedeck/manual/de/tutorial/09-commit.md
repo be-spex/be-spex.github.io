@@ -1,7 +1,7 @@
 ---
 layout: ../../../../../layouts/Manual.astro
 title: "Dateien und Commit"
-nav: "Commit"
+nav: "Dateien und Commit"
 part: 2
 order: 9
 purpose: >-

@@ -43,6 +43,12 @@ Neben dem Namen eines Projekts stehen manchmal kleine Zeichen. Sie zeigen dir, m
 
 Neue Projekte nimmst du über das Menü ⋯ neben der Überschrift „Projekte“ auf, wie im [vorigen Kapitel](/codedeck/manual/de/tutorial/01-vorbereitung/) beschrieben. Dort kannst du die Liste auch sortieren.
 
+## Die Dateiliste in Kürze
+
+In den nächsten Kapiteln brauchst du die Dateiliste ab und zu, deshalb hier das Wichtigste. Sie zeigt die Dateien deines Projekts als Baum. Dateien und Ordner mit Änderungen, die noch nicht committet sind, sind farbig hervorgehoben. Hat eine Session eine Datei gerade geändert, steht daneben ein Punkt in der Farbe dieser Session. Über das Feld **Geöffnete Ordner filtern** oben findest du eine Datei schnell.
+
+Zeigst du mit der Maus auf eine Datei, erscheinen ihre Werkzeuge: Ansehen, Bearbeiten, Im Dateimanager zeigen und die **Büroklammer**, mit der du die Datei an deinen nächsten Prompt hängst. Außerdem kannst du Dateien aus der Werkbank auf einen Ordner der Dateiliste ziehen, um sie ins Projekt zu übernehmen. Alles Weitere, vor allem die Git-Aktionen oben in der Liste, zeigt [Kapitel 9](/codedeck/manual/de/tutorial/09-commit/).
+
 ## Das CodeDeck-Menü und die Schnelleinstellungen
 
 Oben rechts in der Kopfzeile der Projektliste sitzen zwei Knöpfe, die du immer wieder brauchen wirst.

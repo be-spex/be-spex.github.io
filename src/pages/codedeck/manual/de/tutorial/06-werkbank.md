@@ -13,7 +13,7 @@ Neben den eigentlichen Änderungen entsteht während einer Runde oft noch mehr: 
 
 ## Warum es die Werkbank gibt
 
-Würde die KI ihre Entwürfe und Wegwerf-Dateien einfach irgendwo ins Projekt legen, lägen sie zwischen den echten Änderungen und landeten leicht in einem Commit. Deshalb bekommt jede neue KI-Session von CodeDeck eine **Startregel** mit: Entwürfe, Mock-ups, Wegwerf-Skripte und Testdaten gehören in den Ordner `.scratch/` im Projekt. Was trotzdem anderswo landet, findet CodeDeck ebenfalls und zeigt es dir.
+Ohne Vorgabe legt die KI solche Dateien meist in einem temporären Verzeichnis wie `/tmp` ab, manchmal in deinem Home-Ordner, weit weg vom Projekt. Dort findest du sie kaum wieder, und nach einem Neustart sind sie oft verschwunden. Landen sie dagegen mitten im Projekt, liegen sie zwischen den echten Änderungen und geraten leicht in einen Commit. Deshalb bekommt jede neue KI-Session von CodeDeck eine **Startregel** mit: Entwürfe, Mock-ups, Wegwerf-Skripte und Testdaten gehören in den Ordner `.scratch/` im Projekt. Was trotzdem anderswo landet, findet CodeDeck ebenfalls und zeigt es dir.
 
 Die Werkbank zeigt ihren Inhalt in **Kacheln**, oben das, was am ehesten eine Entscheidung von dir braucht. Was du seit deinem letzten Blick noch nicht gesehen hast, trägt die Marke **neu** oder **geändert**, und am Reiter zeigt ein Punkt, dass es Neues gibt. Jede Kachel lässt sich mit dem Pfeil vor ihrem Titel zuklappen, und das Fragezeichen rechts erklärt sie.
 
