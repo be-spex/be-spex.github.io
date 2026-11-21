@@ -62,7 +62,7 @@ Links neben dem Logo öffnet das Symbol mit den Schiebereglern die **Schnelleins
 
 ![Die Schnelleinstellungen: „Nicht stören“ mit einer Auswahl, darunter „Melden, wenn ich woanders bin“ mit den Häkchen „eine Session fragt“, „eine Runde ist fertig“, „ein Git-Befehl scheitert“, in der Taskleiste und als Meldung, ganz unten „Alle Einstellungen…“](/codedeck/manual/de/projektfenster-schnelleinstellungen.webp)
 
-Mit **Nicht stören** schaltest du die Meldungen von CodeDeck für eine Weile ab, zum Beispiel während einer Besprechung. Unter **Melden, wenn ich woanders bin** legst du fest, wann CodeDeck sich meldet, während du in einem anderen Fenster arbeitest: wenn eine Session dich etwas fragt, wenn eine Runde fertig ist oder wenn ein Git-Befehl scheitert. Außerdem wählst du, ob es das in der Taskleiste tut, mit einer Nachricht auf dem Desktop oder auf beide Arten. **Alle Einstellungen…** öffnet die Einstellungen mit allen übrigen Möglichkeiten, darunter die Sprache und das Farbschema unter **Benutzeroberfläche**.
+Mit **Nicht stören** schaltest du die Meldungen von CodeDeck für eine Weile ab, zum Beispiel während einer Besprechung. Unter **Melden, wenn ich woanders bin** legst du fest, wann CodeDeck sich meldet, während du in einem anderen Fenster arbeitest: wenn eine Session dich etwas fragt, wenn eine Runde fertig ist oder wenn ein Git-Befehl scheitert. Außerdem wählst du, ob es das in der Taskleiste tut, mit einer Nachricht auf dem Desktop oder auf beide Arten. **Alle Einstellungen…** öffnet die Einstellungen mit allen übrigen Möglichkeiten in einem eigenen Fenster, darunter die Sprache und das Farbschema unter **Benutzeroberfläche**.
 
 ## Spalten anpassen
 

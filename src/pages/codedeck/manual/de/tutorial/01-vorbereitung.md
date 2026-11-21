@@ -8,7 +8,7 @@ purpose: >-
   Nach diesem Kapitel läuft CodeDeck, kennt deinen Coding-Agent und hat dein erstes Projekt auf der Liste.
 ---
 
-Bevor die erste Arbeitsrunde beginnen kann, sind drei Dinge zu erledigen: CodeDeck muss auf deinem Rechner laufen, es muss wissen, an welchen Projekten du arbeitest, und es muss mit deinem Coding-Agent verbunden sein. Das dauert nur ein paar Minuten, und du machst es nur einmal.
+Bevor die erste Arbeitsrunde beginnen kann, sind drei Dinge zu erledigen: CodeDeck muss auf deinem Rechner laufen, es muss mit deinem Coding-Agent verbunden sein, und es muss wissen, an welchen Projekten du arbeitest. Das dauert nur ein paar Minuten, und du machst es nur einmal.
 
 ## CodeDeck installieren
 
@@ -18,7 +18,7 @@ Wie du CodeDeck installierst und später aktualisierst, beschreibt der Anhang un
 
 Beim ersten Start öffnet sich das Fenster **Willkommen bei CodeDeck**. CodeDeck hat zu diesem Zeitpunkt bereits nachgesehen, mit welchen Programmen es auf deinem Rechner zusammenarbeiten kann, und zeigt dir das Ergebnis als Liste.
 
-![Das Willkommensfenster: oben „Alles, was CodeDeck braucht, ist da“, darunter die Liste der gefundenen Programme wie Claude Code, git und tmux, jeweils mit „gefunden“ oder „fehlt“ und einer Einstufung](/codedeck/manual/de/vorbereitung-willkommen.webp)
+![Das Willkommensfenster: oben „Alles, was CodeDeck braucht, ist da“, darunter die Liste der gefundenen Programme wie Claude Code, git und tmux, jeweils mit „gefunden“ oder „fehlt“ und einer Einstufung; unter Claude Code der Hinweis „Noch nicht verbunden“ mit dem Knopf „Verbinden“](/codedeck/manual/de/vorbereitung-willkommen.webp)
 
 Jede Zeile nennt ein Programm und sagt dir, ob CodeDeck es **gefunden** hat oder ob es **fehlt**. Daneben steht, wie wichtig das Programm für CodeDeck ist:
 
@@ -30,11 +30,33 @@ Wenn du mit der Maus auf das Symbol ⓘ am Ende einer Zeile zeigst, erklärt Cod
 
 Wenn dein Desktop unter Wayland läuft, zeigt das Willkommensfenster zusätzlich einen Hinweis, welche Funktionen dort eingeschränkt sind und wie du dir trotzdem ein Tastenkürzel für CodeDeck einrichtest. Die Hintergründe stehen auf der Seite [Wayland und X11](/codedeck/manual/de/anhang/wayland/).
 
+Unter deinem Coding-Agent steht außerdem, ob er schon mit CodeDeck verbunden ist. Was es damit auf sich hat, erklärt der nächste Abschnitt.
+
 Mit **Erzähl mir mehr** kommst du auf eine zweite Seite. Sie erklärt in vier kurzen Abschnitten, was ein Projekt ist, wie die Projektliste aufgebaut ist und wie CodeDeck von deinen KI-Sessions erfährt. Du kannst sie jetzt lesen oder dich auf dieses Tutorial verlassen, das dieselben Dinge ausführlicher erklärt.
 
 ![Die zweite Seite des Willkommensfensters, „Deine Projekte“, mit vier Kästen: Die Projektliste, Ein Projekt, KI-Sessions hören, Hinzufügen und öffnen](/codedeck/manual/de/vorbereitung-deine-projekte.webp)
 
 Das Willkommensfenster erscheint bei jedem Start von CodeDeck, bis du unten **Beim Start nicht mehr zeigen** ankreuzt. Sollte später ein essenzielles Programm verschwinden, zum Beispiel nach einem Systemwechsel, zeigt CodeDeck es von selbst wieder an. Du kannst es außerdem jederzeit über das CodeDeck-Menü hinter dem Logo öffnen, mit dem Eintrag **Willkommen und Rechner-Check**.
+
+## Den Coding-Agent verbinden
+
+Damit CodeDeck sieht, was deine KI-Sessions tun, muss dein Coding-Agent CodeDeck Bescheid geben: wenn eine Session startet, wenn sie arbeitet, wenn sie dich etwas fragt und wenn sie mit ihrer Runde fertig ist. Dafür verbindest du den Coding-Agent einmal mit CodeDeck.
+
+Am einfachsten geht das gleich im Willkommensfenster. Ist dein Coding-Agent noch nicht verbunden, steht unter seiner Zeile **Noch nicht verbunden** und daneben der Knopf **Verbinden**. Ein Klick darauf genügt, danach steht dort **Mit CodeDeck verbunden**.
+
+CodeDeck trägt dabei einen kleinen Befehl in die Einstellungen deines Coding-Agents ein, der ihm künftig jeden Schritt einer Session meldet. Sonst ändert sich nichts in der Datei, und die Fassung von vorher bleibt als Kopie daneben erhalten. KI-Sessions, die schon liefen, bevor du verbunden hast, melden sich ab ihrem nächsten Schritt. Du musst sie also nicht neu starten.
+
+### Mehrere Konfigurationen und die Einstellungen
+
+Bei Claude Code ist eine **Konfiguration** ein Ordner wie `~/.claude`, in dem der Coding-Agent seine Einstellungen und seine Anmeldung aufbewahrt. Die meisten Menschen haben genau eine. Wer zum Beispiel ein Konto für die Arbeit und eines für private Projekte nutzt, hat zwei. Das Willkommensfenster bietet dir für jede Konfiguration, die noch nicht verbunden ist, einen eigenen Knopf an.
+
+Alles Weitere dazu findest du in den Einstellungen im Bereich **Coding-Agents**. Die Einstellungen öffnen sich in einem eigenen Fenster, und du erreichst sie jederzeit, auch wenn noch kein Projekt geöffnet ist: auf der Startseite über das Menü ⋯ oben rechts, im Projektfenster über die Schnelleinstellungen und **Alle Einstellungen…** und über das Symbol von CodeDeck in der Leiste deines Desktops.
+
+![Die Einstellungen im Bereich Coding-Agents: drei Konfigurationen von Claude Code, eine davon „Verbunden“ mit dem Knopf „Trennen“, zwei „Nicht verbunden“ mit dem Knopf „Verbinden“](/codedeck/manual/de/vorbereitung-coding-agents.webp)
+
+CodeDeck behandelt jede Konfiguration als eigenes **Konto** und zeigt dessen Namen, Zeichen und Farbe später an den Projekten und Sessions an. Den Namen kannst du hier ändern. Hier verbindest du auch weitere Konfigurationen, und mit **Trennen** löst du eine Verbindung wieder.
+
+Wie die Meldungen technisch funktionieren, erklären die [KI-Grundlagen](/codedeck/manual/de/nachschlagen/ki-grundlagen/). Welche Coding-Agents CodeDeck unterstützt, steht im Anhang unter [Coding-Agents](/codedeck/manual/de/anhang/coding-agents/).
 
 ## Das erste Projekt hinzufügen
 
@@ -46,7 +68,7 @@ Beim ersten Start ist die Liste noch leer, und CodeDeck bietet dir zwei Wege an,
 
 Mit **Projekt hinzufügen …** wählst du einen einzelnen Ordner aus, der dann auf die Liste kommt. Mit **Alle Projekte in einem Verzeichnis…** wählst du einen übergeordneten Ordner, und CodeDeck nimmt jeden Ordner darin als eigenes Projekt auf. Das ist praktisch, wenn du alle deine Projekte zum Beispiel unter `~/projects` sammelst.
 
-Später, wenn die Liste nicht mehr leer ist, findest du beide Befehle im Menü ⋯ neben der Überschrift „Projekte“. Ein Klick auf ein Projekt in der Liste öffnet es in einem **Projektfenster**. Öffne jetzt dein erstes Projekt, denn den nächsten Schritt erledigst du dort. Wie das Projektfenster aufgebaut ist, zeigt dir das nächste Kapitel ausführlich.
+Später, wenn die Liste nicht mehr leer ist, findest du beide Befehle im Menü ⋯ neben der Überschrift „Projekte“. Ein Klick auf ein Projekt in der Liste öffnet es in einem **Projektfenster**. Wie dieses Fenster aufgebaut ist, zeigt dir das nächste Kapitel ausführlich.
 
 ### Wenn der Ordner noch kein Git-Repository ist
 
@@ -58,25 +80,9 @@ Wenn der Ordner, den du aufgenommen hast, noch kein Git-Repository ist, musst du
 
 Ein Klick auf **git init** macht den Ordner zu einem Git-Repository mit dem Branch `main`. CodeDeck tut das nie von selbst, weil es dein Projekt verändert, sondern nur, wenn du den Knopf drückst. An deinen Dateien ändert sich dabei nichts. Den Knopf findest du außerdem unten in der Dateiliste neben „Kein Git-Repo“, falls du den Hinweis in der Mitte gerade nicht vor dir hast.
 
-## Den Coding-Agent verbinden
-
-Damit CodeDeck sieht, was deine KI-Sessions tun, muss dein Coding-Agent CodeDeck Bescheid geben: wenn eine Session startet, wenn sie arbeitet, wenn sie dich etwas fragt und wenn sie mit ihrer Runde fertig ist. Dafür verbindest du den Coding-Agent einmal mit CodeDeck.
-
-Öffne dazu im Projektfenster die Einstellungen. Du erreichst sie über die Schnelleinstellungen oben links neben dem Projektnamen (das Symbol mit den Schiebereglern) und dort über **Alle Einstellungen…**. Wähle links den Bereich **Coding-Agents**. Auf der Startseite ohne geöffnetes Projekt sind die Einstellungen noch nicht verfügbar.
-
-![Die Einstellungen im Bereich Coding-Agents: drei Konfigurationen von Claude Code, zwei davon „Verbunden“ mit dem Knopf „Trennen“, eine „Nicht verbunden“ mit dem Knopf „Verbinden“](/codedeck/manual/de/vorbereitung-coding-agents.webp)
-
-Hier siehst du jede **Konfiguration** deines Coding-Agents, die CodeDeck auf deinem Rechner gefunden hat. Bei Claude Code ist eine Konfiguration ein Ordner wie `~/.claude`, in dem der Coding-Agent seine Einstellungen und seine Anmeldung aufbewahrt. Die meisten Menschen haben genau eine. Wer zum Beispiel ein Konto für die Arbeit und eines für private Projekte nutzt, hat zwei. CodeDeck behandelt jede Konfiguration als eigenes **Konto** und zeigt dessen Namen, Zeichen und Farbe später an den Projekten und Sessions an. Den Namen kannst du hier gleich ändern.
-
-Klicke bei jeder Konfiguration, mit der du arbeitest, auf **Verbinden**. Danach steht dort **Verbunden**. CodeDeck trägt dabei einen kleinen Befehl in die Einstellungen deines Coding-Agents ein, der ihm künftig jeden Schritt einer Session meldet. Sonst ändert sich nichts in der Datei, und die Fassung von vorher bleibt als Kopie daneben erhalten. Wenn du die Verbindung wieder lösen willst, klickst du auf **Trennen**.
-
-KI-Sessions, die schon liefen, bevor du verbunden hast, melden sich ab ihrem nächsten Schritt. Du musst sie also nicht neu starten.
-
-Wie diese Meldungen technisch funktionieren, erklären die [KI-Grundlagen](/codedeck/manual/de/nachschlagen/ki-grundlagen/). Welche Coding-Agents CodeDeck unterstützt, steht im Anhang unter [Coding-Agents](/codedeck/manual/de/anhang/coding-agents/).
-
 ## Probier es aus
 
-Füge ein eigenes kleines Projekt zur Liste hinzu und öffne es mit einem Klick. Wenn es noch kein Git-Repository ist, mach es mit **git init** zu einem. Öffne danach über das CodeDeck-Menü noch einmal **Willkommen und Rechner-Check** und sieh nach, ob alle Programme, die als essenziell eingestuft sind, gefunden wurden. Prüfe zum Schluss in den Einstellungen unter **Coding-Agents**, ob dort bei deiner Konfiguration **Verbunden** steht.
+Sieh im Willkommensfenster nach, ob alle Programme gefunden wurden, die als essenziell eingestuft sind, und ob unter deinem Coding-Agent **Mit CodeDeck verbunden** steht. Füge danach ein eigenes kleines Projekt zur Liste hinzu und öffne es mit einem Klick. Wenn es noch kein Git-Repository ist, mach es mit **git init** zu einem. Öffne zum Schluss die Einstellungen und sieh dir im Bereich **Coding-Agents** an, unter welchem Namen CodeDeck deine Konfiguration führt.
 
 ## Mehr dazu
 
